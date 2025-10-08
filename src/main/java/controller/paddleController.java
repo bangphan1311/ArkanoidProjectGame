@@ -13,7 +13,7 @@ public class paddleController {
     @FXML
     private Pane gamePane;
 
-    private static final double PADDLE_SPEED = 15;
+    private static final double PADDLE_SPEED = 35;
 
     @FXML
     public void initialize() {
