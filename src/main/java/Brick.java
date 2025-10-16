@@ -1,11 +1,16 @@
+import javafx.scene.Node;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Brick {
+public class Brick extends GameObject {
     private Rectangle shape;
     private boolean destroyed = false;
 
+    private int hitPoints = 1;
+    private String type = "Normal";
+
     public Brick(double x, double y, double width, double height, Color color) {
+        super(x, y, width, height);
         shape = new Rectangle(x, y, width, height);
         shape.setFill(color);
         shape.setStroke(Color.BLACK);
@@ -24,8 +29,17 @@ public class Brick {
         shape.setVisible(false);
     }
 
-    public double getX() { return shape.getX(); }
-    public double getY() { return shape.getY(); }
-    public double getWidth() { return shape.getWidth(); }
-    public double getHeight() { return shape.getHeight(); }
+    public void takeHit() {
+        hitPoints--;
+        if (hitPoints <= 0) destroy();
+    }
+
+    @Override
+    public void update() {
+    }
+
+    @Override
+    public Node render() {
+        return shape;
+    }
 }
