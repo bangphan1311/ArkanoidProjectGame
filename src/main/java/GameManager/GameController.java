@@ -17,8 +17,7 @@ import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class GameController{
+public class GameController {
     @FXML
     private Pane gamePane;
     @FXML
@@ -38,6 +37,7 @@ public class GameController{
     public void initialize() {
         double sceneWidth = gamePane.getPrefWidth();
         double sceneHeight = gamePane.getPrefHeight();
+
         paddle = new Paddle(
                 paddleRect.getLayoutX(),
                 paddleRect.getLayoutY(),
@@ -46,12 +46,13 @@ public class GameController{
                 8,
                 sceneWidth
         );
+
         ball = new Ball(
                 ballCircle.getRadius(),
                 sceneWidth,
                 sceneHeight
         );
-        ball.setPosition(ballCircle.getCenterX(), ballCircle.getCenterY());
+        ball.setDirection(ballCircle.getCenterX(), ballCircle.getCenterY());
 
         setupControls();
         loadBricksFromPane();
@@ -71,10 +72,11 @@ public class GameController{
         });
     }
 
+
     private void loadBricksFromPane() {
         if (brickPane == null) return;
 
-        for (Node node : new ArrayList<>(brickPane.getChildren())){
+        for (Node node : new ArrayList<>(brickPane.getChildren())) {
             if (node instanceof Rectangle r) {
                 Brick brick = new Brick(
                         r.getLayoutX(),
@@ -104,9 +106,9 @@ public class GameController{
         double sceneWidth = gamePane.getWidth();
         double sceneHeight = gamePane.getHeight();
 
-
         if (moveLeft) paddle.moveLeft();
         if (moveRight) paddle.moveRight();
+
         paddleRect.setLayoutX(paddle.getShape().getX());
         paddleRect.setLayoutY(paddle.getShape().getY());
 
@@ -116,8 +118,12 @@ public class GameController{
 
         if (checkCollisionWithPaddle()) {
             ball.reverseY();
-            double hitPos = (ball.getX() - (paddle.getX() + paddle.getWidth() / 2)) / (paddle.getWidth() / 2);
-            ball.setDirX(hitPos);
+            double paddleCenter = paddle.getX() + paddle.getWidth() / 2;
+            double hitPosition = (ball.getX() - paddleCenter) / (paddle.getWidth() / 2);
+
+            hitPosition = Math.max(-1, Math.min(1, hitPosition));
+
+            ball.setDirX(hitPosition);
         }
 
         checkCollisionWithBricks();
@@ -127,19 +133,7 @@ public class GameController{
     }
 
     private boolean checkCollisionWithPaddle() {
-        double ballX = ball.getX();
-        double ballY = ball.getY();
-        double r = ball.getRadius();
-
-        double px = paddle.getX();
-        double py = paddle.getY();
-        double pw = paddle.getWidth();
-        double ph = paddle.getHeight();
-
-        return (ballY + r >= py &&
-                ballY - r <= py + ph &&
-                ballX >= px &&
-                ballX <= px + pw);
+        return ballCircle.getBoundsInParent().intersects(paddleRect.getBoundsInParent());
     }
 
     private void checkCollisionWithBricks() {

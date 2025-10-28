@@ -6,12 +6,15 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends MovableObject {
     private Circle ballShape;
-    private double speed = 3;
+    private double speed = 1;
     private double dirX = 1;
     private double dirY = 1;
     private double sceneWidth;
     private double sceneHeight;
 
+    /**
+     * Khởi tạo bóng
+     */
     public Ball(double radius, double sceneWidth, double sceneHeight) {
         super(sceneWidth / 2, sceneHeight / 2, radius * 2, radius * 2);
         this.sceneWidth = sceneWidth;
@@ -19,7 +22,7 @@ public class Ball extends MovableObject {
 
         ballShape = new Circle(radius, Color.RED);
         ballShape.setCenterX(sceneWidth / 2);
-        ballShape.setCenterY(sceneHeight / 2);
+        ballShape.setCenterY(sceneHeight / 2 - 100); // tránh chồng paddle
     }
 
     public Circle getShape() {
@@ -31,11 +34,17 @@ public class Ball extends MovableObject {
         double newX = ballShape.getCenterX() + dirX * speed;
         double newY = ballShape.getCenterY() + dirY * speed;
 
+        /**
+         * Đảo hướng khi chạm biên trái/phải
+          */
         if (newX - ballShape.getRadius() <= 0 || newX + ballShape.getRadius() >= sceneWidth) {
             dirX *= -1;
         }
 
-        if (newY - ballShape.getRadius() <= 0 || newY + ballShape.getRadius() >= sceneHeight) {
+        /**
+         * Đảo hướng khi chạm trần
+         */
+        if (newY - ballShape.getRadius() <= 0) {
             dirY *= -1;
         }
 
@@ -56,9 +65,14 @@ public class Ball extends MovableObject {
         return ballShape;
     }
 
+    /**
+     * va chạm of bóng
+     */
     public boolean checkCollision(GameObject other) {
-        return ballShape.getBoundsInParent().intersects(
-                other.getX(), other.getY(), other.getWidth(), other.getHeight());
+        return x < other.x + other.width &&
+                x + width > other.x &&
+                y < other.y + other.height &&
+                y + height > other.y;
     }
 
     public void bounceOff(GameObject other) {
