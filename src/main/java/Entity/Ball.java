@@ -105,4 +105,13 @@ public class Ball extends MovableObject {
     public double getRadius() {
         return ballShape.getRadius();
     }
+
+    public double getDirX() {
+        return dirX;
+    }
+
+    public double getDirY() {
+        return dirY;
+    }
+
 }

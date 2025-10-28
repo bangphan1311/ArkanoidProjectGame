@@ -72,7 +72,6 @@ public class GameController {
         });
     }
 
-
     private void loadBricksFromPane() {
         if (brickPane == null) return;
 
@@ -116,24 +115,37 @@ public class GameController {
         ballCircle.setCenterX(ball.getShape().getCenterX());
         ballCircle.setCenterY(ball.getShape().getCenterY());
 
+        /**
+         * Va chạm paddle: đảo hướng và đặt lại vị trí bóng để tránh dính
+         */
         if (checkCollisionWithPaddle()) {
             ball.reverseY();
+
+            // Đặt bóng ngay phía trên paddle để không dính lại
+            double newY = paddle.getY() - ball.getRadius() - 1;
+            ball.setPosition(ball.getX(), newY);
+            ballCircle.setCenterY(newY);
+
             double paddleCenter = paddle.getX() + paddle.getWidth() / 2;
             double hitPosition = (ball.getX() - paddleCenter) / (paddle.getWidth() / 2);
-
             hitPosition = Math.max(-1, Math.min(1, hitPosition));
-
             ball.setDirX(hitPosition);
         }
 
         checkCollisionWithBricks();
+
         if (ball.getY() - ball.getRadius() > sceneHeight) {
             Platform.exit();
         }
     }
 
+    /**
+     * Kiểm tra va chạm giữa bóng và paddle
+     */
     private boolean checkCollisionWithPaddle() {
-        return ballCircle.getBoundsInParent().intersects(paddleRect.getBoundsInParent());
+        // Chỉ kiểm tra khi bóng đang di chuyển xuống
+        return ball.getDirY() > 0 &&
+                ballCircle.getBoundsInParent().intersects(paddleRect.getBoundsInParent());
     }
 
     private void checkCollisionWithBricks() {
