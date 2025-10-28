@@ -1,3 +1,9 @@
+package GameManager;
+
+import Entity.Ball;
+import Entity.Paddle;
+import Entity.Brick;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -10,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class GameController{
     @FXML

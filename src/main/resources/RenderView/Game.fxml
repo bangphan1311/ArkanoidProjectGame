@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="690.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GameController">
+            fx:controller="GameManager.GameController">
 
     <children>
         <Pane fx:id="gamePane" prefHeight="690.0" prefWidth="600.0">

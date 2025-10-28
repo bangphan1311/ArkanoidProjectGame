@@ -1,5 +1,7 @@
+package Entity;
+
 public abstract class MovableObject extends GameObject {
-    protected double dx;  // vtoc
+    protected double dx;
     protected double dy;
 
     public MovableObject(double x, double y, double width, double height){

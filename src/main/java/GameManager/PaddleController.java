@@ -1,3 +1,6 @@
+package GameManager;
+
+import Entity.Paddle;
 import javafx.fxml.FXML;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;

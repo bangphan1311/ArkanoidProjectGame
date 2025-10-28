@@ -1,3 +1,5 @@
+package Entity;
+
 import javafx.scene.Node;
 
 public abstract class GameObject{
