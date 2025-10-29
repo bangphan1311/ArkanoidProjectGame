@@ -6,9 +6,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
         Scene scene = new Scene(loader.load());
-        primaryStage.setTitle("Brick Breaker");
+        primaryStage.setTitle("GAME ARKANOID");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
