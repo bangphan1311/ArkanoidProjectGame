@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix, update ball, gamecontroller">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="RenderView" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lien7806&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/bangphan1311/ArkanoidProjectGame.git&quot;,
+    &quot;accountId&quot;: &quot;0131d101-dfe2-4957-9d07-049d4e56efa8&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="33hDNx2lNNqTe3CeKg7Pgano3ev" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunGame.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lien&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ArkanoidProjectGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ArkanoidProjectGame\src\main\resources\RenderView" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunGame" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="ArkanoidProjectGame" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\JAVAFX\javafx-sdk-25\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+        <option value="bundled-js-predefined-d6986cc7102b-9c94529fcfe0-JavaScript-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="" />
+      <created>1759760373782</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1759760373782</updated>
+      <workItem from="1759760375119" duration="1344000" />
+      <workItem from="1759761744177" duration="3074000" />
+      <workItem from="1759764959076" duration="739000" />
+      <workItem from="1759808226428" duration="732000" />
+      <workItem from="1759889757301" duration="1000" />
+      <workItem from="1759916186180" duration="634000" />
+      <workItem from="1759916843335" duration="494000" />
+      <workItem from="1759917367616" duration="1011000" />
+      <workItem from="1759932431081" duration="1065000" />
+      <workItem from="1759933517554" duration="1062000" />
+      <workItem from="1759934604838" duration="386000" />
+      <workItem from="1759935006170" duration="1009000" />
+      <workItem from="1759936038904" duration="1480000" />
+      <workItem from="1759974825228" duration="718000" />
+      <workItem from="1759978689137" duration="1129000" />
+      <workItem from="1760008290082" duration="142000" />
+      <workItem from="1760008573598" duration="62000" />
+      <workItem from="1760192389524" duration="34000" />
+      <workItem from="1760513464809" duration="164000" />
+      <workItem from="1760534503369" duration="3435000" />
+      <workItem from="1760539822524" duration="1997000" />
+      <workItem from="1760583131920" duration="604000" />
+      <workItem from="1760620570014" duration="5782000" />
+      <workItem from="1760706361730" duration="337000" />
+      <workItem from="1761150271033" duration="61000" />
+      <workItem from="1761188275230" duration="31000" />
+      <workItem from="1761611710336" duration="44000" />
+      <workItem from="1761615019353" duration="610000" />
+      <workItem from="1761615751996" duration="762000" />
+      <workItem from="1761617347597" duration="1145000" />
+      <workItem from="1761620281074" duration="1446000" />
+      <workItem from="1761621756039" duration="240000" />
+      <workItem from="1761622018417" duration="328000" />
+      <workItem from="1761622402817" duration="6996000" />
+      <workItem from="1761633968356" duration="4605000" />
+      <workItem from="1761650287291" duration="1186000" />
+      <workItem from="1761657491143" duration="3965000" />
+      <workItem from="1761661640054" duration="480000" />
+      <workItem from="1761662305621" duration="1827000" />
+      <workItem from="1761664469817" duration="1312000" />
+      <workItem from="1761665811785" duration="87000" />
+      <workItem from="1761668171772" duration="135000" />
+      <workItem from="1761668362263" duration="326000" />
+      <workItem from="1761669080507" duration="663000" />
+      <workItem from="1761696946647" duration="643000" />
+      <workItem from="1761707503848" duration="3402000" />
+    </task>
+    <task id="LOCAL-00001" summary="tao bong do va tao chuyen dong co ban">
+      <option name="closed" value="true" />
+      <created>1759763378542</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1759763378542</updated>
+    </task>
+    <task id="LOCAL-00002" summary="sua doi fxml">
+      <option name="closed" value="true" />
+      <created>1759916786980</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1759916786980</updated>
+    </task>
+    <task id="LOCAL-00003" summary="sua doi fxml">
+      <option name="closed" value="true" />
+      <created>1759916942109</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1759916942109</updated>
+    </task>
+    <task id="LOCAL-00004" summary="sua doi fxml">
+      <option name="closed" value="true" />
+      <created>1759917411852</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1759917411852</updated>
+    </task>
+    <task id="LOCAL-00005" summary="sua doi fxml">
+      <option name="closed" value="true" />
+      <created>1759932556388</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1759932556388</updated>
+    </task>
+    <task id="LOCAL-00006" summary="qua bong">
+      <option name="closed" value="true" />
+      <created>1759936559489</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1759936559489</updated>
+    </task>
+    <task id="LOCAL-00007" summary="cap nhat lai cac file code">
+      <option name="closed" value="true" />
+      <created>1760625770242</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1760625770242</updated>
+    </task>
+    <task id="LOCAL-00008" summary="cap nhat ball">
+      <option name="closed" value="true" />
+      <created>1760625851673</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1760625851673</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update các file code, các gói">
+      <option name="closed" value="true" />
+      <created>1761630838812</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761630838812</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix ball, gamecontroller">
+      <option name="closed" value="true" />
+      <created>1761660317623</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761660317623</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix, update ball, gamecontroller">
+      <option name="closed" value="true" />
+      <created>1761660972126</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761660972126</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tao bong do va tao chuyen dong co ban" />
+    <MESSAGE value="sua doi fxml" />
+    <MESSAGE value="qua bong" />
+    <MESSAGE value="cap nhat lai cac file code" />
+    <MESSAGE value="cap nhat ball" />
+    <MESSAGE value="update các file code, các gói" />
+    <MESSAGE value="fix ball, gamecontroller" />
+    <MESSAGE value="fix, update ball, gamecontroller" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix, update ball, gamecontroller" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

@@ -1,0 +1,55 @@
+Index: target/classes/Hello.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.layout.Pane?>\r\n<?import javafx.scene.shape.Circle?>\r\n<?import javafx.scene.shape.Rectangle?>\r\n\r\n<AnchorPane prefHeight=\"690.0\" prefWidth=\"600.0\"\r\n            xmlns=\"http://javafx.com/javafx/25\"\r\n            xmlns:fx=\"http://javafx.com/fxml/1\">\r\n\r\n    <children>\r\n        <!-- Khu vực chơi game -->\r\n        <Pane fx:id=\"gamePane\" prefHeight=\"690.0\" prefWidth=\"600.0\">\r\n            <children>\r\n                <!-- Thanh Paddle -->\r\n                <Rectangle fx:id=\"Paddle\" arcHeight=\"5.0\" arcWidth=\"5.0\"\r\n                           fill=\"#0b79e04f\" height=\"22.0\" layoutX=\"231.0\"\r\n                           layoutY=\"654.0\" stroke=\"BLACK\" strokeType=\"INSIDE\"\r\n                           width=\"102.0\" />\r\n\r\n                <!-- Quả Ball -->\r\n                <Circle fx:id=\"Ball\" centerX=\"300.0\" centerY=\"400.0\"\r\n                        radius=\"10.0\" fill=\"#ff6347\" />\r\n            </children>\r\n        </Pane>\r\n    </children>\r\n</AnchorPane>
+===================================================================
+diff --git a/target/classes/Hello.fxml b/target/classes/Hello.fxml
+--- a/target/classes/Hello.fxml	(revision 6c8731ba068ed2ae24a77e1150ab69dd525718d4)
++++ b/target/classes/Hello.fxml	(date 1759932441152)
+@@ -7,7 +7,7 @@
+ 
+ <AnchorPane prefHeight="690.0" prefWidth="600.0"
+             xmlns="http://javafx.com/javafx/25"
+-            xmlns:fx="http://javafx.com/fxml/1">
++            xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+ 
+     <children>
+         <!-- Khu vực chơi game -->
+Index: src/main/java/org/example/game/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/example/game/Main.java b/src/main/java/Main.java
+rename from src/main/java/org/example/game/Main.java
+rename to src/main/java/Main.java
+--- a/src/main/java/org/example/game/Main.java	(revision 6c8731ba068ed2ae24a77e1150ab69dd525718d4)
++++ b/src/main/java/Main.java	(date 1759932534551)
+@@ -1,5 +1,3 @@
+-package org.example.game;
+-
+ import javafx.animation.AnimationTimer;
+ import javafx.application.Application;
+ import javafx.scene.Scene;
+Index: src/main/java/org/example/game/Ball.java
+===================================================================
+diff --git a/src/main/java/org/example/game/Ball.java b/src/main/java/Ball.java
+rename from src/main/java/org/example/game/Ball.java
+rename to src/main/java/Ball.java
+--- a/src/main/java/org/example/game/Ball.java	(revision 6c8731ba068ed2ae24a77e1150ab69dd525718d4)
++++ b/src/main/java/Ball.java	(date 1759933255987)
+@@ -1,5 +1,3 @@
+-package org.example.game;
+-
+ import javafx.scene.paint.Color;
+ import javafx.scene.shape.Circle;
+ public class Ball {
+@@ -38,4 +36,8 @@
+         ballShape.setCenterX(newX);
+         ballShape.setCenterY(newY);
+     }
++
++    public void reverseY() {
++        dirY *= -1;
++    }
+ }
