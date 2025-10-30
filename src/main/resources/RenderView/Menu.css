@@ -4,7 +4,7 @@
     -fx-background-position: center center;
 }
 
-#startButton {
+.button {
     -fx-background-image: url("../Images/banana.png");
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
@@ -13,12 +13,32 @@
     -fx-border-color: transparent;
     -fx-text-fill: #3b2f1a;
     -fx-font-family: "Eras Bold ITC";
-    -fx-font-size: 26px;
+    -fx-font-size: 18px;
     -fx-cursor: hand;
 }
 
-#startButton:hover {
+.button:hover {
     -fx-scale-x: 1.05;
     -fx-scale-y: 1.05;
     -fx-opacity: 0.9;
+}
+
+#startButton {
+    -fx-translate-y: 0; /* giữ nguyên */
+}
+
+#instructionsButton {
+    -fx-translate-y: 2;
+}
+
+#highScoresButton {
+    -fx-translate-y: 4;
+}
+
+#settingsButton {
+    -fx-translate-y: 6;
+}
+
+#exitButton {
+    -fx-translate-y: 8;
 }

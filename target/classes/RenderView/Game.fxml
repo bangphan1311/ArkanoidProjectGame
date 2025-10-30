@@ -5,7 +5,8 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25"
+<AnchorPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/25"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="GameManager.GameController">
 
@@ -23,11 +24,10 @@
                 <Circle fx:id="ballCircle" centerX="400.0" centerY="350.0"
                         fill="#eb7752eb" radius="12.0" />
 
-                <!-- Brick  -->
+                <!-- Brick Pane -->
                 <Pane fx:id="brickPane" layoutX="0.0" layoutY="20.0"
                       prefHeight="280.0" prefWidth="800.0">
                     <children>
-                        <!-- demo -->
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fff8d8a"
                                    height="28.0" stroke="BLACK" strokeType="INSIDE"
                                    width="72.0" />
@@ -38,6 +38,6 @@
                 </Pane>
 
             </children>
-        </Pane>  
+        </Pane>
     </children>
 </AnchorPane>

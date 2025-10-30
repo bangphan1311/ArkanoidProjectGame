@@ -7,13 +7,17 @@ import Entity.Brick;
 import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +56,9 @@ public class GameController {
                 sceneWidth,
                 sceneHeight
         );
-        ball.setDirection(ballCircle.getCenterX(), ballCircle.getCenterY());
+        ball.setPosition(ballCircle.getCenterX(), ballCircle.getCenterY());
+        ball.setDirection(0, -1); // hướng bay lên trên
+
 
         setupControls();
         loadBricksFromPane();
@@ -135,15 +141,21 @@ public class GameController {
         checkCollisionWithBricks();
 
         if (ball.getY() - ball.getRadius() > sceneHeight) {
-            Platform.exit();
+            System.out.println("[DEBUG] Ball out of bounds:");
+            System.out.println("  ballY = " + ball.getY());
+            System.out.println("  sceneHeight = " + sceneHeight);
+            System.out.println("  radius = " + ball.getRadius());
+            System.out.println("===> Platform.exit() WOULD RUN HERE <===");
+
         }
+
     }
 
     /**
      * Kiểm tra va chạm giữa bóng và paddle
      */
     private boolean checkCollisionWithPaddle() {
-        // Chỉ kiểm tra khi bóng đang di chuyển xuống
+        //kiểm tra khi bóng đang di chuyển xuống
         return ball.getDirY() > 0 &&
                 ballCircle.getBoundsInParent().intersects(paddleRect.getBoundsInParent());
     }

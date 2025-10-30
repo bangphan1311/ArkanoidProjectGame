@@ -22,7 +22,7 @@ public class Ball extends MovableObject {
 
         ballShape = new Circle(radius, Color.RED);
         ballShape.setCenterX(sceneWidth / 2);
-        ballShape.setCenterY(sceneHeight / 2 - 100); // tránh chồng paddle
+        ballShape.setCenterY(sceneHeight / 2 - 100);
     }
 
     public Circle getShape() {
