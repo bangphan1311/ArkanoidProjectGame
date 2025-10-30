@@ -3,3 +3,22 @@
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
+
+#startButton {
+    -fx-background-image: url("../Images/banana.png");
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #3b2f1a;
+    -fx-font-family: "Eras Bold ITC";
+    -fx-font-size: 26px;
+    -fx-cursor: hand;
+}
+
+#startButton:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-opacity: 0.9;
+}
