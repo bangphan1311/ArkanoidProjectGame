@@ -7,28 +7,72 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
 public class ExitController {
 
+    @FXML
+    private Button byeButton, keepPlayingButton;
+
     private Stage stage;
     private Scene scene;
 
-    // thoát game
+    @FXML
+    public void initialize() {
+        addHoverEffect(byeButton);
+        addHoverEffect(keepPlayingButton);
+    }
+
+    // Hiệu ứng sáng + rung
+    private void addHoverEffect(Button button) {
+        DropShadow glow = new DropShadow();
+        glow.setColor(Color.WHITE);
+        glow.setRadius(15);
+        glow.setSpread(0.4);
+
+        button.setOnMouseEntered(e -> {
+            button.setEffect(glow);
+
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
+            st.setToX(1.08);
+            st.setToY(1.08);
+            st.play();
+
+            TranslateTransition tt = new TranslateTransition(Duration.millis(60), button);
+            tt.setFromX(0);
+            tt.setByX(5);
+            tt.setCycleCount(4);
+            tt.setAutoReverse(true);
+            tt.play();
+        });
+
+        button.setOnMouseExited(e -> {
+            button.setEffect(null);
+            ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
+            st.setToX(1.0);
+            st.setToY(1.0);
+            st.play();
+        });
+    }
+
     @FXML
     void onByeClicked(ActionEvent event) {
         System.out.println("Exit Game!");
         System.exit(0);
     }
 
-    //  Keep Playing
+    // ko chạy menu ms
     @FXML
-    void onKeepPlayingClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/RenderView/Menu.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    void onKeepPlayingClicked(ActionEvent event) {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.close();
     }
+
 }
