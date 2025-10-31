@@ -19,20 +19,13 @@ public class MenuController {
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
 
-    // Start game
+    //Start Game
     @FXML
     void handleStartGame(ActionEvent event) {
         try {
             URL url = getClass().getResource("/RenderView/Game.fxml");
             if (url == null)
                 url = getClass().getResource("../../../RenderView/Game.fxml");
-
-            System.out.println("🔹 Resource path = " + url);
-
-            if (url == null) {
-                showError(" Không tìm thấy file Game.fxml!\n");
-                return;
-            }
 
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
@@ -42,14 +35,10 @@ public class MenuController {
             stage.setScene(scene);
             stage.setTitle("ARKANOID - Play");
             stage.show();
-            System.out.println("Game.fxml loaded successfully!");
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
             showError("Lỗi khi load Game.fxml:\n" + ioe.getMessage());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            showError("Lỗi không xác định:\n" + ex.getClass().getSimpleName() + " - " + ex.getMessage());
         }
     }
 
@@ -58,14 +47,6 @@ public class MenuController {
     void handleInstructions(ActionEvent event) {
         try {
             URL url = getClass().getResource("/RenderView/Instructions.fxml");
-            if (url == null)
-                url = getClass().getResource("../../../RenderView/Instructions.fxml");
-
-            if (url == null) {
-                showError("Không tìm thấy file Instructions.fxml!");
-                return;
-            }
-
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
 
@@ -75,14 +56,9 @@ public class MenuController {
             stage.setTitle("ARKANOID - Instructions");
             stage.show();
 
-            System.out.println("Instructions.fxml loaded successfully!");
-
         } catch (IOException ioe) {
             ioe.printStackTrace();
             showError("Lỗi khi load Instructions.fxml:\n" + ioe.getMessage());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            showError("Lỗi không xác định:\n" + ex.getClass().getSimpleName() + " - " + ex.getMessage());
         }
     }
 
@@ -96,21 +72,26 @@ public class MenuController {
         System.out.println("Settings clicked!");
     }
 
-    // Exit
+    // Custom Exit Dialog
     @FXML
     void handleExit(ActionEvent event) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Exit Game");
-        alert.setHeaderText("...");
-        alert.setContentText("..");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Exit.fxml"));
+            Parent root = loader.load();
 
-        if (alert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
-            Stage stage = (Stage) exitButton.getScene().getWindow();
-            stage.close();
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Exit Game?");
+            dialogStage.setScene(new Scene(root));
+            dialogStage.setResizable(false);
+            dialogStage.initOwner(((Node) event.getSource()).getScene().getWindow());
+            dialogStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showError("Không thể load Exit.fxml\n" + e.getMessage());
         }
     }
 
-    // hthi lỗi
     private void showError(String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
         a.setHeaderText("Error");

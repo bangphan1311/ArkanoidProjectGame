@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="GameManager.ExitController"
+            prefWidth="800" prefHeight="600">
+
+    <!-- background exit -->
+    <ImageView fitWidth="800" fitHeight="600" preserveRatio="false">
+        <image>
+            <Image url="@../Images/demobackground.png" />
+        </image>
+    </ImageView>
+
+    <!-- chèn ảnh-->
+    <ImageView layoutX="270" layoutY="120"
+               fitWidth="260" fitHeight="120"
+               preserveRatio="true">
+        <image>
+            <Image url="@../Images/exit.png" />
+        </image>
+    </ImageView>
+
+    <!-- Nút Bye Bye -->
+    <Button fx:id="byeButton"
+            layoutX="180" layoutY="400"
+            prefWidth="180" prefHeight="80"
+            style="-fx-background-color: transparent;"
+            onAction="#onByeClicked">
+        <graphic>
+            <ImageView fitWidth="180" fitHeight="80">
+                <image>
+                    <Image url="@../Images/byebye.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <!-- Keep Playing -->
+    <Button fx:id="keepPlayingButton"
+            layoutX="440" layoutY="400"
+            prefWidth="180" prefHeight="80"
+            style="-fx-background-color: transparent;"
+            onAction="#onKeepPlayingClicked">
+        <graphic>
+            <ImageView fitWidth="180" fitHeight="80">
+                <image>
+                    <Image url="@../Images/keepplaying.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+</AnchorPane>
