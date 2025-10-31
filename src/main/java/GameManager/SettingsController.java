@@ -24,7 +24,7 @@ public class SettingsController {
 
     @FXML
     public void initialize() {
-        // nhạc
+        // music
         musicToggle.setOnAction(e -> {
             if (musicToggle.isSelected()) {
                 musicToggle.setText("ON");
@@ -35,7 +35,7 @@ public class SettingsController {
             }
         });
 
-        // âm thanh
+        // sound
         soundToggle.setOnAction(e -> {
             if (soundToggle.isSelected()) {
                 soundToggle.setText("ON");

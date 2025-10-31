@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="update exit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/SettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="thiet ke, chinh sua phan settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/PaddleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/PaddleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +160,7 @@
       <workItem from="1761782350162" duration="13843000" />
       <workItem from="1761834513165" duration="512000" />
       <workItem from="1761838598054" duration="9059000" />
-      <workItem from="1761878915115" duration="16302000" />
+      <workItem from="1761878915115" duration="19974000" />
     </task>
     <task id="LOCAL-00001" summary="tao bong do va tao chuyen dong co ban">
       <option name="closed" value="true" />
@@ -301,7 +298,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761918798931</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="thiet ke, chinh sua phan settings">
+      <option name="closed" value="true" />
+      <created>1761922731017</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1761922731017</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +338,8 @@
     <MESSAGE value="thiet ke, chinh sua khi bam exit" />
     <MESSAGE value="thiet ke, chinh sua khi bam Instructions" />
     <MESSAGE value="update exit" />
-    <option name="LAST_COMMIT_MESSAGE" value="update exit" />
+    <MESSAGE value="thiet ke, chinh sua phan settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="thiet ke, chinh sua phan settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

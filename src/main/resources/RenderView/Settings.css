@@ -1,31 +1,59 @@
+.root {
+    -fx-background-image: url("../Images/backgroundsettings.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+/* ===== Nút bật/tắt (ON/OFF) ===== */
 .toggle-button {
     -fx-font-size: 16px;
-    -fx-background-color: #F44336; // đỏ
+    -fx-background-color: #F44336; /* đỏ */
     -fx-text-fill: white;
-    -fx-background-radius: 20;
-    -fx-pref-width: 100;
-    -fx-pref-height: 35;
+    -fx-background-radius: 25;
+    -fx-pref-width: 120;
+    -fx-pref-height: 40;
     -fx-cursor: hand;
     -fx-font-weight: bold;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);
+    -fx-transition: all 0.2s ease-in-out;
 }
 
 .toggle-button:selected {
-    -fx-background-color: #4CAF50; // xanh
+    -fx-background-color: #4CAF50; /* xanh khi ON */
 }
 
+/* ===== Nút Back to Menu ===== */
 .back-button {
+    -fx-background-color: linear-gradient(to bottom, #74b9ff, #0984e3);
+    -fx-text-fill: white;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
-    -fx-background-color: #ffeb3b;
-    -fx-text-fill: #333;
-    -fx-background-radius: 20;
-    -fx-pref-width: 150;
-    -fx-pref-height: 40;
+    -fx-background-radius: 30;
+    -fx-pref-width: 180;
+    -fx-pref-height: 50;
     -fx-cursor: hand;
-    -fx-border-color: #fdd835;
-    -fx-border-width: 2;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 0 0 0 35;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8, 0.3, 0, 2);
 }
 
-.back-button:hover {
-    -fx-background-color: #fff176;
+/* ===== Hiệu ứng ===== */
+.toggle-button:hover, .back-button:hover {
+    -fx-scale-x: 1.07;
+    -fx-scale-y: 1.07;
+    -fx-brightness: 1.15;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.6), 8, 0.4, 0, 0);
+    -fx-animation: shake 0.3s linear;
+}
+
+/* ===== Keyframes cho hiệu ứng rung ===== */
+@keyframes shake {
+    0% { -fx-translate-x: 0; }
+    25% { -fx-translate-x: -3; }
+    50% { -fx-translate-x: 3; }
+    75% { -fx-translate-x: -3; }
+    100% { -fx-translate-x: 0; }
 }

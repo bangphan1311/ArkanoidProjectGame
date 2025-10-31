@@ -83,9 +83,6 @@ public class MenuController {
         }
     }
 
-
-
-
     // Exit
     @FXML
     void handleExit(ActionEvent event) {
