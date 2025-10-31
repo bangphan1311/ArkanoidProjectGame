@@ -53,14 +53,14 @@ public class MenuController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("ARKANOID - Instructions");
+            stage.setTitle("Instructions");
             stage.show();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
-            showError("Lỗi khi load Instructions.fxml:\n" + ioe.getMessage());
         }
     }
+
 
     @FXML
     void handleHighScores(ActionEvent event) {
@@ -72,7 +72,7 @@ public class MenuController {
         System.out.println("Settings clicked!");
     }
 
-    // Custom Exit Dialog
+    // Exit
     @FXML
     void handleExit(ActionEvent event) {
         try {

@@ -24,7 +24,7 @@
 }
 
 #startButton {
-    -fx-translate-y: 0; /* giữ nguyên */
+    -fx-translate-y: 0;
 }
 
 #instructionsButton {
