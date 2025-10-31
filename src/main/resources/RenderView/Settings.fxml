@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GameManager.SettingsController"
+            stylesheets="@Settings.css"
+            prefWidth="500" prefHeight="400"
+            style="-fx-background-color: linear-gradient(to bottom, #fff9c4, #fdd835);">
+
+    <VBox alignment="CENTER" spacing="25" layoutX="130" layoutY="60">
+        <Label text="SETTINGS"
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333;" />
+
+        <VBox spacing="15">
+            <Label text="Music:" style="-fx-font-size: 18px; -fx-text-fill: #333;" />
+            <ToggleButton fx:id="musicToggle" text="OFF" styleClass="toggle-button"/>
+        </VBox>
+
+        <VBox spacing="15">
+            <Label text="Sound Effects:" style="-fx-font-size: 18px; -fx-text-fill: #333;" />
+            <ToggleButton fx:id="soundToggle" text="OFF" styleClass="toggle-button"/>
+        </VBox>
+
+        <Button fx:id="backButton"
+                text="Back to Menu"
+                onAction="#handleBackToMenu"
+                styleClass="back-button"/>
+    </VBox>
+</AnchorPane>

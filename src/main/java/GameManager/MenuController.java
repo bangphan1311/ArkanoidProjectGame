@@ -19,7 +19,7 @@ public class MenuController {
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
 
-    //Start Game
+    // Start Game
     @FXML
     void handleStartGame(ActionEvent event) {
         try {
@@ -61,16 +61,30 @@ public class MenuController {
         }
     }
 
-
+    // High Scores
     @FXML
     void handleHighScores(ActionEvent event) {
         System.out.println("High Scores clicked!");
     }
 
+    // Settings
     @FXML
     void handleSettings(ActionEvent event) {
-        System.out.println("Settings clicked!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Settings.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Settings");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
 
     // Exit
     @FXML
