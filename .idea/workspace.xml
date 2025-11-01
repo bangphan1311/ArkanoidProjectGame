@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="thiet ke, chinh sua phan sign up">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them show password">
+      <change afterPath="$PROJECT_DIR$/src/main/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762002449469</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="them show password">
+      <option name="closed" value="true" />
+      <created>1762005551211</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1762005551211</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +378,8 @@
     <MESSAGE value="thiet ke, chinh sua phan sign in" />
     <MESSAGE value="update signin" />
     <MESSAGE value="thiet ke, chinh sua phan sign up" />
-    <option name="LAST_COMMIT_MESSAGE" value="thiet ke, chinh sua phan sign up" />
+    <MESSAGE value="them show password" />
+    <option name="LAST_COMMIT_MESSAGE" value="them show password" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

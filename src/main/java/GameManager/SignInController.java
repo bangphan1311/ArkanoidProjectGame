@@ -7,7 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.IOException;
+import java.io.*;
 
 public class SignInController {
 
@@ -17,7 +17,6 @@ public class SignInController {
     @FXML private CheckBox showPasswordCheck;
     @FXML private Label errorLabel;
 
-    // chuyển đổi giữa password ẩn/hiện
     @FXML
     private void togglePasswordVisibility(ActionEvent event) {
         if (showPasswordCheck.isSelected()) {
@@ -35,7 +34,6 @@ public class SignInController {
         }
     }
 
-    // xử lý đăng nhập
     @FXML
     private void handleSignIn(ActionEvent event) {
         String username = usernameField.getText();
@@ -43,7 +41,22 @@ public class SignInController {
                 ? visiblePasswordField.getText()
                 : passwordField.getText();
 
-        if (username.equals("admin") && password.equals("123")) {
+        boolean isValid = false;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/data/users.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2 && parts[0].equals(username) && parts[1].equals(password)) {
+                    isValid = true;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (isValid) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
                 Parent root = loader.load();
@@ -60,7 +73,6 @@ public class SignInController {
         }
     }
 
-    //  Sign Up
     @FXML
     private void handleGoToSignup(ActionEvent event) {
         try {

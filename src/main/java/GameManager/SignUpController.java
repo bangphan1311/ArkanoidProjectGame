@@ -10,7 +10,7 @@ import javafx.scene.effect.Glow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 
 public class SignUpController {
@@ -28,7 +28,6 @@ public class SignUpController {
             signUpButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #b3e5ff, #7ec8ff);" +
                     "-fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-cursor: hand;");
             signUpButton.setEffect(new Glow(0.5));
-
             ScaleTransition st = new ScaleTransition(Duration.millis(150), signUpButton);
             st.setToX(1.08);
             st.setToY(1.08);
@@ -39,7 +38,6 @@ public class SignUpController {
             signUpButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #a2d9ff, #69b9ff);" +
                     "-fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-cursor: hand;");
             signUpButton.setEffect(null);
-
             ScaleTransition st = new ScaleTransition(Duration.millis(150), signUpButton);
             st.setToX(1);
             st.setToY(1);
@@ -65,9 +63,18 @@ public class SignUpController {
             return;
         }
 
-        // tbao thanh cong
-        messageLabel.setText("Account created successfully!");
-        messageLabel.setTextFill(javafx.scene.paint.Color.GREEN);
+        // Lưu tài khoản
+        File file = new File("src/main/data/users.txt");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.write(username + "," + password);
+            writer.newLine();
+            messageLabel.setText("Account created successfully!");
+            messageLabel.setTextFill(javafx.scene.paint.Color.GREEN);
+        } catch (IOException e) {
+            e.printStackTrace();
+            messageLabel.setText("Error saving account!");
+            messageLabel.setTextFill(javafx.scene.paint.Color.RED);
+        }
     }
 
     @FXML
