@@ -5,12 +5,12 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
-        Scene scene = new Scene(loader.load());
-        primaryStage.setTitle("GAME ARKANOID");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/RenderView/SignIn.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Sign In");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
