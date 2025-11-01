@@ -28,22 +28,62 @@ public class SettingsController {
         musicToggle.setOnAction(e -> {
             if (musicToggle.isSelected()) {
                 musicToggle.setText("ON");
-                musicToggle.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;");
+                musicToggle.setStyle(
+                        "-fx-background-color: #4CAF50;" +  // xah
+                                "-fx-text-fill: #0b3d02;" +
+                                "-fx-font-size: 16px;" +
+                                "-fx-font-weight: bold;" +
+                                "-fx-background-radius: 25;" +
+                                "-fx-pref-width: 120;" +
+                                "-fx-pref-height: 40;" +
+                                "-fx-cursor: hand;" +
+                                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+                );
             } else {
                 musicToggle.setText("OFF");
-                musicToggle.setStyle("-fx-background-color: #F44336; -fx-text-fill: white;");
+                musicToggle.setStyle(
+                        "-fx-background-color: #F44336;" +  // nền đỏ
+                                "-fx-text-fill: white;" +           // chữ trắng
+                                "-fx-font-size: 16px;" +
+                                "-fx-font-weight: bold;" +
+                                "-fx-background-radius: 25;" +
+                                "-fx-pref-width: 120;" +
+                                "-fx-pref-height: 40;" +
+                                "-fx-cursor: hand;" +
+                                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+                );
             }
         });
 
         // sound
         soundToggle.setOnAction(e -> {
-            if (soundToggle.isSelected()) {
-                soundToggle.setText("ON");
-                soundToggle.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white;");
-            } else {
-                soundToggle.setText("OFF");
-                soundToggle.setStyle("-fx-background-color: #F44336; -fx-text-fill: white;");
-            }
+                    if (soundToggle.isSelected()) {
+                        soundToggle.setText("ON");
+                        soundToggle.setStyle(
+                                "-fx-background-color: #4CAF50;" +
+                                        "-fx-text-fill: #0b3d02;" +
+                                        "-fx-font-size: 16px;" +
+                                        "-fx-font-weight: bold;" +
+                                        "-fx-background-radius: 25;" +
+                                        "-fx-pref-width: 120;" +
+                                        "-fx-pref-height: 40;" +
+                                        "-fx-cursor: hand;" +
+                                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+                        );
+                    } else {
+                        soundToggle.setText("OFF");
+                        soundToggle.setStyle(
+                                "-fx-background-color: #F44336;" +
+                                        "-fx-text-fill: white;" +
+                                        "-fx-font-size: 16px;" +
+                                        "-fx-font-weight: bold;" +
+                                        "-fx-background-radius: 25;" +
+                                        "-fx-pref-width: 120;" +
+                                        "-fx-pref-height: 40;" +
+                                        "-fx-cursor: hand;" +
+                                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+                        );
+                    }
         });
     }
 
