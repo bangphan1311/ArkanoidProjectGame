@@ -13,6 +13,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
 
 public class MenuController {
 
@@ -33,7 +38,7 @@ public class MenuController {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("ARKANOID - Play");
+            stage.setTitle("PLAY");
             stage.show();
 
         } catch (IOException ioe) {
@@ -107,5 +112,43 @@ public class MenuController {
         Alert a = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
         a.setHeaderText("Error");
         a.showAndWait();
+    }
+
+    // hiệu ứng
+
+    @FXML
+    public void initialize() {
+        addHoverAnimation(startButton);
+        addHoverAnimation(instructionsButton);
+        addHoverAnimation(settingsButton);
+        addHoverAnimation(highScoresButton);
+        addHoverAnimation(exitButton);
+    }
+
+    private void addHoverAnimation(Button button) {
+        // di chuột vào
+        button.setOnMouseEntered(e -> {
+            shakeButton(button);
+            button.setStyle("-fx-effect: dropshadow(three-pass-box, yellow, 10, 0.5, 0, 0);");
+        });
+
+        // di chuột ra
+        button.setOnMouseExited(e -> {
+            button.setTranslateX(0);
+            button.setStyle("");
+        });
+    }
+
+
+    private void shakeButton(Button button) {
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.ZERO, new KeyValue(button.translateXProperty(), 0)),
+                new KeyFrame(Duration.millis(50), new KeyValue(button.translateXProperty(), -5)),
+                new KeyFrame(Duration.millis(100), new KeyValue(button.translateXProperty(), 5)),
+                new KeyFrame(Duration.millis(150), new KeyValue(button.translateXProperty(), -5)),
+                new KeyFrame(Duration.millis(200), new KeyValue(button.translateXProperty(), 5)),
+                new KeyFrame(Duration.millis(250), new KeyValue(button.translateXProperty(), 0))
+        );
+        timeline.play();
     }
 }
