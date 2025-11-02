@@ -69,7 +69,19 @@ public class MenuController {
     // High Scores
     @FXML
     void handleHighScores(ActionEvent event) {
-        System.out.println("High Scores clicked!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/HighScores.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("High Scores");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showError("Không thể load HighScores.fxml\n" + e.getMessage());
+        }
     }
 
     // Settings
