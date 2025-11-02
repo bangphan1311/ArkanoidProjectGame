@@ -21,9 +21,11 @@ public class SignUpController {
     @FXML private Button signUpButton;
     @FXML private Label messageLabel;
 
+    private final String USERS_FILE = "src/main/data/users.txt";
+
     @FXML
     public void initialize() {
-        // Hiệu ứng
+        // hiệu ứng
         signUpButton.setOnMouseEntered(e -> {
             signUpButton.setStyle("-fx-background-color: linear-gradient(to bottom right, #b3e5ff, #7ec8ff);" +
                     "-fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 25; -fx-cursor: hand;");
@@ -63,9 +65,21 @@ public class SignUpController {
             return;
         }
 
-        // Lưu tài khoản
-        File file = new File("src/main/data/users.txt");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+        // ktra trùng username
+        try (BufferedReader reader = new BufferedReader(new FileReader(USERS_FILE))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+                if (parts.length == 2 && parts[0].equals(username)) {
+                    messageLabel.setText("Username already exists!");
+                    messageLabel.setTextFill(javafx.scene.paint.Color.RED);
+                    return;
+                }
+            }
+        } catch (IOException ignored) {}
+
+        // lưu tkhoan
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(USERS_FILE, true))) {
             writer.write(username + "," + password);
             writer.newLine();
             messageLabel.setText("Account created successfully!");

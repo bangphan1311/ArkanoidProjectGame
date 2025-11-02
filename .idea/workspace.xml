@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix phan settings">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them hieu ung cho menu">
+      <change afterPath="$PROJECT_DIR$/src/main/data/remember.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -356,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762017970933</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="them hieu ung cho menu">
+      <option name="closed" value="true" />
+      <created>1762073333308</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1762073333308</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +406,8 @@
     <MESSAGE value="them show password" />
     <MESSAGE value="cai dat users.txt de luu tru mat khau, ten tai khoan" />
     <MESSAGE value="fix phan settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix phan settings" />
+    <MESSAGE value="them hieu ung cho menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="them hieu ung cho menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
