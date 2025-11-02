@@ -1,5 +1,7 @@
 package GameManager;
 
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.Button;
@@ -9,7 +11,9 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.util.Duration;
 import java.io.IOException;
+
 
 public class SettingsController {
 
@@ -24,6 +28,11 @@ public class SettingsController {
 
     @FXML
     public void initialize() {
+        // Hiệu ứng hover cho nút
+        addHoverEffect(musicToggle);
+        addHoverEffect(soundToggle);
+        addHoverEffect(backButton);
+
         // music
         musicToggle.setOnAction(e -> {
             if (musicToggle.isSelected()) {
@@ -98,4 +107,63 @@ public class SettingsController {
         stage.setTitle("Menu");
         stage.show();
     }
+
+    // hiệu ứng
+    private void addHoverEffect(Button button) {
+        button.setOnMouseEntered(e -> {
+            // Hiệu ứng sáng nhẹ
+            button.setStyle(button.getStyle() +
+                    "-fx-effect: dropshadow(three-pass-box, yellow, 15, 0.6, 0, 0);");
+
+            // phóng to
+            ScaleTransition scaleUp = new ScaleTransition(Duration.millis(120), button);
+            scaleUp.setToX(1.1);
+            scaleUp.setToY(1.1);
+            scaleUp.play();
+
+            // rug
+            TranslateTransition shake = new TranslateTransition(Duration.millis(80), button);
+            shake.setFromX(0);
+            shake.setByX(4);
+            shake.setCycleCount(4);
+            shake.setAutoReverse(true);
+            shake.play();
+        });
+
+        button.setOnMouseExited(e -> {
+            // trở về bthg
+            button.setStyle(button.getStyle().replace("-fx-effect: dropshadow(three-pass-box, yellow, 15, 0.6, 0, 0);", ""));
+            button.setScaleX(1);
+            button.setScaleY(1);
+            button.setTranslateX(0);
+        });
+    }
+
+    private void addHoverEffect(ToggleButton toggle) {
+        toggle.setOnMouseEntered(e -> {
+            toggle.setStyle(toggle.getStyle() +
+                    "-fx-effect: dropshadow(three-pass-box, yellow, 15, 0.6, 0, 0);");
+
+            ScaleTransition scaleUp = new ScaleTransition(Duration.millis(120), toggle);
+            scaleUp.setToX(1.1);
+            scaleUp.setToY(1.1);
+            scaleUp.play();
+
+            TranslateTransition shake = new TranslateTransition(Duration.millis(80), toggle);
+            shake.setFromX(0);
+            shake.setByX(4);
+            shake.setCycleCount(4);
+            shake.setAutoReverse(true);
+            shake.play();
+        });
+
+        toggle.setOnMouseExited(e -> {
+            toggle.setStyle(toggle.getStyle().replace("-fx-effect: dropshadow(three-pass-box, yellow, 15, 0.6, 0, 0);", ""));
+            toggle.setScaleX(1);
+            toggle.setScaleY(1);
+            toggle.setTranslateX(0);
+        });
+    }
 }
+
+
