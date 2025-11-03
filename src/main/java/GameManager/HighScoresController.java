@@ -62,13 +62,26 @@ public class HighScoresController {
 
     // hiệu ứng
     private void addHoverEffect(Button button) {
-        button.setOnMouseEntered(e -> {
-            // sáng lên
-            button.setStyle("-fx-effect: dropshadow(gaussian, rgba(255,255,180,0.9), 15, 0.5, 0, 0);");
+        // style gốc của nút
+        String normalStyle = "-fx-background-color: linear-gradient(to bottom, #74b9ff, #0984e3);"
+                + "-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"
+                + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
+                + "-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);";
 
-            // phóng to
-            button.setScaleX(1.1);
-            button.setScaleY(1.1);
+        // style khi hover
+        String hoverStyle = "-fx-background-color: linear-gradient(to bottom, #a0cfff, #3b7de3);"
+                + "-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"
+                + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
+                + "-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(255,255,180,0.9), 15, 0.5, 0, 0);";
+
+        // gán style bdau
+        button.setStyle(normalStyle);
+
+        //di chuột vào nút
+        button.setOnMouseEntered(e -> {
+            button.setStyle(hoverStyle); // chuyển sang style hover
+            button.setScaleX(1.08);
+            button.setScaleY(1.08);
 
             // rug
             Timeline shake = new Timeline(
@@ -82,11 +95,12 @@ public class HighScoresController {
             shake.play();
         });
 
+        // khi rời chuột khỏi nút
         button.setOnMouseExited(e -> {
             button.setScaleX(1.0);
             button.setScaleY(1.0);
             button.setTranslateX(0);
-            button.setStyle(""); // trở về style gốc
+            button.setStyle(normalStyle); // trở lại style gốc (không xóa trắng)
         });
     }
 
