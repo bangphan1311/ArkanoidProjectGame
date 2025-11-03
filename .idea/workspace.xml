@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them hieu ung cho settings">
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/HighScores.fxml" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="thiet ke, chinh sua high scores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +91,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -380,7 +384,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762087579208</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="thiet ke, chinh sua high scores">
+      <option name="closed" value="true" />
+      <created>1762098691232</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1762098691232</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +410,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="tao bong do va tao chuyen dong co ban" />
     <MESSAGE value="sua doi fxml" />
     <MESSAGE value="qua bong" />
     <MESSAGE value="cap nhat lai cac file code" />
@@ -423,7 +434,8 @@
     <MESSAGE value="them hieu ung cho menu" />
     <MESSAGE value="cap nhat phan remember.txt, ghi nho tkhoan va mkhau" />
     <MESSAGE value="them hieu ung cho settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="them hieu ung cho settings" />
+    <MESSAGE value="thiet ke, chinh sua high scores" />
+    <option name="LAST_COMMIT_MESSAGE" value="thiet ke, chinh sua high scores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
