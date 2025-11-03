@@ -71,7 +71,7 @@
         <!-- remember me+forgot password -->
         <HBox alignment="CENTER_LEFT" spacing="5">
             <CheckBox fx:id="rememberMeCheck" text="Remember me" />
-            <Hyperlink fx:id="forgotPasswordLink" style="-fx-text-fill: #0077cc;" text="Forgot Password?" />
+            <Hyperlink fx:id="forgotPasswordLink" onAction="#handleForgotPassword" style="-fx-text-fill: #0077cc;" text="Forgot Password?" />
         </HBox>
 
         <!-- nút sign in -->

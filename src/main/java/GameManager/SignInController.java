@@ -165,4 +165,17 @@ public class SignInController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Xử lý forgot password
+     */
+    @FXML
+    private void handleForgotPassword(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Thông báo");
+        alert.setHeaderText(null);
+        alert.setContentText("Sorry. Chức năng này hiện chưa được thực hiện.");
+        alert.showAndWait();
+    }
+
 }

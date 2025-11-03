@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="thiet ke, chinh sua high scores">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" afterDir="false" />
-    </list>
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them hieu ung cho highscores" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,13 +88,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.26199.169" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -392,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762098691232</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="them hieu ung cho highscores">
+      <option name="closed" value="true" />
+      <created>1762148166749</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1762148166749</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,7 +408,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="sua doi fxml" />
     <MESSAGE value="qua bong" />
     <MESSAGE value="cap nhat lai cac file code" />
     <MESSAGE value="cap nhat ball" />
@@ -435,7 +432,8 @@
     <MESSAGE value="cap nhat phan remember.txt, ghi nho tkhoan va mkhau" />
     <MESSAGE value="them hieu ung cho settings" />
     <MESSAGE value="thiet ke, chinh sua high scores" />
-    <option name="LAST_COMMIT_MESSAGE" value="thiet ke, chinh sua high scores" />
+    <MESSAGE value="them hieu ung cho highscores" />
+    <option name="LAST_COMMIT_MESSAGE" value="them hieu ung cho highscores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
