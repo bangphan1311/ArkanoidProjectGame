@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="xu ly forgot password">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi hieu ung phan highscores">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundexit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundhighscores.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsettings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/banana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/demobackground.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -401,7 +414,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762158147776</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="fix loi hieu ung phan highscores">
+      <option name="closed" value="true" />
+      <created>1762164578700</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1762164578700</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -419,7 +440,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cap nhat lai cac file code" />
     <MESSAGE value="cap nhat ball" />
     <MESSAGE value="update các file code, các gói" />
     <MESSAGE value="fix ball, gamecontroller" />
@@ -444,7 +464,8 @@
     <MESSAGE value="thiet ke, chinh sua high scores" />
     <MESSAGE value="them hieu ung cho highscores" />
     <MESSAGE value="xu ly forgot password" />
-    <option name="LAST_COMMIT_MESSAGE" value="xu ly forgot password" />
+    <MESSAGE value="fix loi hieu ung phan highscores" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loi hieu ung phan highscores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

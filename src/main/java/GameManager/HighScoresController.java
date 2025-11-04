@@ -62,7 +62,7 @@ public class HighScoresController {
 
     // hiệu ứng
     private void addHoverEffect(Button button) {
-        // style gốc của nút
+        // style gốc của nút (giống trong FXML)
         String normalStyle = "-fx-background-color: linear-gradient(to bottom, #74b9ff, #0984e3);"
                 + "-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"
                 + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
@@ -74,7 +74,7 @@ public class HighScoresController {
                 + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
                 + "-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(255,255,180,0.9), 15, 0.5, 0, 0);";
 
-        // gán style bdau
+        // style bdau
         button.setStyle(normalStyle);
 
         //di chuột vào nút
@@ -95,7 +95,7 @@ public class HighScoresController {
             shake.play();
         });
 
-        // khi rời chuột khỏi nút
+        // Khi rời chuột khỏi nút
         button.setOnMouseExited(e -> {
             button.setScaleX(1.0);
             button.setScaleY(1.0);
