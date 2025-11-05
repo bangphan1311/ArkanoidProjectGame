@@ -1,47 +1,57 @@
 package Entity;
 
-import javafx.scene.Node;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class Brick extends GameObject {
-    private Rectangle shape;
-    private boolean destroyed = false;
+public abstract class Brick {
+    protected ImageView imageView;
+    protected boolean destroyed = false;
+    protected int hitPoints;
+    public String type;
+    protected Image normalImage;
+    protected Image damagedImage;
 
-    private int hitPoints = 1;
-    private String type = "Normal";
+    public Brick(double x, double y, double width, double height, Image image, int hitPoints, String type) {
+        this.normalImage = image;
+        this.hitPoints = hitPoints;
+        this.type = type;
 
-    public Brick(double x, double y, double width, double height, Color color) {
-        super(x, y, width, height);
-        shape = new Rectangle(x, y, width, height);
-        shape.setFill(color);
-        shape.setStroke(Color.BLACK);
+        this.imageView = new ImageView(image);
+        this.imageView.setFitWidth(width);
+        this.imageView.setFitHeight(height);
+        this.imageView.setLayoutX(x);
+        this.imageView.setLayoutY(y);
     }
 
-    public Rectangle getShape() {
-        return shape;
+    public ImageView getShape() {
+        return imageView;
     }
 
     public boolean isDestroyed() {
         return destroyed;
     }
 
-    public void destroy() {
-        destroyed = true;
-        shape.setVisible(false);
+    /**
+     * SỬA ĐỔI: Thay đổi kiểu trả về từ void thành String.
+     * Bây giờ, khi một viên gạch bị phá hủy, nó sẽ trả về loại của nó.
+     * @return Loại của viên gạch (ví dụ: "Normal", "Strong", "DoubleBall") hoặc null nếu đã bị phá hủy từ trước.
+     */
+    public String destroy() {
+        if (!this.destroyed) {
+            this.destroyed = true;
+            this.imageView.setVisible(false);
+            return this.type; // Trả về loại gạch như một tín hiệu
+        }
+        return null;
     }
 
-    public void takeHit() {
-        hitPoints--;
-        if (hitPoints <= 0) destroy();
+    public abstract void takeHit();
+
+    public String getType() {
+        return type;
     }
 
-    @Override
-    public void update() {
-    }
-
-    @Override
-    public Node render() {
-        return shape;
+    public void setType(String type) {
+        this.type = type;
     }
 }

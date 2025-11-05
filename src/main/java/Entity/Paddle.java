@@ -3,6 +3,7 @@ package Entity;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
 
 public class Paddle extends MovableObject {
     private Rectangle paddleShape;
@@ -60,4 +61,12 @@ public class Paddle extends MovableObject {
     public String getCurrentPowerUp() {
         return currentPowerUp;
     }
+
+    public void setPosition(double x, double y) {
+        this.x = x;
+        this.y = y;
+        paddleShape.setX(x);
+        paddleShape.setY(y);
+    }
+
 }

@@ -4,22 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi hieu ung phan highscores">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundexit.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundhighscores.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsettings.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignup.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/banana.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Images/demobackground.png" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="do hoa menu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/DoubleBallBrick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/MovingObstacle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/LevelCompleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level2.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/LevelComplete.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/MovableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/MovableObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/NormalBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/NormalBrick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Paddle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/PowerUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/StrongBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/StrongBrick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -422,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762164578700</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="do hoa menu">
+      <option name="closed" value="true" />
+      <created>1762227917436</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1762227917436</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,7 +451,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cap nhat ball" />
     <MESSAGE value="update các file code, các gói" />
     <MESSAGE value="fix ball, gamecontroller" />
     <MESSAGE value="fix, update ball, gamecontroller" />
@@ -465,15 +475,21 @@
     <MESSAGE value="them hieu ung cho highscores" />
     <MESSAGE value="xu ly forgot password" />
     <MESSAGE value="fix loi hieu ung phan highscores" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix loi hieu ung phan highscores" />
+    <MESSAGE value="do hoa menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="do hoa menu" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/GameController.java</url>
-          <line>56</line>
+          <line>643</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GameManager/MenuController.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

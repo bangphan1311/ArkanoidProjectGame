@@ -35,6 +35,9 @@ public class MenuController {
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
 
+            GameController controller = loader.getController();
+            controller.setNextLevel("Level2.fxml");
+
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
