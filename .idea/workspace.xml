@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="do hoa menu">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/DoubleBallBrick.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Entity/MovingObstacle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/LevelCompleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level2.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/LevelComplete.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/GameObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/GameObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/MovableObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/MovableObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/NormalBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/NormalBrick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Paddle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Paddle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/PowerUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/PowerUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/StrongBrick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/StrongBrick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/PaddleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
