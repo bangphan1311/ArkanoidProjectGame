@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GameManager.MapController"
-            prefWidth="800" prefHeight="600"
-            style="-fx-background-image: url('/Images/map.png'); -fx-background-size: cover;">
+<AnchorPane prefHeight="768.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.MapController">
 
-    <!-- Level 1 -->
-    <Button fx:id="level1Button"
-            layoutX="150" layoutY="420"
-            onAction="#handleLevel1"
-            style="-fx-background-image: url('/Images/lv1.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- background map-->
+    <ImageView fitHeight="768" fitWidth="932" preserveRatio="false">
+        <image>
+            <Image url="@../Images/map.png" />
+        </image>
+    </ImageView>
 
-    <!-- Level 2 -->
-    <Button fx:id="level2Button"
-            layoutX="280" layoutY="380"
-            onAction="#handleLevel2"
-            style="-fx-background-image: url('/Images/lv2.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- level 1 -->
+    <Button fx:id="level1Button" layoutX="90" layoutY="80" onAction="#handleLevel1" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <graphic>
+            <ImageView fx:id="level1Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true" translateX="-60.0" translateY="-50.0">
+                <image>
+                    <Image url="@../Images/lv1.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
-    <!-- Level 3 -->
-    <Button fx:id="level3Button"
-            layoutX="410" layoutY="340"
-            onAction="#handleLevel3"
-            style="-fx-background-image: url('/Images/lv3.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- level 2 -->
+    <Button fx:id="level2Button" layoutX="380.0" layoutY="280.0" onAction="#handleLevel2" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <graphic>
+            <ImageView fx:id="level2Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-80.0" translateY="-120.0">
+                <image>
+                    <Image url="@../Images/lv2.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
-    <!-- Level 4 -->
-    <Button fx:id="level4Button"
-            layoutX="540" layoutY="300"
-            onAction="#handleLevel4"
-            style="-fx-background-image: url('/Images/lv4.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- level 3 -->
+    <Button fx:id="level3Button" layoutX="160" layoutY="520" onAction="#handleLevel3" style="-fx-background-color: transparent; -fx-padding: 0;">
+      <graphic>
+         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="-60.0" translateY="-90.0">
+            <image>
+               <Image url="@../Images/lv3.png" />
+            </image>
+         </ImageView>
+      </graphic>
+    </Button>
 
-    <!-- Level 5 -->
-    <Button fx:id="level5Button"
-            layoutX="670" layoutY="260"
-            onAction="#handleLevel5"
-            style="-fx-background-image: url('/Images/lv5.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- level 4 -->
+    <Button fx:id="level4Button" layoutX="580" layoutY="360" onAction="#handleLevel4" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <graphic>
+            <ImageView fx:id="level4Image" fitHeight="180.0" fitWidth="180.0" preserveRatio="true" translateX="-110.0" translateY="125.0">
+                <image>
+                    <Image url="@../Images/lv4.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
-    <!-- Level 6 -->
-    <Button fx:id="level6Button"
-            layoutX="760" layoutY="220"
-            onAction="#handleLevel6"
-            style="-fx-background-image: url('/Images/lv6.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
-            prefWidth="60" prefHeight="60"/>
+    <!-- level 5 -->
+    <Button fx:id="level5Button" layoutX="760" layoutY="160" onAction="#handleLevel5" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <graphic>
+            <ImageView fx:id="level5Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true" translateX="-160.0" translateY="30.0">
+                <image>
+                    <Image url="@../Images/lv5.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+    <!-- level 6 -->
+    <Button fx:id="level6Button" layoutX="740" layoutY="520" onAction="#handleLevel6" style="-fx-background-color: transparent; -fx-padding: 0;">
+        <graphic>
+            <ImageView fx:id="level6Image" fitHeight="170.0" fitWidth="170.0" preserveRatio="true" translateX="32.0" translateY="-450.0">
+                <image>
+                    <Image url="@../Images/lv6.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
 </AnchorPane>
