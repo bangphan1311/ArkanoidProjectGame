@@ -17,38 +17,55 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import java.io.IOException;
+import javafx.animation.RotateTransition;
 
 public class InstructionsController {
 
     @FXML
-    private ImageView storyImage;
+    private ImageView storyImage; // hthi hình minh họa cho từng trang
 
     @FXML
     private Button nextButton, previousButton, menuButton;
 
-    private int currentPage = 1;
-    private final int totalPages = 5;
+    private int currentPage = 1;           // trag hiện tại
+    private final int totalPages = 5;      // 5 trag
 
     @FXML
     public void initialize() {
-        showPage(currentPage);
+        showPage(currentPage); // hthi trang đầu tiên
 
-        // Thêm hiệu ứng hover sáng + rung nhẹ
+        // hiệu ứng hover sáng + rung nhẹ cho các nút
         addHoverEffect(menuButton);
         addHoverEffect(nextButton);
         addHoverEffect(previousButton);
     }
 
+    /**
+     * hthi trang theo chỉ số (kèm hiệu ứng lật + mờ dần)
+     */
     private void showPage(int page) {
         String imagePath = "/Images/" + page + ".png";
+
         try {
             Image img = new Image(getClass().getResourceAsStream(imagePath));
-            storyImage.setImage(img);
 
-            FadeTransition ft = new FadeTransition(Duration.millis(600), storyImage);
-            ft.setFromValue(0);
-            ft.setToValue(1);
-            ft.play();
+            // hiệu ứng
+            ScaleTransition stHide = new ScaleTransition(Duration.millis(300), storyImage);
+            stHide.setFromX(1);
+            stHide.setToX(0); // Thu nhỏ ngang lại -> ẩn dần
+            stHide.setOnFinished(e -> {
+                // khi chạy xog hình cũ sag hình ms
+                storyImage.setImage(img);
+
+                // hiệu ứng mở trag ms
+                ScaleTransition stShow = new ScaleTransition(Duration.millis(300), storyImage);
+                stShow.setFromX(0);
+                stShow.setToX(1);
+                stShow.play();
+            });
+
+            stHide.play();
+
         } catch (Exception e) {
             System.err.println("Không thể tải ảnh: " + imagePath);
             e.printStackTrace();
@@ -57,6 +74,10 @@ public class InstructionsController {
         updateButtons();
     }
 
+
+    /**
+     * nút Next - Previous tùy theo vị trí trang
+     */
     private void updateButtons() {
         if (currentPage == 1) {
             previousButton.setVisible(false);
@@ -70,6 +91,9 @@ public class InstructionsController {
         }
     }
 
+    /**
+     * Xử lý khi nhấn nút NEXT
+     */
     @FXML
     void handleNext(ActionEvent event) {
         if (currentPage < totalPages) {
@@ -78,6 +102,9 @@ public class InstructionsController {
         }
     }
 
+    /**
+     * Xử lý khi nhấn nút PREVIOUS
+     */
     @FXML
     void handlePrevious(ActionEvent event) {
         if (currentPage > 1) {
@@ -86,6 +113,9 @@ public class InstructionsController {
         }
     }
 
+    /**
+     * xử lý khi ấn Menu
+     */
     @FXML
     void handleMenu(ActionEvent event) {
         try {
@@ -100,17 +130,18 @@ public class InstructionsController {
         }
     }
 
-    // hiệu ứng khi di chuột đến nút
+    /**
+     * Hiệu ứng khi di chuột vào các nút
+     */
     private void addHoverEffect(Button button) {
         DropShadow glow = new DropShadow();
         glow.setColor(Color.WHITE);
         glow.setRadius(15);
         glow.setSpread(0.4);
 
-        // Khi di chuột vào
+        //di chuột vào
         button.setOnMouseEntered(e -> {
-            // Hiệu ứng sáng
-            button.setEffect(glow);
+            button.setEffect(glow); // phát sáng
 
             // Phóng to nhẹ
             ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
@@ -118,7 +149,7 @@ public class InstructionsController {
             st.setToY(1.08);
             st.play();
 
-            // thêm rung
+            //rung nhẹ
             TranslateTransition tt = new TranslateTransition(Duration.millis(60), button);
             tt.setFromX(0);
             tt.setByX(5);
@@ -127,7 +158,7 @@ public class InstructionsController {
             tt.play();
         });
 
-        // Khi rời chuột
+        //rời chuột
         button.setOnMouseExited(e -> {
             button.setEffect(null);
 

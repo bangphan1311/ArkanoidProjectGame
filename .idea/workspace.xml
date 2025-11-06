@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix, update ball, gamecontroller">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/ErasBoldITC.ttf" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="update phan huong dan choi game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/InstructionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/InstructionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Instructions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/InstructionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/InstructionsController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,7 +418,23 @@
       <option name="project" value="LOCAL" />
       <updated>1762227917436</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="do hoa cua huong dan choi game">
+      <option name="closed" value="true" />
+      <created>1762428505299</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1762428505299</updated>
+    </task>
+    <task id="LOCAL-00035" summary="update phan huong dan choi game">
+      <option name="closed" value="true" />
+      <created>1762428525498</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1762428525498</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,8 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update các file code, các gói" />
-    <MESSAGE value="fix ball, gamecontroller" />
     <MESSAGE value="fix, update ball, gamecontroller" />
     <MESSAGE value="demo menu 1" />
     <MESSAGE value="thay doi, chinh sua button" />
@@ -468,7 +475,9 @@
     <MESSAGE value="xu ly forgot password" />
     <MESSAGE value="fix loi hieu ung phan highscores" />
     <MESSAGE value="do hoa menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="do hoa menu" />
+    <MESSAGE value="do hoa cua huong dan choi game" />
+    <MESSAGE value="update phan huong dan choi game" />
+    <option name="LAST_COMMIT_MESSAGE" value="update phan huong dan choi game" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
