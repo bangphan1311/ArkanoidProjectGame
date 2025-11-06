@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="thiet ke, chinh sua map level">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi va update phan map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/MenuController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762439226778</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="fix loi va update phan map">
+      <option name="closed" value="true" />
+      <created>1762447941656</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1762447941657</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thay doi, chinh sua button" />
     <MESSAGE value="them ban demo tinh nag bam cho start game, exit,.." />
     <MESSAGE value="thiet ke, chinh sua khi bam exit" />
     <MESSAGE value="thiet ke, chinh sua khi bam Instructions" />
@@ -493,7 +500,8 @@
     <MESSAGE value="update phan huong dan choi game" />
     <MESSAGE value="them hieu ung tung trag" />
     <MESSAGE value="thiet ke, chinh sua map level" />
-    <option name="LAST_COMMIT_MESSAGE" value="thiet ke, chinh sua map level" />
+    <MESSAGE value="fix loi va update phan map" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loi va update phan map" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

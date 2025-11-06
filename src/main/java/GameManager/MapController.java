@@ -1,53 +1,79 @@
 package GameManager;
 
-import javafx.event.ActionEvent;
+import javafx.animation.ScaleTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import javafx.scene.Node;
-import java.io.IOException;
+import javafx.scene.control.Button;
+import javafx.scene.effect.Glow;
+import javafx.util.Duration;
 
 public class MapController {
 
+    // ===== Các sự kiện click từng level =====
     @FXML
-    void handleLevel1(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Game.fxml", "Level 1");
+    private void handleLevel1() {
+        System.out.println("Level 1 clicked!");
     }
 
     @FXML
-    void handleLevel2(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Level2.fxml", "Level 2");
+    private void handleLevel2() {
+        System.out.println("Level 2 clicked!");
     }
 
     @FXML
-    void handleLevel3(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Level3.fxml", "Level 3");
+    private void handleLevel3() {
+        System.out.println("Level 3 clicked!");
     }
 
     @FXML
-    void handleLevel4(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Level4.fxml", "Level 4");
+    private void handleLevel4() {
+        System.out.println("Level 4 clicked!");
     }
 
     @FXML
-    void handleLevel5(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Level5.fxml", "Level 5");
+    private void handleLevel5() {
+        System.out.println("Level 5 clicked!");
     }
 
     @FXML
-    void handleLevel6(ActionEvent event) throws IOException {
-        switchScene(event, "/RenderView/Level6.fxml", "Level 6");
+    private void handleLevel6() {
+        System.out.println("Level 6 clicked!");
     }
 
-    private void switchScene(ActionEvent event, String fxmlPath, String title) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
-        Parent root = loader.load();
+    // ===== Hiệu ứng hover =====
+    @FXML
+    private void onHover(javafx.scene.input.MouseEvent event) {
+        Node node = (Node) event.getSource();
 
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.setTitle(title);
-        stage.show();
+        // Hiệu ứng phóng to
+        ScaleTransition scale = new ScaleTransition(Duration.millis(200), node);
+        scale.setToX(1.15);
+        scale.setToY(1.15);
+        scale.play();
+
+        // Hiệu ứng rung nhẹ
+        TranslateTransition shake = new TranslateTransition(Duration.millis(60), node);
+        shake.setByX(5);
+        shake.setAutoReverse(true);
+        shake.setCycleCount(6);
+        shake.play();
+
+        // Hiệu ứng sáng
+        node.setEffect(new Glow(0.6));
+    }
+
+    @FXML
+    private void onExit(javafx.scene.input.MouseEvent event) {
+        Node node = (Node) event.getSource();
+
+        // Trả về kích thước ban đầu
+        ScaleTransition scale = new ScaleTransition(Duration.millis(200), node);
+        scale.setToX(1.0);
+        scale.setToY(1.0);
+        scale.play();
+
+        // Tắt hiệu ứng sáng
+        node.setEffect(null);
     }
 }
