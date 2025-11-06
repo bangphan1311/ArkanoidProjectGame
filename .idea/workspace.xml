@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="update phan huong dan choi game">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them hieu ung tung trag">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/InstructionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/InstructionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/InstructionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/InstructionsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -434,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762428525498</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="them hieu ung tung trag">
+      <option name="closed" value="true" />
+      <created>1762433113542</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1762433113542</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -452,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix, update ball, gamecontroller" />
     <MESSAGE value="demo menu 1" />
     <MESSAGE value="thay doi, chinh sua button" />
     <MESSAGE value="them ban demo tinh nag bam cho start game, exit,.." />
@@ -477,7 +485,8 @@
     <MESSAGE value="do hoa menu" />
     <MESSAGE value="do hoa cua huong dan choi game" />
     <MESSAGE value="update phan huong dan choi game" />
-    <option name="LAST_COMMIT_MESSAGE" value="update phan huong dan choi game" />
+    <MESSAGE value="them hieu ung tung trag" />
+    <option name="LAST_COMMIT_MESSAGE" value="them hieu ung tung trag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,11 +495,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/GameController.java</url>
           <line>643</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GameManager/MenuController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

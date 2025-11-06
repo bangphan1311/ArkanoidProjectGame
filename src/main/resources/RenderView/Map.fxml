@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/25"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GameManager.MapController"
+            prefWidth="800" prefHeight="600"
+            style="-fx-background-image: url('/Images/map.png'); -fx-background-size: cover;">
+
+    <!-- Level 1 -->
+    <Button fx:id="level1Button"
+            layoutX="150" layoutY="420"
+            onAction="#handleLevel1"
+            style="-fx-background-image: url('/Images/lv1.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+    <!-- Level 2 -->
+    <Button fx:id="level2Button"
+            layoutX="280" layoutY="380"
+            onAction="#handleLevel2"
+            style="-fx-background-image: url('/Images/lv2.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+    <!-- Level 3 -->
+    <Button fx:id="level3Button"
+            layoutX="410" layoutY="340"
+            onAction="#handleLevel3"
+            style="-fx-background-image: url('/Images/lv3.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+    <!-- Level 4 -->
+    <Button fx:id="level4Button"
+            layoutX="540" layoutY="300"
+            onAction="#handleLevel4"
+            style="-fx-background-image: url('/Images/lv4.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+    <!-- Level 5 -->
+    <Button fx:id="level5Button"
+            layoutX="670" layoutY="260"
+            onAction="#handleLevel5"
+            style="-fx-background-image: url('/Images/lv5.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+    <!-- Level 6 -->
+    <Button fx:id="level6Button"
+            layoutX="760" layoutY="220"
+            onAction="#handleLevel6"
+            style="-fx-background-image: url('/Images/lv6.png'); -fx-background-size: cover; -fx-background-radius: 50%;"
+            prefWidth="60" prefHeight="60"/>
+
+</AnchorPane>

@@ -28,27 +28,20 @@ public class MenuController {
     @FXML
     void handleStartGame(ActionEvent event) {
         try {
-            URL url = getClass().getResource("/RenderView/Game.fxml");
-            if (url == null)
-                url = getClass().getResource("../../../RenderView/Game.fxml");
-
-            FXMLLoader loader = new FXMLLoader(url);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Map.fxml"));
             Parent root = loader.load();
 
-            GameController controller = loader.getController();
-            controller.setNextLevel("Level2.fxml");
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("PLAY");
+            stage.setScene(new Scene(root));
+            stage.setTitle("Select Level");
             stage.show();
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
-            showError("Lỗi khi load Game.fxml:\n" + ioe.getMessage());
+            showError("Lỗi khi load Map.fxml:\n" + ioe.getMessage());
         }
     }
+
 
     // Instructions
     @FXML
