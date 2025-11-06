@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300" prefWidth="400" style="-fx-background-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.ExitController">
+<AnchorPane prefHeight="300" prefWidth="400" style="-fx-background-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Menu.ExitController">
 
     <!-- background -->
     <ImageView fx:id="backgroundImage" fitHeight="300" fitWidth="400" preserveRatio="false">

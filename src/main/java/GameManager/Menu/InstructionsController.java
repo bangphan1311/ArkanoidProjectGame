@@ -1,4 +1,4 @@
-package GameManager;
+package GameManager.Menu;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;

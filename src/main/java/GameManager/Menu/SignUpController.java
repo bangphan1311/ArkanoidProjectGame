@@ -1,4 +1,4 @@
-package GameManager;
+package GameManager.Menu;
 
 import javafx.animation.ScaleTransition;
 import javafx.fxml.FXML;

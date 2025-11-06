@@ -1,4 +1,4 @@
-package GameManager;
+package GameManager.Menu;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

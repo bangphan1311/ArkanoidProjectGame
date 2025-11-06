@@ -1,5 +1,7 @@
-package GameManager;
+package GameManager.Menu;
+import GameManager.BaseGameController;
 
+import GameManager.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,35 +22,55 @@ import javafx.util.Duration;
 
 
 public class MenuController {
+    private static final int LEVEL_TO_RUN = 2;
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
 
     // Start Game
+
     @FXML
     void handleStartGame(ActionEvent event) {
-        try {
-            URL url = getClass().getResource("/RenderView/Game.fxml");
-            if (url == null)
-                url = getClass().getResource("../../../RenderView/Game.fxml");
+        String fxmlFile;
+        String bgPath;
+        String paddlePath;
+        switch (LEVEL_TO_RUN) {
+            case 1:
+                fxmlFile = "/RenderView/Game.fxml"; // File FXML của Level 1
+                bgPath = "/Images/level1.png";
+                paddlePath = "/Images/paddle.png";
+                break;
+            case 2:
+                fxmlFile = "/RenderView/Level2.fxml"; // File FXML của Level 2
+                bgPath = "/Images/level2.png";
+                paddlePath = "/Images/paddle.png";
+                break;
+            default:
+                showError("Level " + LEVEL_TO_RUN + " không tồn tại!");
+                return;
+        }
 
-            FXMLLoader loader = new FXMLLoader(url);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
 
-            GameController controller = loader.getController();
-            controller.setNextLevel("Level2.fxml");
+            BaseGameController controller = loader.getController();
+
+            controller.setupLevel(bgPath, paddlePath);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("PLAY");
+            stage.setTitle("Arkanoid - Level " + LEVEL_TO_RUN);
             stage.show();
+            root.requestFocus();
 
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            showError("Lỗi khi load Game.fxml:\n" + ioe.getMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            showError("Lỗi khi tải level FXML: " + fxmlFile + "\n" + e.getMessage());
         }
     }
+
 
     // Instructions
     @FXML

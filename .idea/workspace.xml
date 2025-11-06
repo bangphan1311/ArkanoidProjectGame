@@ -5,7 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="do hoa menu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level1Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/ExitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/GameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/InstructionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/InstructionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/LevelCompleteController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SettingsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Exit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/HighScores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/HighScores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/ExitController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/GameController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/GameController$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/GameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/HighScoresController$ScoreEntry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/HighScoresController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/InstructionsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/LevelCompleteController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/SettingsController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/SignInController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/SignUpController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Exit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/HighScores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/HighScores.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Instructions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +83,9 @@
     &quot;accountId&quot;: &quot;0131d101-dfe2-4957-9d07-049d4e56efa8&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -51,28 +97,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RunGame.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;lien&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ArkanoidProjectGame&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.RunGame.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "develop",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/ArkanoidProjectGame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ArkanoidProjectGame\src\main\resources\RenderView" />
@@ -85,7 +131,7 @@
     <configuration name="RunGame" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="ArkanoidProjectGame" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\JAVAFX\javafx-sdk-25\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\HP VICTUS\Downloads\openjfx-25_windows-x64_bin-sdk\javafx-sdk-25\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -460,22 +506,6 @@
     <MESSAGE value="fix loi hieu ung phan highscores" />
     <MESSAGE value="do hoa menu" />
     <option name="LAST_COMMIT_MESSAGE" value="do hoa menu" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GameManager/GameController.java</url>
-          <line>643</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GameManager/MenuController.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
