@@ -11,7 +11,7 @@ import javafx.scene.Node;
 public class PowerUp {
 
     private ImageView imageView;
-    private double speedY = 2.5; // Tốc độ rơi
+    private double speedY = 1.5; // Tốc độ rơi
     private boolean isCollected = false;
     private String type; // Loại vật phẩm: "BANANA", "SPEED_UP", "PADDLE_CHANGE"
 
@@ -19,8 +19,8 @@ public class PowerUp {
         this.imageView = new ImageView(image);
         this.imageView.setLayoutX(x);
         this.imageView.setLayoutY(y);
-        this.imageView.setFitWidth(30); // Bạn có thể đổi kích thước ở đây
-        this.imageView.setFitHeight(30);
+        this.imageView.setFitWidth(60); // Bạn có thể đổi kích thước ở đây
+        this.imageView.setFitHeight(60);
         this.type = type; // Lưu loại vật phẩm
     }
 

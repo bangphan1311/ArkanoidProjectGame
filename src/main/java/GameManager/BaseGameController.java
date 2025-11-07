@@ -39,7 +39,7 @@ public abstract class BaseGameController {
     protected double sceneWidth = 800;
     protected double sceneHeight = 600;
     protected final double paddleSpeed = 8.0;
-    protected MovingObstacle movingObstacle = null;
+    protected final List<MovingObstacle> obstacles = new ArrayList<>();
     protected double obstacleSpeed = 3.5;
 
     protected final List<PowerUp> powerUps = new ArrayList<>();
@@ -75,12 +75,6 @@ public abstract class BaseGameController {
             System.err.println("Lỗi áp dụng đồ họa: " + e.getMessage());
         }
         Platform.runLater(() -> {
-            if (obstacle1 != null) {
-                double width = (obstacle1.getFitWidth() > 0) ? obstacle1.getFitWidth() : obstacle1.getBoundsInParent().getWidth();
-                double sceneW = (gamePane.getWidth() > 0) ? gamePane.getWidth() : sceneWidth;
-                movingObstacle = new MovingObstacle(obstacle1, sceneW, obstacleSpeed);
-                movingObstacle.setBounds(0, sceneW);
-            }
             resetPositions();
             startGameLoop();
             if (gamePane != null) gamePane.requestFocus();
@@ -106,13 +100,13 @@ public abstract class BaseGameController {
             bananaImage = new Image(getClass().getResource("/Images/banana.png").toExternalForm());
 
             // 1. Ảnh RƠI cho Tăng tốc (Vd: speedPowerup.jpg)
-            speedImage = new Image(getClass().getResource("/Images/speedPowerup.jpg").toExternalForm());
+            speedImage = new Image(getClass().getResource("/Images/sp.png").toExternalForm());
 
             // 2. Ảnh RƠI cho Đổi Paddle (Tạo 1 ảnh mới, vd: paddle_powerup.png)
-            paddleChangeImage = new Image(getClass().getResource("/Images/1.png").toExternalForm());
+            paddleChangeImage = new Image(getClass().getResource("/Images/powerupchanepaddle.png").toExternalForm());
 
             // 3. Ảnh SKIN MỚI của paddle (Vd: paddlepuc.png)
-            newPaddleImage = new Image(getClass().getResource("/Images/paddlepuc.png").toExternalForm());
+            newPaddleImage = new Image(getClass().getResource("/Images/paddlechange.png").toExternalForm());
 
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
@@ -146,7 +140,13 @@ public abstract class BaseGameController {
             if (node instanceof ImageView img) {
                 String fxId = img.getId() != null ? img.getId().toLowerCase() : "";
                 Brick brick;
-                if (fxId.contains("obstacle")) continue;
+                if (fxId.contains("obstacle")) {
+                    MovingObstacle obs = new MovingObstacle(img, sceneWidth, obstacleSpeed);
+                    obs.setBounds(0, sceneWidth);
+                    obstacles.add(obs);
+                    // Không ẩn (setVisible(false)) và không thêm vào list gạch
+                    continue; // Chuyển sang node tiếp theo
+                }
 
                 if (fxId.contains("strong")) {
                     brick = new StrongBrick(img.getLayoutX(), img.getLayoutY(), img.getFitWidth(), img.getFitHeight(), img.getImage(), damagedImg);
@@ -180,7 +180,9 @@ public abstract class BaseGameController {
 
     private void update(long now) {
         if (isGameOver) return; // Dừng nếu đã thắng/thua
-        if (movingObstacle != null) movingObstacle.update();
+        for (MovingObstacle obs : obstacles) {
+            obs.update();
+        }
 
         if (moveLeft) {
             double newX = paddleRect.getLayoutX() - paddleSpeed;
@@ -206,7 +208,7 @@ public abstract class BaseGameController {
             }
             handlePaddleCollision(b);
             handleBrickCollisions(b, now);
-            if (movingObstacle != null) handleObstacleCollision(b);
+
 
             // ✅ Sửa lỗi "getHeight" bằng cách dùng biến "sceneHeight"
             if (b.getY() - b.getRadius() > this.sceneHeight) {
@@ -271,48 +273,61 @@ public abstract class BaseGameController {
     }
 
     private void handleObstacleCollision(Ball ball) {
-        if (movingObstacle == null) return;
-        if (!ball.getShape().getBoundsInParent().intersects(movingObstacle.getShape().getBoundsInParent()))
-            return;
+        // Lặp qua TẤT CẢ các vật cản trong danh sách
+        for (MovingObstacle obs : obstacles) {
 
-        double ballX = ball.getX();
-        double ballY = ball.getY();
-        double radius = ball.getRadius();
+            // 1. Kiểm tra va chạm với vật cản 'obs'
+            if (ball.getShape().getBoundsInParent().intersects(obs.getShape().getBoundsInParent())) {
 
-        double obsX = movingObstacle.getX();
-        double obsY = movingObstacle.getY();
-        double obsW = movingObstacle.getWidth();
-        double obsH = movingObstacle.getHeight();
+                // 2. ✅ DI CHUYỂN TOÀN BỘ LOGIC VÀO ĐÂY
+                double ballX = ball.getX();
+                double ballY = ball.getY();
+                double radius = ball.getRadius();
 
-        double overlapLeft = (ballX + radius) - obsX;
-        double overlapRight = (obsX + obsW) - (ballX - radius);
-        double overlapTop = (ballY + radius) - obsY;
-        double overlapBottom = (obsY + obsH) - (ballY - radius);
+                // 3. ✅ SỬA LỖI: Dùng 'obs' (vật cản trong vòng lặp), KHÔNG dùng 'movingObstacle'
+                double obsX = obs.getX();
+                double obsY = obs.getY();
+                double obsW = obs.getWidth();
+                double obsH = obs.getHeight();
 
-        double minOverlap = Math.min(Math.min(overlapLeft, overlapRight), Math.min(overlapTop, overlapBottom));
+                // (Toàn bộ logic tính toán va chạm của bạn giữ nguyên)
+                double overlapLeft = (ballX + radius) - obsX;
+                double overlapRight = (obsX + obsW) - (ballX - radius);
+                double overlapTop = (ballY + radius) - obsY;
+                double overlapBottom = (obsY + obsH) - (ballY - radius);
 
-        if (minOverlap == overlapLeft) ball.reflect(-1, 0);
-        else if (minOverlap == overlapRight) ball.reflect(1, 0);
-        else if (minOverlap == overlapTop) ball.reflect(0, -1);
-        else ball.reflect(0, 1);
+                double minOverlap = Math.min(Math.min(overlapLeft, overlapRight), Math.min(overlapTop, overlapBottom));
 
-        double newX = ballX;
-        double newY = ballY;
-        if (minOverlap == overlapLeft) newX = obsX - radius - 1;
-        else if (minOverlap == overlapRight) newX = obsX + obsW + radius + 1;
-        else if (minOverlap == overlapTop) newY = obsY - radius - 1;
-        else newY = obsY + obsH + radius + 1;
+                if (minOverlap == overlapLeft) ball.reflect(-1, 0);
+                else if (minOverlap == overlapRight) ball.reflect(1, 0);
+                else if (minOverlap == overlapTop) ball.reflect(0, -1);
+                else ball.reflect(0, 1);
 
-        ball.setPosition(newX, newY);
+                double newX = ballX;
+                double newY = ballY;
+                if (minOverlap == overlapLeft) newX = obsX - radius - 1;
+                else if (minOverlap == overlapRight) newX = obsX + obsW + radius + 1;
+                else if (minOverlap == overlapTop) newY = obsY - radius - 1;
+                else newY = obsY + obsH + radius + 1;
 
-        if (!balls.isEmpty() && balls.get(0) == ball) {
-            if (ballCircle != null) {
-                ballCircle.setCenterX(ball.getShape().getCenterX());
-                ballCircle.setCenterY(ball.getShape().getCenterY());
+                ball.setPosition(newX, newY);
+
+                // Cập nhật shape (quan trọng cho bóng phụ)
+                if (!balls.isEmpty() && balls.get(0) == ball) {
+                    if (ballCircle != null) {
+                        ballCircle.setCenterX(ball.getShape().getCenterX());
+                        ballCircle.setCenterY(ball.getShape().getCenterY());
+                    }
+                } else {
+                    ball.getShape().setLayoutX(ball.getShape().getLayoutX());
+                }
+
+                // 4. Thoát khỏi hàm sau khi xử lý va chạm ĐẦU TIÊN
+                return;
             }
-        } else {
-            ball.getShape().setLayoutX(ball.getShape().getLayoutX());
         }
+
+        // 5. ❌ PHẦN CODE CŨ BÊN NGOÀI NÀY PHẢI BỊ XÓA
     }
 
     protected void spawnDoubleBall() {

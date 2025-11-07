@@ -47,7 +47,7 @@ public class MenuController {
                 break;
             case 3:
                 fxmlFile = "/RenderView/Level3.fxml"; // (Đảm bảo bạn đã tạo file này)
-                bgPath = "/Images/background_level3.png"; // (Tên ảnh nền mới của bạn)
+                bgPath = "/Images/nenlv3.png"; // (Tên ảnh nền mới của bạn)
                 paddlePath = "/Images/paddle.png";       // (Tạm dùng paddle cũ)
                 break;
             // ⭐⭐⭐⭐⭐⭐⭐⭐⭐
