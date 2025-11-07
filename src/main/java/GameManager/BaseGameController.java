@@ -16,6 +16,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Paint;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
+import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +28,11 @@ public abstract class BaseGameController {
     @FXML protected Rectangle paddleRect;
     @FXML protected Circle ballCircle;
     @FXML protected ImageView obstacle1;
+    @FXML protected Label scoreLabel;
 
     protected final List<Ball> balls = new ArrayList<>();
     protected final List<Brick> bricks = new ArrayList<>();
+    protected int score = 1000;
     protected boolean moveLeft = false;
     protected boolean moveRight = false;
     protected AnimationTimer gameLoop;
@@ -41,13 +44,17 @@ public abstract class BaseGameController {
     protected final List<MovingObstacle> obstacles = new ArrayList<>();
     protected double obstacleSpeed = 3.5;
 
+    protected Image magneticPowerUpImage;
+    private boolean isPaddleMagnetic = false;
+
     protected final List<PowerUp> powerUps = new ArrayList<>();
     protected Image bananaImage;
     protected Image speedImage;
-    protected int score = 0;
+
     protected Image paddleChangeImage;
     protected Image newPaddleImage;
     private Paint originalPaddleFill;
+    protected Image doubleScoreImage;
 
     public void setupLevel(String bgPath, String paddlePath) {
         try {
@@ -108,8 +115,14 @@ public abstract class BaseGameController {
             // 3. Ảnh SKIN MỚI của paddle (Vd: paddlepuc.png)
             newPaddleImage = new Image(getClass().getResource("/Images/paddlechange.png").toExternalForm());
 
+            magneticPowerUpImage = new Image(getClass().getResource("/Images/powerupnamcham.png").toExternalForm());
+            doubleScoreImage = new Image(getClass().getResource("/Images/xutang2.png").toExternalForm());
+
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
+        }
+        if (scoreLabel != null) {
+            scoreLabel.setText("Score: " + this.score);
         }
         resetPositions();
         setupControls();
@@ -197,7 +210,14 @@ public abstract class BaseGameController {
 
         List<Ball> toRemove = new ArrayList<>();
         for (Ball b : new ArrayList<>(balls)) {
-            b.update();
+            if (b.isCaught()) {
+                double newBallX = paddleRect.getLayoutX() + b.getCatchOffset();
+                b.setPosition(newBallX, paddleRect.getLayoutY() - b.getRadius() - 1);
+            }
+            else {
+                // Nếu bóng không dính, cho nó di chuyển tự do
+                b.update();
+            }
 
             handlePaddleCollision(b);
             handleBrickCollisions(b, now);
@@ -221,15 +241,39 @@ public abstract class BaseGameController {
     private void handlePaddleCollision(Ball ball) {
         Node ballNode = ball.getShape();
         if (ball.getDirY() > 0 && ballNode.getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
-            ball.reverseY();
-            double paddleY = paddleRect.getLayoutY();
-            double newY = paddleY - ball.getRadius() - 1;
-            ball.setPosition(ball.getX(), newY);
-            double paddleCenter = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
-            double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0);
-            hitOffset = Math.max(-1, Math.min(1, hitOffset));
-            ball.setDirX(hitOffset);
-            ball.addSmallRandomAngle();
+
+            // --- LOGIC BẮT BÓNG (CỦA BẠN) ---
+            if (isPaddleMagnetic && !ball.isCaught()) {
+                System.out.println("Bóng đã dính!");
+                ball.setCaught(true, paddleRect.getLayoutX());
+                ball.setDirX(0);
+                ball.setDirY(0);
+                double newBallX = paddleRect.getLayoutX() + ball.getCatchOffset();
+                ball.setPosition(newBallX, paddleRect.getLayoutY() - ball.getRadius() - 1);
+
+                PauseTransition timer = new PauseTransition(Duration.seconds(2));
+                timer.setOnFinished(e -> {
+                    System.out.println("Tự động phóng!");
+                    ball.setCaught(false, 0);
+                    double paddleCenter = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
+                    double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0);
+                    hitOffset = Math.max(-1, Math.min(1, hitOffset));
+                    ball.setDirX(hitOffset);
+                    ball.setDirY(-1);
+                });
+                timer.play();
+            }
+            else if(!ball.isCaught()) {
+                ball.reverseY();
+                double paddleY = paddleRect.getLayoutY();
+                double newY = paddleY - ball.getRadius() - 1;
+                ball.setPosition(ball.getX(), newY);
+                double paddleCenter = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
+                double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0);
+                hitOffset = Math.max(-1, Math.min(1, hitOffset));
+                ball.setDirX(hitOffset);
+                ball.addSmallRandomAngle();
+            }
         }
     }
 
@@ -366,7 +410,7 @@ public abstract class BaseGameController {
         if (brick.isDestroyed()) {
             gamePane.getChildren().remove(brick.getShape());
 
-            if (brick instanceof StrongBrick) {
+            if (brick instanceof StrongBrick || brick instanceof NormalBrick) {
                 spawnBanana(brick);
             }
 
@@ -405,15 +449,25 @@ public abstract class BaseGameController {
             overlay.setStyle("-fx-background-color: rgba(0,0,0,0.7);");
             overlay.setPrefSize(paneWidth, paneHeight);
 
-            Label label = new Label(message);
-            label.setStyle("-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white;");
+            // ✅ TẠO 2 NHÃN: 1 cho thông báo, 1 cho điểm
+            Label messageLabel = new Label(message);
+            messageLabel.setStyle("-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white;");
 
-            label.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
-                label.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
-                label.setLayoutY(paneHeight / 2 - newBounds.getHeight() / 2);
+            Label finalScoreLabel = new Label("Final Score: " + this.score);
+            finalScoreLabel.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: gold;");
+
+            // Căn giữa 2 nhãn
+            messageLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
+                messageLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
+                messageLabel.setLayoutY(paneHeight / 2 - 50); // Dịch lên trên 1 chút
             });
 
-            overlay.getChildren().add(label);
+            finalScoreLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
+                finalScoreLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
+                finalScoreLabel.setLayoutY(paneHeight / 2 + 10); // Dịch xuống dưới 1 chút
+            });
+
+            overlay.getChildren().addAll(messageLabel, finalScoreLabel); // Thêm cả 2 nhãn
             gamePane.getChildren().add(overlay);
         });
     }
@@ -428,6 +482,12 @@ public abstract class BaseGameController {
                 break;
             case "PADDLE_CHANGE":
                 imageToSpawn = paddleChangeImage;
+                break;
+            case "MAGNETIC_PADDLE":
+                imageToSpawn = magneticPowerUpImage;
+                break;
+            case "DOUBLE_SCORE":
+                imageToSpawn = doubleScoreImage;
                 break;
         }
         if (imageToSpawn == null) {
@@ -452,7 +512,7 @@ public abstract class BaseGameController {
                 gamePane.getChildren().remove(item.getShape());
                 switch (item.getType()) {
                     case "BANANA":
-                        score += 100;
+                        addScore(100);
                         System.out.println("Hứng được chuối! Điểm: " + score);
                         break;
                     case "SPEED_UP":
@@ -460,6 +520,13 @@ public abstract class BaseGameController {
                         break;
                     case "PADDLE_CHANGE":
                         activatePaddleChange(newPaddleImage, 1.0);
+                        break;
+                    case "MAGNETIC_PADDLE":
+                        activateMagneticPaddle(2.0); // Kích hoạt paddle dính trong 10 giây
+                        break;
+                    case "DOUBLE_SCORE":
+                        System.out.println("EFFECT: Score Doubled!");
+                        addScore(this.score);
                         break;
                 }
             }
@@ -507,5 +574,25 @@ public abstract class BaseGameController {
 
         powerUps.add(banana);
         gamePane.getChildren().add(banana.getShape());
+    }
+    protected void addScore(int pointsToAdd) {
+        this.score += pointsToAdd; // Cộng điểm
+
+        // Cập nhật Label
+        if (scoreLabel != null) {
+            scoreLabel.setText("Score: " + this.score);
+        }
+    }
+    protected void activateMagneticPaddle(double durationSeconds) {
+        System.out.println("EFFECT: Paddle is Magnetic!");
+        isPaddleMagnetic = true;
+
+        // Đặt hẹn giờ để tắt hiệu ứng
+        PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
+        timer.setOnFinished(event -> {
+            System.out.println("EFFECT: Paddle is normal.");
+            isPaddleMagnetic = false;
+        });
+        timer.play();
     }
 }
