@@ -22,7 +22,7 @@ import javafx.util.Duration;
 
 
 public class MenuController {
-    private static final int LEVEL_TO_RUN = 2;
+    private static final int LEVEL_TO_RUN = 3;
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
@@ -45,6 +45,13 @@ public class MenuController {
                 bgPath = "/Images/level2.png";
                 paddlePath = "/Images/paddle.png";
                 break;
+            case 3:
+                fxmlFile = "/RenderView/Level3.fxml"; // (Đảm bảo bạn đã tạo file này)
+                bgPath = "/Images/background_level3.png"; // (Tên ảnh nền mới của bạn)
+                paddlePath = "/Images/paddle.png";       // (Tạm dùng paddle cũ)
+                break;
+            // ⭐⭐⭐⭐⭐⭐⭐⭐⭐
+
             default:
                 showError("Level " + LEVEL_TO_RUN + " không tồn tại!");
                 return;

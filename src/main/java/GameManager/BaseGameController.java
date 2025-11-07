@@ -5,7 +5,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Label; // Thêm import
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -13,22 +13,21 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Paint;
+import javafx.animation.PauseTransition;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-// ✅ Lớp "abstract" (trừu tượng) làm lớp cha
 public abstract class BaseGameController {
 
-    // ✅ "protected" để các lớp con (L1, L2) có thể thấy
     @FXML protected Pane gamePane;
     @FXML protected Pane brickPane;
     @FXML protected Rectangle paddleRect;
     @FXML protected Circle ballCircle;
     @FXML protected ImageView obstacle1;
 
-    // --- Biến logic chung ---
     protected final List<Ball> balls = new ArrayList<>();
     protected final List<Brick> bricks = new ArrayList<>();
     protected boolean moveLeft = false;
@@ -43,13 +42,14 @@ public abstract class BaseGameController {
     protected MovingObstacle movingObstacle = null;
     protected double obstacleSpeed = 3.5;
 
-    // ❌ ĐÃ XÓA: Toàn bộ logic "v2" (paddle_v2, ball_v2, bricks_v2, v.v.)
-    // ❌ ĐÃ XÓA: Toàn bộ logic "nextLevelFile", "isLevelLoading", "showNextLevelScreen", "configureGraphics", "setNextLevel", "applyGraphics"
+    protected final List<PowerUp> powerUps = new ArrayList<>();
+    protected Image bananaImage;
+    protected Image speedImage;
+    protected int score = 0;
+    protected Image paddleChangeImage;
+    protected Image newPaddleImage;
+    private Paint originalPaddleFill;
 
-    /**
-     * ✅ HÀM SETUP MỚI (Đơn giản)
-     * Được gọi bởi Main.java để áp dụng đồ họa và khởi động game.
-     */
     public void setupLevel(String bgPath, String paddlePath) {
         try {
             var bgUrl = getClass().getResource(bgPath);
@@ -74,8 +74,6 @@ public abstract class BaseGameController {
         } catch (Exception e) {
             System.err.println("Lỗi áp dụng đồ họa: " + e.getMessage());
         }
-
-        // Bắt đầu game
         Platform.runLater(() -> {
             if (obstacle1 != null) {
                 double width = (obstacle1.getFitWidth() > 0) ? obstacle1.getFitWidth() : obstacle1.getBoundsInParent().getWidth();
@@ -99,6 +97,25 @@ public abstract class BaseGameController {
             Ball mainBall = new Ball(ballCircle.getRadius(), sceneWidth, sceneHeight);
             mainBall.setPosition(ballCircle.getCenterX(), ballCircle.getCenterY());
             balls.add(mainBall);
+        }
+
+        if (paddleRect != null) {
+            originalPaddleFill = paddleRect.getFill();
+        }
+        try {
+            bananaImage = new Image(getClass().getResource("/Images/banana.png").toExternalForm());
+
+            // 1. Ảnh RƠI cho Tăng tốc (Vd: speedPowerup.jpg)
+            speedImage = new Image(getClass().getResource("/Images/speedPowerup.jpg").toExternalForm());
+
+            // 2. Ảnh RƠI cho Đổi Paddle (Tạo 1 ảnh mới, vd: paddle_powerup.png)
+            paddleChangeImage = new Image(getClass().getResource("/Images/1.png").toExternalForm());
+
+            // 3. Ảnh SKIN MỚI của paddle (Vd: paddlepuc.png)
+            newPaddleImage = new Image(getClass().getResource("/Images/paddlepuc.png").toExternalForm());
+
+        } catch (Exception e) {
+            System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
         }
         resetPositions();
         setupControls();
@@ -138,6 +155,7 @@ public abstract class BaseGameController {
                     if (fxId.contains("doubleball")) nb.setType("doubleBall"); // Gán type
                     brick = nb;
                 }
+                brick.setFxId(fxId);
                 bricks.add(brick);
                 gamePane.getChildren().add(brick.getShape());
                 img.setVisible(false);
@@ -199,6 +217,7 @@ public abstract class BaseGameController {
             gamePane.getChildren().remove(b.getShape());
             balls.remove(b);
         }
+        updatePowerUps();
         checkLevelComplete();
         checkGameOver();
     }
@@ -292,7 +311,6 @@ public abstract class BaseGameController {
                 ballCircle.setCenterY(ball.getShape().getCenterY());
             }
         } else {
-            // ensure layout updated for extra ball shape
             ball.getShape().setLayoutX(ball.getShape().getLayoutX());
         }
     }
@@ -324,11 +342,20 @@ public abstract class BaseGameController {
         isGameOver = false;
     }
     protected void onBrickHit(Brick brick, Ball ball) {
+
         brick.takeHit();
-        if (brick.isDestroyed() && "doubleBall".equals(brick.getType())) {
-            spawnDoubleBall();
+
+        if (brick.isDestroyed()) {
+            gamePane.getChildren().remove(brick.getShape());
+
+            if (brick instanceof StrongBrick) {
+                spawnBanana(brick);
+            }
+
+            if ("doubleBall".equals(brick.getType())) {
+                spawnDoubleBall();
+            }
         }
-        //  cho "2xMoney"
     }
 
     private void checkLevelComplete() {
@@ -371,5 +398,96 @@ public abstract class BaseGameController {
             overlay.getChildren().add(label);
             gamePane.getChildren().add(overlay);
         });
+    }
+    protected void spawnPowerUp(Brick brick, String type) {
+        Image imageToSpawn = null;
+        switch (type) {
+            case "BANANA":
+                imageToSpawn = bananaImage;
+                break;
+            case "SPEED_UP":
+                imageToSpawn = speedImage;
+                break;
+            case "PADDLE_CHANGE":
+                imageToSpawn = paddleChangeImage;
+                break;
+        }
+        if (imageToSpawn == null) {
+            System.err.println("Không tìm thấy ảnh cho " + type);
+            return;
+        }
+
+        double x = brick.getShape().getLayoutX() + brick.getShape().getFitWidth() / 2 - 15;
+        double y = brick.getShape().getLayoutY() + brick.getShape().getFitHeight() / 2;
+
+        PowerUp item = new PowerUp(imageToSpawn, x, y, type); // Truyền type vào
+        powerUps.add(item);
+        gamePane.getChildren().add(item.getShape());
+    }
+
+    private void updatePowerUps() {
+        for (PowerUp item : new ArrayList<>(powerUps)) {
+            item.update();
+
+            if (item.getShape().getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
+                item.setCollected();
+                gamePane.getChildren().remove(item.getShape());
+                switch (item.getType()) {
+                    case "BANANA":
+                        score += 100;
+                        System.out.println("Hứng được chuối! Điểm: " + score);
+                        break;
+                    case "SPEED_UP":
+                        activateSpeedUp(5);
+                        break;
+                    case "PADDLE_CHANGE":
+                        activatePaddleChange(newPaddleImage, 10.0);
+                        break;
+                }
+            }
+            if (item.isCollected() || item.isOutOfScreen(this.sceneHeight)) {
+                powerUps.remove(item);
+            }
+        }
+    }
+
+    protected void activateSpeedUp(double durationSeconds) {
+        System.out.println("EFFECT: Ball Speed Up!");
+        for (Ball ball : balls) {
+            ball.multiplySpeed(2.0);
+        }
+        PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
+        timer.setOnFinished(event -> {
+            System.out.println("EFFECT: Ball Speed Reset.");
+            for (Ball ball : balls) {
+                ball.resetSpeed();
+            }
+        });
+        timer.play();
+    }
+
+    protected void activatePaddleChange(Image newImage, double durationSeconds) {
+        System.out.println("EFFECT: Paddle Change!");
+        paddleRect.setFill(new ImagePattern(newImage));
+
+        // Đặt hẹn giờ để trả lại skin cũ
+        PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
+        timer.setOnFinished(event -> {
+            System.out.println("EFFECT: Paddle Restored.");
+            paddleRect.setFill(originalPaddleFill); // Dùng lại skin gốc đã lưu
+        });
+        timer.play();
+    }
+    protected void spawnBanana(Brick brick) {
+        if (bananaImage == null) return;
+
+        double x = brick.getShape().getLayoutX() + brick.getShape().getFitWidth() / 2 - 15;
+        double y = brick.getShape().getLayoutY() + brick.getShape().getFitHeight() / 2;
+
+        // ✅ SỬA DÒNG NÀY: Thêm "BANANA" làm tham số thứ tư
+        PowerUp banana = new PowerUp(bananaImage, x, y, "BANANA");
+
+        powerUps.add(banana);
+        gamePane.getChildren().add(banana.getShape());
     }
 }
