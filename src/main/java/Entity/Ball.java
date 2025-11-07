@@ -15,6 +15,8 @@ public class Ball extends MovableObject {
     private static final double MIN_SPEED = 2.5;
     private static final double MAX_SPEED = 5;
 
+    private double originalSpeed = -1;
+
     public Ball(double radius, double sceneWidth, double sceneHeight) {
         super(sceneWidth / 2, sceneHeight / 2, radius * 2, radius * 2);
         this.sceneWidth = sceneWidth;
@@ -109,5 +111,18 @@ public class Ball extends MovableObject {
     public double getSpeed() { return speed; }
     public void setSpeed(double s) {
         this.speed = Math.max(MIN_SPEED, Math.min(MAX_SPEED, s));
+    }
+    public void multiplySpeed(double multiplier) {
+        // Chỉ lưu tốc độ gốc lần đầu tiên
+        if (originalSpeed == -1) {
+            originalSpeed = getSpeed(); // Giả sử bạn có hàm getSpeed()
+        }
+        setSpeed(originalSpeed * multiplier); // Giả sử bạn có hàm setSpeed()
+    }
+    public void resetSpeed() {
+        if (originalSpeed != -1) {
+            setSpeed(originalSpeed);
+            originalSpeed = -1; // Reset lại
+        }
     }
 }
