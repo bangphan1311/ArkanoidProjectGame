@@ -82,12 +82,12 @@
                                 <Image url="@../Images/double.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="doubleBall13" fitHeight="47.0" fitWidth="85.0" layoutX="114.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doubleBall13" fitHeight="47.0" fitWidth="85.0" layoutX="115.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Images/double.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="doubleBall14" fitHeight="47.0" fitWidth="85.0" layoutX="539.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doubleBall14" fitHeight="47.0" fitWidth="85.0" layoutX="539.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Images/double.png" />
                             </image>
@@ -142,7 +142,7 @@
                         <Image url="@../Images/paddle%20co.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="speedup_11" fitHeight="47.0" fitWidth="85.0" layoutX="202.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="speedup_11" fitHeight="47.0" fitWidth="85.0" layoutX="205.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/speedd.png" />
                      </image>
@@ -182,12 +182,12 @@
                         <Image url="@../Images/paddle%20co.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="strong111114111" fitHeight="48.0" fitWidth="85.0" layoutX="284.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="strong111114111" fitHeight="48.0" fitWidth="85.0" layoutX="284.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/brick_strong.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="strong1111143" fitHeight="48.0" fitWidth="85.0" layoutX="369.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="strong1111143" fitHeight="48.0" fitWidth="85.0" layoutX="369.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/brick_strong.png" />
                      </image>
@@ -217,7 +217,7 @@
                         <Image url="@../Images/bricktrong.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="speedup_111" fitHeight="47.0" fitWidth="85.0" layoutX="456.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="speedup_111" fitHeight="47.0" fitWidth="85.0" layoutX="456.0" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Images/speedd.png" />
                      </image>

@@ -16,16 +16,13 @@ public class Ball extends MovableObject {
     private static final double MAX_SPEED = 5;
 
     private double originalSpeed = -1;
+    private long lastCollisionTime = 0;
 
-    public Ball(double radius, double sceneWidth, double sceneHeight) {
-        super(sceneWidth / 2, sceneHeight / 2, radius * 2, radius * 2);
+    public Ball(Circle shape, double sceneWidth, double sceneHeight) {
+        super(shape.getCenterX(), shape.getCenterY(), shape.getRadius() * 2, shape.getRadius() * 2);
+        this.ballShape = shape; // Không tạo mới, mà gán từ tham số
         this.sceneWidth = sceneWidth;
         this.sceneHeight = sceneHeight;
-
-        // Khởi tạo đúng vị trí khớp FXML
-        ballShape = new Circle(radius, Color.RED);
-        ballShape.setCenterX(sceneWidth / 2);
-        ballShape.setCenterY(sceneHeight / 2 + 50);
     }
 
     public Circle getShape() {
@@ -124,5 +121,12 @@ public class Ball extends MovableObject {
             setSpeed(originalSpeed);
             originalSpeed = -1; // Reset lại
         }
+    }
+    public long getLastCollisionTime() {
+        return lastCollisionTime;
+    }
+
+    public void setLastCollisionTime(long time) {
+        this.lastCollisionTime = time;
     }
 }
