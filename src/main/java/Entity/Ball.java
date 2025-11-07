@@ -17,6 +17,8 @@ public class Ball extends MovableObject {
 
     private double originalSpeed = -1;
     private long lastCollisionTime = 0;
+    private boolean isCaught = false;
+    private double catchOffset = 0;
 
     public Ball(Circle shape, double sceneWidth, double sceneHeight) {
         super(shape.getCenterX(), shape.getCenterY(), shape.getRadius() * 2, shape.getRadius() * 2);
@@ -53,6 +55,7 @@ public class Ball extends MovableObject {
 
     @Override
     public void update() {
+        if (isCaught) return;
         move();
     }
 
@@ -128,5 +131,25 @@ public class Ball extends MovableObject {
 
     public void setLastCollisionTime(long time) {
         this.lastCollisionTime = time;
+    }
+    public boolean isCaught() {
+        return isCaught;
+    }
+
+    public void setCaught(boolean caught, double paddleX) {
+        this.isCaught = caught;
+        if (caught) {
+            this.catchOffset = getX() - paddleX;
+            this.dirX = 0;
+            this.dirY = 0;
+        } else {
+            if (dirY == 0) dirY = -1;
+            if (dirX == 0) dirX = (Math.random() < 0.5) ? -1 : 1;
+            normalizeDirection();
+        }
+    }
+
+    public double getCatchOffset() {
+        return catchOffset;
     }
 }
