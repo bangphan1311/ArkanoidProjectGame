@@ -1,10 +1,8 @@
-package GameManager;
+package GameManager.Menu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
@@ -13,8 +11,6 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
-
-import java.io.IOException;
 
 public class ExitController {
 

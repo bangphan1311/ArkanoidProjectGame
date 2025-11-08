@@ -1,5 +1,7 @@
-package GameManager;
+package GameManager.Menu;
 
+import GameManager.BaseGameController;
+import GameManager.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import javafx.animation.KeyFrame;
@@ -18,32 +19,87 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 
-
 public class MenuController {
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
 
-    // Start Game
+    // ========== START GAME ==========
+    // Option 1: Load specific level via LEVEL_TO_RUN
+    private static final int LEVEL_TO_RUN = 4;
+
     @FXML
     void handleStartGame(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Map.fxml"));
-            Parent root = loader.load();
+        boolean useLevelToRun = false; // true = load level trực tiếp, false = load Map.fxml
+        if (useLevelToRun) {
+            // --- Logic LEVEL_TO_RUN ---
+            String fxmlFile;
+            String bgPath;
+            String paddlePath;
+            switch (LEVEL_TO_RUN) {
+                case 1:
+                    fxmlFile = "/RenderView/Game.fxml";
+                    bgPath = "/Images/level1.png";
+                    paddlePath = "/Images/paddle.png";
+                    break;
+                case 2:
+                    fxmlFile = "/RenderView/Level2.fxml";
+                    bgPath = "/Images/level2.png";
+                    paddlePath = "/Images/paddle.png";
+                    break;
+                case 3:
+                    fxmlFile = "/RenderView/Level3.fxml";
+                    bgPath = "/Images/nenlv3.png";
+                    paddlePath = "/Images/paddle.png";
+                    break;
+                case 4:
+                    fxmlFile = "/RenderView/Level4.fxml";
+                    bgPath = "/Images/level4.jpg";
+                    paddlePath = "/Images/paddle.png";
+                    break;
+                default:
+                    showError("Level " + LEVEL_TO_RUN + " không tồn tại!");
+                    return;
+            }
 
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Select Level");
-            stage.show();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+                Parent root = loader.load();
 
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-            showError("Lỗi khi load Map.fxml:\n" + ioe.getMessage());
+                BaseGameController controller = loader.getController();
+                controller.setupLevel(bgPath, paddlePath);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Arkanoid - Level " + LEVEL_TO_RUN);
+                stage.show();
+                root.requestFocus();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                showError("Lỗi khi tải level FXML: " + fxmlFile + "\n" + e.getMessage());
+            }
+
+        } else {
+            // --- Logic Map.fxml ---
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Map.fxml"));
+                Parent root = loader.load();
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Select Level");
+                stage.show();
+
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+                showError("Lỗi khi load Map.fxml:\n" + ioe.getMessage());
+            }
         }
     }
 
-
-    // Instructions
+    // ========== INSTRUCTIONS ==========
     @FXML
     void handleInstructions(ActionEvent event) {
         try {
@@ -62,7 +118,7 @@ public class MenuController {
         }
     }
 
-    // High Scores
+    // ========== HIGH SCORES ==========
     @FXML
     void handleHighScores(ActionEvent event) {
         try {
@@ -80,7 +136,7 @@ public class MenuController {
         }
     }
 
-    // Settings
+    // ========== SETTINGS ==========
     @FXML
     void handleSettings(ActionEvent event) {
         try {
@@ -96,7 +152,7 @@ public class MenuController {
         }
     }
 
-    // Exit
+    // ========== EXIT ==========
     @FXML
     void handleExit(ActionEvent event) {
         try {
@@ -122,8 +178,7 @@ public class MenuController {
         a.showAndWait();
     }
 
-    // hiệu ứng
-
+    // ========== HOVER EFFECT ==========
     @FXML
     public void initialize() {
         addHoverAnimation(startButton);
@@ -134,19 +189,16 @@ public class MenuController {
     }
 
     private void addHoverAnimation(Button button) {
-        // di chuột vào
         button.setOnMouseEntered(e -> {
             shakeButton(button);
             button.setStyle("-fx-effect: dropshadow(three-pass-box, yellow, 10, 0.5, 0, 0);");
         });
 
-        // di chuột ra
         button.setOnMouseExited(e -> {
             button.setTranslateX(0);
             button.setStyle("");
         });
     }
-
 
     private void shakeButton(Button button) {
         Timeline timeline = new Timeline(

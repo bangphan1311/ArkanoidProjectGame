@@ -1,4 +1,4 @@
-package GameManager;
+package GameManager.Menu;
 
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
@@ -10,14 +10,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
-import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import java.io.IOException;
-import javafx.animation.RotateTransition;
 
 public class InstructionsController {
 

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth=".0" style="-fx-background-image: url('/Images/backgroundhighscores.png');                    -fx-background-size: cover;                    -fx-background-position: center center;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.HighScoresController">
+<AnchorPane prefHeight="500.0" prefWidth=".0" style="-fx-background-image: url('/Images/backgroundhighscores.png');                    -fx-background-size: cover;                    -fx-background-position: center center;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Menu.HighScoresController">
    <ImageView fitHeight="564.0" fitWidth="817.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@../Images/backgroundhighscores.png" />

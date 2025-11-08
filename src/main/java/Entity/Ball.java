@@ -15,15 +15,16 @@ public class Ball extends MovableObject {
     private static final double MIN_SPEED = 2.5;
     private static final double MAX_SPEED = 5;
 
-    public Ball(double radius, double sceneWidth, double sceneHeight) {
-        super(sceneWidth / 2, sceneHeight / 2, radius * 2, radius * 2);
+    private double originalSpeed = -1;
+    private long lastCollisionTime = 0;
+    private boolean isCaught = false;
+    private double catchOffset = 0;
+
+    public Ball(Circle shape, double sceneWidth, double sceneHeight) {
+        super(shape.getCenterX(), shape.getCenterY(), shape.getRadius() * 2, shape.getRadius() * 2);
+        this.ballShape = shape; // Không tạo mới, mà gán từ tham số
         this.sceneWidth = sceneWidth;
         this.sceneHeight = sceneHeight;
-
-        // Khởi tạo đúng vị trí khớp FXML
-        ballShape = new Circle(radius, Color.RED);
-        ballShape.setCenterX(sceneWidth / 2);
-        ballShape.setCenterY(sceneHeight / 2 + 50);
     }
 
     public Circle getShape() {
@@ -54,6 +55,7 @@ public class Ball extends MovableObject {
 
     @Override
     public void update() {
+        if (isCaught) return;
         move();
     }
 
@@ -109,5 +111,45 @@ public class Ball extends MovableObject {
     public double getSpeed() { return speed; }
     public void setSpeed(double s) {
         this.speed = Math.max(MIN_SPEED, Math.min(MAX_SPEED, s));
+    }
+    public void multiplySpeed(double multiplier) {
+        // Chỉ lưu tốc độ gốc lần đầu tiên
+        if (originalSpeed == -1) {
+            originalSpeed = getSpeed(); // Giả sử bạn có hàm getSpeed()
+        }
+        setSpeed(originalSpeed * multiplier); // Giả sử bạn có hàm setSpeed()
+    }
+    public void resetSpeed() {
+        if (originalSpeed != -1) {
+            setSpeed(originalSpeed);
+            originalSpeed = -1; // Reset lại
+        }
+    }
+    public long getLastCollisionTime() {
+        return lastCollisionTime;
+    }
+
+    public void setLastCollisionTime(long time) {
+        this.lastCollisionTime = time;
+    }
+    public boolean isCaught() {
+        return isCaught;
+    }
+
+    public void setCaught(boolean caught, double paddleX) {
+        this.isCaught = caught;
+        if (caught) {
+            this.catchOffset = getX() - paddleX;
+            this.dirX = 0;
+            this.dirY = 0;
+        } else {
+            if (dirY == 0) dirY = -1;
+            if (dirX == 0) dirX = (Math.random() < 0.5) ? -1 : 1;
+            normalizeDirection();
+        }
+    }
+
+    public double getCatchOffset() {
+        return catchOffset;
     }
 }

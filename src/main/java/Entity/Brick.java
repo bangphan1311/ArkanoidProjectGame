@@ -10,6 +10,7 @@ public abstract class Brick {
     public String type;
     protected Image normalImage;
     protected Image damagedImage;
+    protected String fxId;
 
     public Brick(double x, double y, double width, double height, Image image, int hitPoints, String type) {
         this.normalImage = image;
@@ -53,5 +54,16 @@ public abstract class Brick {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getFxId() {
+        return fxId;
+    }
+
+    public void setFxId(String fxId) {
+        this.fxId = fxId;
+    }
+    public int getHitPoints() {
+        return this.hitPoints;
     }
 }
