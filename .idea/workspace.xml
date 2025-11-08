@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="tich hop cac button o map khi an level hien level day">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="sua do hoa level 1">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level5.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level6.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -472,7 +475,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762577894370</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="sua do hoa level 1">
+      <option name="closed" value="true" />
+      <created>1762578140748</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1762578140748</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thiet ke, chinh sua khi bam Instructions" />
     <MESSAGE value="update exit" />
     <MESSAGE value="thiet ke, chinh sua phan settings" />
     <MESSAGE value="update settings ( them on/ off va hieu ung, background)" />
@@ -515,7 +525,8 @@
     <MESSAGE value="fix loi va update phan map" />
     <MESSAGE value="cap nhat cac file code, gop code tu nhanh develop sang, fix loi" />
     <MESSAGE value="tich hop cac button o map khi an level hien level day" />
-    <option name="LAST_COMMIT_MESSAGE" value="tich hop cac button o map khi an level hien level day" />
+    <MESSAGE value="sua do hoa level 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="sua do hoa level 1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
