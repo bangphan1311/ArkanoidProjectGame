@@ -4,55 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="lam tau di chuyen, thanh di chuyen cho level 5">
-      <change afterPath="$PROJECT_DIR$/src/main/data/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level2Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level3Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level4Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level4Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level6Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level6Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundpage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/kiem1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/kiem1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/kiem2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/kiem2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/pngtree-a-set-of-buttons-for-gaming-interfaces-and-applications-and-websites-png-image_4991025.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/tauvutru1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/tauvutru1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/tauvutru2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/tauvutru2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/thanhlv5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/thanhlv5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/paddledan.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/paddledan.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/slow.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/slow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/sloww.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/sloww.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level2Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level3Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level3Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level4Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level4Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level5Controller$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level5Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level5Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level6Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level6Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Background/backgroundpage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/kiem1.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/Entity/kiem1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/kiem2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/Entity/kiem2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/pngtree-a-set-of-buttons-for-gaming-interfaces-and-applications-and-websites-png-image_4991025.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/tauvutru1.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/Entity/tauvutru1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/tauvutru2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/Entity/tauvutru2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/thanhlv5.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/Entity/thanhlv5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/PowerUp/paddledan.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/PowerUp/paddledan.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/PowerUp/slow.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/PowerUp/slow.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/PowerUp/sloww.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Images/PowerUp/sloww.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="lam tau di chuyen, thanh di chuyen cho level 5" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
