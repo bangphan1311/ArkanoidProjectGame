@@ -22,15 +22,12 @@ public class MenuController {
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
-
-    // ========== START GAME ==========
     private static final int LEVEL_TO_RUN = 5;
 
     @FXML
     void handleStartGame(ActionEvent event) {
-        boolean useLevelToRun = false; // true = load level trực tiếp, false = load Map.fxml
+        boolean useLevelToRun = false;
         if (useLevelToRun) {
-            // --- Logic LEVEL_TO_RUN ---
             String fxmlFile;
             String bgPath;
             String paddlePath;
@@ -57,7 +54,12 @@ public class MenuController {
                     break;
                 case 5:
                     fxmlFile = "/RenderView/Level/Level5.fxml";
-                    bgPath = "/Images/MapLevel/level4.png";
+                    bgPath = "/Images/MapLevel/level5.png";
+                    paddlePath = "/Images/Entity/paddle.png";
+                    break;
+                case 6:
+                    fxmlFile = "/RenderView/Level/Level6.fxml";
+                    bgPath = "/Images/MapLevel/level6.png";
                     paddlePath = "/Images/Entity/paddle.png";
                     break;
                 default:
@@ -85,7 +87,6 @@ public class MenuController {
             }
 
         } else {
-            // --- Logic Map.fxml ---
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Map.fxml"));
                 Parent root = loader.load();
@@ -95,7 +96,6 @@ public class MenuController {
                 stage.setTitle("Select Level");
                 stage.show();
 
-                // căn giữa
                 javafx.geometry.Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
                 stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
                 stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
