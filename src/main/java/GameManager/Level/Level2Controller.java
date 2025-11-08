@@ -4,7 +4,7 @@ import Entity.Ball;
 import Entity.Brick;
 import GameManager.BaseGameController;
 
-public class Level2Controller extends BaseGameController {
+public class Level2Controller extends Level1Controller {
     @Override
     protected void onBrickHit(Brick brick, Ball ball) {
         if ("2xMoney".equals(brick.getType())) {

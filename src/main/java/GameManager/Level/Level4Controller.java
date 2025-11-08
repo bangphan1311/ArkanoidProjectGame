@@ -7,7 +7,7 @@ import GameManager.BaseGameController;
 /**
  * Controller CHỈ DÀNH RIÊNG cho Level 4.
  */
-public class Level4Controller extends BaseGameController {
+public class Level4Controller extends Level3Controller {
 
     @Override
     protected void onBrickHit(Brick brick, Ball ball) {
