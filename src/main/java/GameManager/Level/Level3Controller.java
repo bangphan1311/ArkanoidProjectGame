@@ -5,7 +5,7 @@ import Entity.Brick;
 import GameManager.BaseGameController;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-public class Level3Controller extends BaseGameController {
+public class Level3Controller extends Level2Controller {
 
     private double originalPaddleWidth;
     private boolean isShrunk = false;

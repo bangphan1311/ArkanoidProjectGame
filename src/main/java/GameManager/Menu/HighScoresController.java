@@ -17,7 +17,11 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
-import java.io.IOException;
+
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.*;
 
 
 public class HighScoresController {
@@ -34,18 +38,24 @@ public class HighScoresController {
     @FXML
     private Button backButton;
 
+    private final Path highscoreFile = Path.of("src/main/data/highscores.txt");
+
     @FXML
     public void initialize() {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("score"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("PLAYER NAME"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("SCORE"));
 
-        // 0 có dữ liệu , bảng rỗng
-        ObservableList<ScoreEntry> data = FXCollections.observableArrayList();
+        // Load dữ liệu từ file
+        List<ScoreEntry> scores = loadHighScores();
+        scores.sort((a, b) -> b.getScore() - a.getScore()); // giảm dần
+        if (scores.size() > 10) scores = scores.subList(0, 10); // Top 10
 
+        ObservableList<ScoreEntry> data = FXCollections.observableArrayList(scores);
         scoreTable.setItems(data);
+
         scoreTable.setPlaceholder(new javafx.scene.control.Label("Chưa có điểm nào được ghi nhận!"));
 
-        addHoverEffect(backButton);  // hiệu ứg
+        addHoverEffect(backButton);  // hiệu ứng nút
     }
 
     // back to menu
@@ -102,6 +112,42 @@ public class HighScoresController {
             button.setTranslateX(0);
             button.setStyle(normalStyle); // trở lại style gốc (không xóa trắng)
         });
+    }
+
+    // đọc file highscores.txt
+    private List<ScoreEntry> loadHighScores() {
+        List<ScoreEntry> list = new ArrayList<>();
+        if (!Files.exists(highscoreFile)) return list;
+
+        try (BufferedReader br = Files.newBufferedReader(highscoreFile)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length == 2) {
+                    String name = parts[0];
+                    int score = Integer.parseInt(parts[1]);
+                    list.add(new ScoreEntry(name, score));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // ghi điểm mới vào file
+    public void saveScore(String name, int score) {
+        try {
+            Files.createDirectories(highscoreFile.getParent()); // tạo thư mục nếu chưa có
+            try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
+                    java.nio.file.StandardOpenOption.CREATE,
+                    java.nio.file.StandardOpenOption.APPEND)) {
+                bw.write(name + ";" + score);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // lớp phụ để lưu dữ liệu điểm

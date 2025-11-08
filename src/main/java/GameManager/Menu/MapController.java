@@ -42,12 +42,12 @@ public class MapController {
 
     @FXML
     private void handleLevel5() {
-        loadLevel("/RenderView/Level/Level5.fxml", "/Images/level5.jpg", "/Images/Entity/paddle.png", "Level 5");
+        loadLevel("/RenderView/Level/Level5.fxml", "/Images/MapLevel/level5.png", "/Images/Entity/paddle.png", "Level 5");
     }
 
     @FXML
     private void handleLevel6() {
-        loadLevel("/RenderView/Level/Level6.fxml", "/Images/level6.jpg", "/Images/Entity/paddle.png", "Level 6");
+        loadLevel("/RenderView/Level/Level6.fxml", "/Images/MapLevel/level6.png", "/Images/Entity/paddle.png", "Level 6");
     }
 
     //  Hàm tiện ích load level
@@ -92,22 +92,16 @@ public class MapController {
         shake.setAutoReverse(true);
         shake.setCycleCount(6);
         shake.play();
-
-        // Hiệu ứng sáng
         node.setEffect(new Glow(0.6));
     }
 
     @FXML
     private void onExit(MouseEvent event) {
         Node node = (Node) event.getSource();
-
-        // Trả về kích thước ban đầu
         ScaleTransition scale = new ScaleTransition(Duration.millis(200), node);
         scale.setToX(1.0);
         scale.setToY(1.0);
         scale.play();
-
-        // Tắt hiệu ứng sáng
         node.setEffect(null);
     }
 }
