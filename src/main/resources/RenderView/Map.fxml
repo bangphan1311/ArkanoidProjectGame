@@ -5,25 +5,19 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="768.0" prefWidth="932.0"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GameManager.MapController">
+<AnchorPane prefHeight="618.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.MapController">
 
     <!-- background map -->
-    <ImageView fitHeight="768" fitWidth="932" preserveRatio="false">
+    <ImageView fitHeight="700.0" fitWidth="900.0" preserveRatio="false">
         <image>
             <Image url="@../Images/map.png" />
         </image>
     </ImageView>
 
     <!-- level 1 -->
-    <Button fx:id="level1Button" layoutX="90" layoutY="80" onAction="#handleLevel1"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level1Button" layoutX="90" layoutY="80" onAction="#handleLevel1" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fx:id="level1Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true"
-                       translateX="-60.0" translateY="-50.0">
+            <ImageView fx:id="level1Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true" translateX="-80.0" translateY="-70.0">
                 <image>
                     <Image url="@../Images/lv1.png" />
                 </image>
@@ -32,12 +26,9 @@
     </Button>
 
     <!-- level 2 -->
-    <Button fx:id="level2Button" layoutX="380.0" layoutY="280.0" onAction="#handleLevel2"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level2Button" layoutX="380.0" layoutY="280.0" onAction="#handleLevel2" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fx:id="level2Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true"
-                       translateX="-80.0" translateY="-120.0">
+            <ImageView fx:id="level2Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-130.0" translateY="-160.0">
                 <image>
                     <Image url="@../Images/lv2.png" />
                 </image>
@@ -46,12 +37,9 @@
     </Button>
 
     <!-- level 3 -->
-    <Button fx:id="level3Button" layoutX="160" layoutY="520" onAction="#handleLevel3"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level3Button" layoutX="160" layoutY="520" onAction="#handleLevel3" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                       translateX="-60.0" translateY="-90.0">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" translateX="-85.0" translateY="-200.0">
                 <image>
                     <Image url="@../Images/lv3.png" />
                 </image>
@@ -60,12 +48,9 @@
     </Button>
 
     <!-- level 4 -->
-    <Button fx:id="level4Button" layoutX="580" layoutY="360" onAction="#handleLevel4"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level4Button" layoutX="580" layoutY="360" onAction="#handleLevel4" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fx:id="level4Image" fitHeight="180.0" fitWidth="180.0" preserveRatio="true"
-                       translateX="-110.0" translateY="125.0">
+            <ImageView fx:id="level4Image" fitHeight="180.0" fitWidth="180.0" preserveRatio="true" translateX="-200.0">
                 <image>
                     <Image url="@../Images/lv4.png" />
                 </image>
@@ -74,12 +59,9 @@
     </Button>
 
     <!-- level 5 -->
-    <Button fx:id="level5Button" layoutX="760" layoutY="160" onAction="#handleLevel5"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level5Button" layoutX="760" layoutY="160" onAction="#handleLevel5" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fx:id="level5Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true"
-                       translateX="-160.0" translateY="30.0">
+            <ImageView fx:id="level5Image" fitHeight="160.0" fitWidth="160.0" preserveRatio="true" translateX="-250.0" translateY="-20.0">
                 <image>
                     <Image url="@../Images/lv5.png" />
                 </image>
@@ -88,12 +70,9 @@
     </Button>
 
     <!-- level 6 -->
-    <Button fx:id="level6Button" layoutX="740" layoutY="520" onAction="#handleLevel6"
-            onMouseEntered="#onHover" onMouseExited="#onExit"
-            style="-fx-background-color: transparent; -fx-padding: 0;">
+    <Button fx:id="level6Button" layoutX="740.0" layoutY="520.0" onAction="#handleLevel6" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
         <graphic>
-            <ImageView fx:id="level6Image" fitHeight="170.0" fitWidth="170.0" preserveRatio="true"
-                       translateX="32.0" translateY="-450.0">
+            <ImageView fx:id="level6Image" fitHeight="170.0" fitWidth="170.0" preserveRatio="true" translateX="-80.0" translateY="-475.0">
                 <image>
                     <Image url="@../Images/lv6.png" />
                 </image>

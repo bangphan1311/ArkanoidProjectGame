@@ -3,56 +3,84 @@ package GameManager;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.effect.Glow;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class MapController {
 
-    // ===== Các sự kiện click từng level =====
+    @FXML
+    private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button;
+
+    // tích hợp nút =====
     @FXML
     private void handleLevel1() {
-        System.out.println("Level 1 clicked!");
+        loadLevel("/RenderView/Game.fxml", "/Images/level1.png", "/Images/paddle.png", "Level 1");
     }
 
     @FXML
     private void handleLevel2() {
-        System.out.println("Level 2 clicked!");
+        loadLevel("/RenderView/Level2.fxml", "/Images/level2.png", "/Images/paddle.png", "Level 2");
     }
 
     @FXML
     private void handleLevel3() {
-        System.out.println("Level 3 clicked!");
+        loadLevel("/RenderView/Level3.fxml", "/Images/nenlv3.png", "/Images/paddle.png", "Level 3");
     }
 
     @FXML
     private void handleLevel4() {
-        System.out.println("Level 4 clicked!");
+        loadLevel("/RenderView/Level4.fxml", "/Images/level4.jpg", "/Images/paddle.png", "Level 4");
     }
 
     @FXML
     private void handleLevel5() {
-        System.out.println("Level 5 clicked!");
+        loadLevel("/RenderView/Level5.fxml", "/Images/level5.jpg", "/Images/paddle.png", "Level 5");
     }
 
     @FXML
     private void handleLevel6() {
-        System.out.println("Level 6 clicked!");
+        loadLevel("/RenderView/Level6.fxml", "/Images/level6.jpg", "/Images/paddle.png", "Level 6");
     }
 
-    // ===== Hiệu ứng hover =====
+    //  Hàm tiện ích load level
+    private void loadLevel(String fxmlFile, String bgPath, String paddlePath, String title) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+
+            BaseGameController controller = loader.getController();
+            controller.setupLevel(bgPath, paddlePath);
+
+            Stage stage = (Stage) level1Button.getScene().getWindow(); // Lấy stage từ button bất kỳ
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Arkanoid - " + title);
+            stage.show();
+            root.requestFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // hiệu ứng
     @FXML
-    private void onHover(javafx.scene.input.MouseEvent event) {
+    private void onHover(MouseEvent event) {
         Node node = (Node) event.getSource();
 
-        // Hiệu ứng phóng to
+        // Phóng to
         ScaleTransition scale = new ScaleTransition(Duration.millis(200), node);
         scale.setToX(1.15);
         scale.setToY(1.15);
         scale.play();
 
-        // Hiệu ứng rung nhẹ
+        // Rung nhẹ
         TranslateTransition shake = new TranslateTransition(Duration.millis(60), node);
         shake.setByX(5);
         shake.setAutoReverse(true);
@@ -64,7 +92,7 @@ public class MapController {
     }
 
     @FXML
-    private void onExit(javafx.scene.input.MouseEvent event) {
+    private void onExit(MouseEvent event) {
         Node node = (Node) event.getSource();
 
         // Trả về kích thước ban đầu
