@@ -10,7 +10,7 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="GameManager.Menu.SettingsController"
             prefHeight="600" prefWidth="800"
-            style="-fx-background-image: url('/Images/backgroundsettings.png');
+            style="-fx-background-image: url('/Images/Background/backgroundsettings.png');
                    -fx-background-size: cover;
                    -fx-background-position: center center;">
 

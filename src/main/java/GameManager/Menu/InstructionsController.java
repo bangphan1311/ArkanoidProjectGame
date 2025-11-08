@@ -42,7 +42,7 @@ public class InstructionsController {
      * hthi trang theo chỉ số (kèm hiệu ứng lật + mờ dần)
      */
     private void showPage(int page) {
-        String imagePath = "/Images/" + page + ".png";
+        String imagePath = "/Images/Instructions/" + page + ".png";
 
         try {
             Image img = new Image(getClass().getResourceAsStream(imagePath));
