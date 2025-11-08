@@ -5,10 +5,10 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="618.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.MapController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.MapController">
 
     <!-- background map -->
-    <ImageView fitHeight="700.0" fitWidth="900.0" preserveRatio="false">
+    <ImageView fitHeight="694.0" fitWidth="900.0" preserveRatio="false">
         <image>
             <Image url="@../Images/map.png" />
         </image>

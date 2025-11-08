@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="cap nhat cac file code, gop code tu nhanh develop sang, fix loi">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="tich hop cac button o map khi an level hien level day">
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -466,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762576647052</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="tich hop cac button o map khi an level hien level day">
+      <option name="closed" value="true" />
+      <created>1762577894370</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1762577894370</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -484,7 +490,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thiet ke, chinh sua khi bam exit" />
     <MESSAGE value="thiet ke, chinh sua khi bam Instructions" />
     <MESSAGE value="update exit" />
     <MESSAGE value="thiet ke, chinh sua phan settings" />
@@ -509,7 +514,8 @@
     <MESSAGE value="thiet ke, chinh sua map level" />
     <MESSAGE value="fix loi va update phan map" />
     <MESSAGE value="cap nhat cac file code, gop code tu nhanh develop sang, fix loi" />
-    <option name="LAST_COMMIT_MESSAGE" value="cap nhat cac file code, gop code tu nhanh develop sang, fix loi" />
+    <MESSAGE value="tich hop cac button o map khi an level hien level day" />
+    <option name="LAST_COMMIT_MESSAGE" value="tich hop cac button o map khi an level hien level day" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
