@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi va update phan map">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Ball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Brick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/DoubleBallBrick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/GameObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/MovableObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/NormalBrick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/PowerUp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/StrongBrick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/PaddleController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
