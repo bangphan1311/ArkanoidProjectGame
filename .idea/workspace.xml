@@ -4,100 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="cap nhat tat ca do hoa">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="chia lai file cho de nhin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Instructions/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/1up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Instructions/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/2ball.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/2ball.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Instructions/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Instructions/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Instructions/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/PSpeed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/PSpeed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundexit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundexit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundhighscores.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundhighscores.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundpage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundpage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundsettings.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundsettings.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignin.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundsignin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/backgroundsignup.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/backgroundsignup.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/banana.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/banana.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/brichdinh.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Brick/brichdinh.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/brick.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Brick/brick.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/brick_normal.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Brick/brick_normal.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/brick_strong.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Brick/brick_strong.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/brick_strong_damaged.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Brick/brick_strong_damaged.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/choilai.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/choilai.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/demobackground.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Background/demobackground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/double.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/double.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/doubleball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/doublebonus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/fastball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/ghost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/home.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/laserpaddle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/level1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/level1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/level2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/level2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/level4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/level4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/level5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/level5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/level6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/level6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/longpaddle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/lv6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/lv6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/map.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Map/map.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/minionbingo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/minionbingo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/nenlv3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/MapLevel/nenlv3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/paddle co.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/paddle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/paddle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/paddlechange.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/paddlechange.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/paddlepuc.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/paddlepuc.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/page.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/page.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/powerupchanepaddle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/powerupchanepaddle.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/powerupnamcham.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/powerupnamcham.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/pthuy1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/pthuy1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/pthuy2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/pthuy2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/shortpadlle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/slowball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/sp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/sp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/speed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/speedPowerup.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/speedd.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/speedd.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/thanhh.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Entity/thanhh.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/tieptuc.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/tieptuc.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/xutang2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/xutang2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Exit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/HighScores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/HighScores.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Instructions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/LevelComplete.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/LevelComplete.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/SignUp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/doubleball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/doublebonus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/fastball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/ghost.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/laserpaddle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/longpaddle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/paddle co.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/shortpadlle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/slowball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/speed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Images/speedPowerup.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level1Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level2Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level3Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level4Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/MapController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Game.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level5.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level6.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -592,7 +511,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762582059579</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="chia lai file cho de nhin">
+      <option name="closed" value="true" />
+      <created>1762584745104</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1762584745104</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -610,7 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update settings ( them on/ off va hieu ung, background)" />
     <MESSAGE value="thiet ke, chinh sua phan sign in" />
     <MESSAGE value="update signin" />
     <MESSAGE value="thiet ke, chinh sua phan sign up" />
@@ -635,7 +561,8 @@
     <MESSAGE value="sua do hoa level 1" />
     <MESSAGE value="thay doi do hoa cua map" />
     <MESSAGE value="cap nhat tat ca do hoa" />
-    <option name="LAST_COMMIT_MESSAGE" value="cap nhat tat ca do hoa" />
+    <MESSAGE value="chia lai file cho de nhin" />
+    <option name="LAST_COMMIT_MESSAGE" value="chia lai file cho de nhin" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

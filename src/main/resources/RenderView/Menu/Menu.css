@@ -1,11 +1,11 @@
 .root {
-    -fx-background-image: url("../Images/demobackground.png");
+    -fx-background-image: url("/Images/Background/demobackground.png");
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 
 .button {
-    -fx-background-image: url("../Images/banana.png");
+    -fx-background-image: url("/Images/Entity/banana.png");
     -fx-background-size: contain;
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
@@ -17,6 +17,7 @@
     -fx-cursor: hand;
     -fx-transition: all 0.2s ease-in-out;
 }
+
 
 /* di chuột thêm hiệu ứng */
 ..button:hover {

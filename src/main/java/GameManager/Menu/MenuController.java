@@ -91,6 +91,12 @@ public class MenuController {
                 stage.setTitle("Select Level");
                 stage.show();
 
+                // căn giữa
+                javafx.geometry.Rectangle2D screenBounds = javafx.stage.Screen.getPrimary().getVisualBounds();
+                stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);
+                stage.setY((screenBounds.getHeight() - stage.getHeight()) / 2);
+
+
             } catch (IOException ioe) {
                 ioe.printStackTrace();
                 showError("Lỗi khi load Map.fxml:\n" + ioe.getMessage());

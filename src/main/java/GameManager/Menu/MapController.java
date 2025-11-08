@@ -59,16 +59,21 @@ public class MapController {
             BaseGameController controller = loader.getController();
             controller.setupLevel(bgPath, paddlePath);
 
-            Stage stage = (Stage) level1Button.getScene().getWindow(); // Lấy stage từ button bất kỳ
+            Stage stage = (Stage) level1Button.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.setTitle("Arkanoid - " + title);
             stage.show();
+
+            // ⚠️ Đặt ở SAU show()
+            stage.centerOnScreen();
+
             root.requestFocus();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
 
     // hiệu ứng
     @FXML
