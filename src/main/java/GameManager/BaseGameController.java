@@ -49,6 +49,13 @@ public abstract class BaseGameController {
     protected final List<PowerUp> powerUps = new ArrayList<>();
     protected Image bananaImage;
     protected Image speedImage;
+    protected Image slowDownImage;
+    protected Image bombPowerUpImage;
+    protected Image enlargePowerUpImage;
+    private double originalPaddleWidth = -1;
+    private boolean isPaddleAltered = false;
+
+    protected final List<ImageView> staticWalls = new ArrayList<>();
 
     protected Image paddleChangeImage;
     protected Image newPaddleImage;
@@ -105,17 +112,20 @@ public abstract class BaseGameController {
         try {
             bananaImage = new Image(getClass().getResource("/Images/Entity/banana.png").toExternalForm());
 
-            // 1. Ảnh RƠI cho Tăng tốc (Vd: speedPowerup.jpg)
+            // 1. Ảnh RƠI cho Tăng tốc
             speedImage = new Image(getClass().getResource("/Images/PowerUp/PSpeed.png").toExternalForm());
 
-            // 2. Ảnh RƠI cho Đổi Paddle (Tạo 1 ảnh mới, vd: paddle_powerup.png)
+            // 2. Ảnh RƠI cho Đổi Paddle
             paddleChangeImage = new Image(getClass().getResource("/Images/Entity/sp.png").toExternalForm());
 
-            // 3. Ảnh SKIN MỚI của paddle (Vd: paddlepuc.png)
+            // 3. Ảnh SKIN MỚI của paddle
             newPaddleImage = new Image(getClass().getResource("/Images/PowerUp/paddlechange.png").toExternalForm());
 
             magneticPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/powerupnamcham.png").toExternalForm());
             doubleScoreImage = new Image(getClass().getResource("/Images/PowerUp/xutang2.png").toExternalForm());
+            slowDownImage = new Image(getClass().getResource("/Images/PowerUp/sloww.png").toExternalForm());
+            bombPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/bombepup.png").toExternalForm());
+            enlargePowerUpImage = new Image(getClass().getResource("/Images/PowerUp/pupdaira.png").toExternalForm());
 
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
@@ -156,8 +166,13 @@ public abstract class BaseGameController {
                     MovingObstacle obs = new MovingObstacle(img, sceneWidth, obstacleSpeed);
                     obs.setBounds(0, sceneWidth);
                     obstacles.add(obs);
-                    // Không ẩn (setVisible(false)) và không thêm vào list gạch
-                    continue; // Chuyển sang node tiếp theo
+
+                    continue;
+                }
+                else if (fxId.contains("wall")) {
+                    staticWalls.add(img);
+
+                    continue;
                 }
 
                 if (fxId.contains("strong")) {
@@ -191,7 +206,7 @@ public abstract class BaseGameController {
     }
 
     private void update(long now) {
-        if (isGameOver) return; // Dừng nếu đã thắng/thua
+        if (isGameOver) return;
         for (MovingObstacle obs : obstacles) {
             obs.update();
         }
@@ -214,16 +229,17 @@ public abstract class BaseGameController {
                 b.setPosition(newBallX, paddleRect.getLayoutY() - b.getRadius() - 1);
             }
             else {
-                // Nếu bóng không dính, cho nó di chuyển tự do
+
                 b.update();
             }
 
             handlePaddleCollision(b);
             handleBrickCollisions(b, now);
             handleObstacleCollision(b);
+            handleWallCollision(b, now);
 
 
-            // ✅ Sửa lỗi "getHeight" bằng cách dùng biến "sceneHeight"
+
             if (b.getY() - b.getRadius() > this.sceneHeight) {
                 toRemove.add(b);
             }
@@ -241,7 +257,7 @@ public abstract class BaseGameController {
         Node ballNode = ball.getShape();
         if (ball.getDirY() > 0 && ballNode.getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
 
-            // --- LOGIC BẮT BÓNG (CỦA BẠN) ---
+
             if (isPaddleMagnetic && !ball.isCaught()) {
                 System.out.println("Bóng đã dính!");
                 ball.setCaught(true, paddleRect.getLayoutX());
@@ -307,24 +323,16 @@ public abstract class BaseGameController {
     }
 
     private void handleObstacleCollision(Ball ball) {
-        // Lặp qua TẤT CẢ các vật cản trong danh sách
         for (MovingObstacle obs : obstacles) {
-
-            // 1. Kiểm tra va chạm với vật cản 'obs'
             if (ball.getShape().getBoundsInParent().intersects(obs.getShape().getBoundsInParent())) {
-
-                // 2. ✅ DI CHUYỂN TOÀN BỘ LOGIC VÀO ĐÂY
                 double ballX = ball.getX();
                 double ballY = ball.getY();
                 double radius = ball.getRadius();
 
-                // 3. ✅ SỬA LỖI: Dùng 'obs' (vật cản trong vòng lặp), KHÔNG dùng 'movingObstacle'
                 double obsX = obs.getX();
                 double obsY = obs.getY();
                 double obsW = obs.getWidth();
                 double obsH = obs.getHeight();
-
-                // (Toàn bộ logic tính toán va chạm của bạn giữ nguyên)
                 double overlapLeft = (ballX + radius) - obsX;
                 double overlapRight = (obsX + obsW) - (ballX - radius);
                 double overlapTop = (ballY + radius) - obsY;
@@ -345,8 +353,6 @@ public abstract class BaseGameController {
                 else newY = obsY + obsH + radius + 1;
 
                 ball.setPosition(newX, newY);
-
-                // Cập nhật shape (quan trọng cho bóng phụ)
                 if (!balls.isEmpty() && balls.get(0) == ball) {
                     if (ballCircle != null) {
                         ballCircle.setCenterX(ball.getShape().getCenterX());
@@ -355,13 +361,9 @@ public abstract class BaseGameController {
                 } else {
                     ball.getShape().setLayoutX(ball.getShape().getLayoutX());
                 }
-
-                // 4. Thoát khỏi hàm sau khi xử lý va chạm ĐẦU TIÊN
                 return;
             }
         }
-
-        // 5. ❌ PHẦN CODE CŨ BÊN NGOÀI NÀY PHẢI BỊ XÓA
     }
 
     protected void spawnDoubleBall() {
@@ -447,26 +449,22 @@ public abstract class BaseGameController {
             Pane overlay = new Pane();
             overlay.setStyle("-fx-background-color: rgba(0,0,0,0.7);");
             overlay.setPrefSize(paneWidth, paneHeight);
-
-            // ✅ TẠO 2 NHÃN: 1 cho thông báo, 1 cho điểm
             Label messageLabel = new Label(message);
             messageLabel.setStyle("-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white;");
 
             Label finalScoreLabel = new Label("Final Score: " + this.score);
             finalScoreLabel.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: gold;");
-
-            // Căn giữa 2 nhãn
             messageLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
                 messageLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
-                messageLabel.setLayoutY(paneHeight / 2 - 50); // Dịch lên trên 1 chút
+                messageLabel.setLayoutY(paneHeight / 2 - 50);
             });
 
             finalScoreLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
                 finalScoreLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
-                finalScoreLabel.setLayoutY(paneHeight / 2 + 10); // Dịch xuống dưới 1 chút
+                finalScoreLabel.setLayoutY(paneHeight / 2 + 10);
             });
 
-            overlay.getChildren().addAll(messageLabel, finalScoreLabel); // Thêm cả 2 nhãn
+            overlay.getChildren().addAll(messageLabel, finalScoreLabel);
             gamePane.getChildren().add(overlay);
         });
     }
@@ -488,6 +486,12 @@ public abstract class BaseGameController {
             case "DOUBLE_SCORE":
                 imageToSpawn = doubleScoreImage;
                 break;
+            case "SLOW_DOWN": imageToSpawn = slowDownImage;
+                break;
+            case "BOMB": imageToSpawn = bombPowerUpImage;
+                break;
+            case "ENLARGE_PADDLE": imageToSpawn = enlargePowerUpImage;
+                break;
         }
         if (imageToSpawn == null) {
             System.err.println("Không tìm thấy ảnh cho " + type);
@@ -497,7 +501,7 @@ public abstract class BaseGameController {
         double x = brick.getShape().getLayoutX() + brick.getShape().getFitWidth() / 2 - 15;
         double y = brick.getShape().getLayoutY() + brick.getShape().getFitHeight() / 2;
 
-        PowerUp item = new PowerUp(imageToSpawn, x, y, type); // Truyền type vào
+        PowerUp item = new PowerUp(imageToSpawn, x, y, type);
         powerUps.add(item);
         gamePane.getChildren().add(item.getShape());
     }
@@ -521,11 +525,20 @@ public abstract class BaseGameController {
                         activatePaddleChange(newPaddleImage, 1.0);
                         break;
                     case "MAGNETIC_PADDLE":
-                        activateMagneticPaddle(2.0); // Kích hoạt paddle dính trong 10 giây
+                        activateMagneticPaddle(2.0);
                         break;
                     case "DOUBLE_SCORE":
                         System.out.println("EFFECT: Score Doubled!");
                         addScore(this.score);
+                        break;
+                    case "SLOW_DOWN":
+                        activateSlowDown(4);
+                        break;
+                    case "BOMB":
+                        activateBomb();
+                        break;
+                    case "ENLARGE_PADDLE":
+                        activateEnlargePaddle(5.0);
                         break;
                 }
             }
@@ -553,12 +566,10 @@ public abstract class BaseGameController {
     protected void activatePaddleChange(Image newImage, double durationSeconds) {
         System.out.println("EFFECT: Paddle Change!");
         paddleRect.setFill(new ImagePattern(newImage));
-
-        // Đặt hẹn giờ để trả lại skin cũ
         PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
         timer.setOnFinished(event -> {
             System.out.println("EFFECT: Paddle Restored.");
-            paddleRect.setFill(originalPaddleFill); // Dùng lại skin gốc đã lưu
+            paddleRect.setFill(originalPaddleFill);
         });
         timer.play();
     }
@@ -567,17 +578,14 @@ public abstract class BaseGameController {
 
         double x = brick.getShape().getLayoutX() + brick.getShape().getFitWidth() / 2 - 15;
         double y = brick.getShape().getLayoutY() + brick.getShape().getFitHeight() / 2;
-
-        // ✅ SỬA DÒNG NÀY: Thêm "BANANA" làm tham số thứ tư
         PowerUp banana = new PowerUp(bananaImage, x, y, "BANANA");
 
         powerUps.add(banana);
         gamePane.getChildren().add(banana.getShape());
     }
     protected void addScore(int pointsToAdd) {
-        this.score += pointsToAdd; // Cộng điểm
+        this.score += pointsToAdd;
 
-        // Cập nhật Label
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + this.score);
         }
@@ -593,5 +601,68 @@ public abstract class BaseGameController {
             isPaddleMagnetic = false;
         });
         timer.play();
+    }
+    protected void activateSlowDown(double durationSeconds) {
+        System.out.println("EFFECT: Ball Slow Down!");
+        for (Ball ball : balls) {
+            ball.multiplySpeed(0.5);
+        }
+
+        PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
+        timer.setOnFinished(event -> {
+            System.out.println("EFFECT: Ball Speed Reset.");
+            for (Ball ball : balls) {
+                ball.resetSpeed();
+            }
+        });
+        timer.play();
+    }
+    protected void activateBomb() {
+        System.out.println("EFFECT: BOMB ACTIVATED! ");
+        for (Brick brick : new ArrayList<>(bricks)) {
+            if (brick instanceof StrongBrick && !brick.isDestroyed()) {
+                brick.destroy();
+                gamePane.getChildren().remove(brick.getShape());
+            }
+        }
+    }
+    protected void activateEnlargePaddle(double durationSeconds) {
+        if (isPaddleAltered) return;
+
+        System.out.println("EFFECT: Paddle Enlarged!");
+        isPaddleAltered = true;
+        originalPaddleWidth = paddleRect.getWidth();
+        paddleRect.setWidth(originalPaddleWidth * 3);
+
+        PauseTransition timer = new PauseTransition(Duration.seconds(durationSeconds));
+        timer.setOnFinished(event -> {
+            System.out.println("EFFECT: Paddle Restored.");
+            paddleRect.setWidth(originalPaddleWidth);
+            isPaddleAltered = false;
+        });
+        timer.play();
+    }
+    private void handleWallCollision(Ball ball, long now) {
+
+        for (ImageView wall : staticWalls) {
+            Node ballNode = ball.getShape();
+
+            if (ballNode.getBoundsInParent().intersects(wall.getBoundsInParent())) {
+                double ballX = ball.getX(), ballY = ball.getY(), radius = ball.getRadius();
+                double brickX = wall.getLayoutX(), brickY = wall.getLayoutY();
+                double brickW = wall.getFitWidth(), brickH = wall.getFitHeight();
+
+                double overlapLeft = (ballX + radius) - brickX, overlapRight = (brickX + brickW) - (ballX - radius);
+                double overlapTop = (ballY + radius) - brickY, overlapBottom = (brickY + brickH) - (ballY - radius);
+                double minOverlap = Math.min(Math.min(overlapLeft, overlapRight), Math.min(overlapTop, overlapBottom));
+
+                if (minOverlap == overlapLeft) ball.reflect(-1, 0);
+                else if (minOverlap == overlapRight) ball.reflect(1, 0);
+                else if (minOverlap == overlapTop) ball.reflect(0, -1);
+                else ball.reflect(0, 1);
+
+                break;
+            }
+        }
     }
 }
