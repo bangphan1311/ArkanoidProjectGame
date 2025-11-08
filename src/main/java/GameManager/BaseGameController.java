@@ -144,7 +144,7 @@ public abstract class BaseGameController {
         if (brickPane == null) return;
         Image damagedImg = null;
         try {
-            var damagedUrl = getClass().getResource("/Images/Brick/brick_strong_damaged.png");
+            var damagedUrl = getClass().getResource("/Images/Entity/brick_strong_damaged.png");
             if (damagedUrl != null) damagedImg = new Image(damagedUrl.toExternalForm());
         } catch (Exception e) { System.err.println("Không load được ảnh brick damaged: " + e.getMessage()); }
 

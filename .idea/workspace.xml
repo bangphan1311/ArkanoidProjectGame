@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi, tao ban demo level 5 o scenebuilder">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="lam tau di chuyen, thanh di chuyen cho level 5">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Page/choilai.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/choilai.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Page/home.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/Page/home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/powerupchanepaddle.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Images/PowerUp/powerupchanepaddle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -533,7 +539,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762598081775</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="lam tau di chuyen, thanh di chuyen cho level 5">
+      <option name="closed" value="true" />
+      <created>1762599127873</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1762599127873</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -551,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="them show password" />
     <MESSAGE value="cai dat users.txt de luu tru mat khau, ten tai khoan" />
     <MESSAGE value="fix phan settings" />
     <MESSAGE value="them hieu ung cho menu" />
@@ -576,7 +589,8 @@
     <MESSAGE value="fix hien thi" />
     <MESSAGE value="thay doi vi tri file" />
     <MESSAGE value="fix loi, tao ban demo level 5 o scenebuilder" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix loi, tao ban demo level 5 o scenebuilder" />
+    <MESSAGE value="lam tau di chuyen, thanh di chuyen cho level 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="lam tau di chuyen, thanh di chuyen cho level 5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -588,7 +602,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java</url>
-          <line>56</line>
+          <line>72</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

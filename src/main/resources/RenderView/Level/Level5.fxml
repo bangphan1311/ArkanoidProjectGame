@@ -139,7 +139,7 @@
                         <Image url="@../../Images/Entity/brick_strong.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="57.0" fitWidth="93.0" layoutX="656.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="79.0" fitWidth="85.0" layoutX="654.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Images/PowerUp/slow.png" />
                      </image>
@@ -212,11 +212,6 @@
                   <ImageView fx:id="normal11111141119" fitHeight="40.0" fitWidth="70.0" layoutX="62.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Images/Entity/brick.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="100.0" fitWidth="128.0" layoutX="427.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/PowerUp/powerupchanepaddle.png" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="normal111111411181" fitHeight="40.0" fitWidth="70.0" layoutX="515.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true">
