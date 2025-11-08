@@ -51,7 +51,7 @@ public class HighScoresController {
     // back to menu
     @FXML
     void handleBackToMenu(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Menu.fxml"));
         Parent root = loader.load();
 
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

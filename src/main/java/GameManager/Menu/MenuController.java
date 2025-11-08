@@ -1,7 +1,6 @@
 package GameManager.Menu;
 
 import GameManager.BaseGameController;
-import GameManager.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,24 +37,24 @@ public class MenuController {
             String paddlePath;
             switch (LEVEL_TO_RUN) {
                 case 1:
-                    fxmlFile = "/RenderView/Game.fxml";
-                    bgPath = "/Images/level1.png";
-                    paddlePath = "/Images/paddle.png";
+                    fxmlFile = "/RenderView/Level/Level1.fxml";
+                    bgPath = "/Images/MapLevel/level1.png";
+                    paddlePath = "/Images/Entity/paddle.png";
                     break;
                 case 2:
-                    fxmlFile = "/RenderView/Level2.fxml";
-                    bgPath = "/Images/level2.png";
-                    paddlePath = "/Images/paddle.png";
+                    fxmlFile = "/RenderView/Level/Level2.fxml";
+                    bgPath = "/Images/MapLevel/level2.png";
+                    paddlePath = "/Images/Entity/paddle.png";
                     break;
                 case 3:
-                    fxmlFile = "/RenderView/Level3.fxml";
-                    bgPath = "/Images/nenlv3.png";
-                    paddlePath = "/Images/paddle.png";
+                    fxmlFile = "/RenderView/Level/Level3.fxml";
+                    bgPath = "/Images/MapLevel/nenlv3.png";
+                    paddlePath = "/Images/Entity/paddle.png";
                     break;
                 case 4:
-                    fxmlFile = "/RenderView/Level4.fxml";
-                    bgPath = "/Images/level4.jpg";
-                    paddlePath = "/Images/paddle.png";
+                    fxmlFile = "/RenderView/Level/Level4.fxml";
+                    bgPath = "/Images/MapLevel/level4.jpg";
+                    paddlePath = "/Images/Entity/paddle.png";
                     break;
                 default:
                     showError("Level " + LEVEL_TO_RUN + " không tồn tại!");
@@ -84,7 +83,7 @@ public class MenuController {
         } else {
             // --- Logic Map.fxml ---
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Map.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Map.fxml"));
                 Parent root = loader.load();
 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -103,7 +102,7 @@ public class MenuController {
     @FXML
     void handleInstructions(ActionEvent event) {
         try {
-            URL url = getClass().getResource("/RenderView/Instructions.fxml");
+            URL url = getClass().getResource("/RenderView/Menu/Instructions.fxml");
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
 
@@ -122,7 +121,7 @@ public class MenuController {
     @FXML
     void handleHighScores(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/HighScores.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/HighScores.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -140,7 +139,7 @@ public class MenuController {
     @FXML
     void handleSettings(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Settings.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Settings.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -156,7 +155,7 @@ public class MenuController {
     @FXML
     void handleExit(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Exit.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Exit.fxml"));
             Parent root = loader.load();
 
             Stage dialogStage = new Stage();

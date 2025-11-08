@@ -94,7 +94,7 @@ public class SignUpController {
     @FXML
     private void handleGoToSignIn(javafx.event.ActionEvent event) {
         try {
-            URL url = getClass().getResource("/RenderView/SignIn.fxml");
+            URL url = getClass().getResource("/RenderView/Menu/SignIn.fxml");
             FXMLLoader loader = new FXMLLoader(url);
             Scene scene = new Scene(loader.load());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

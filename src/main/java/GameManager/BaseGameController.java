@@ -16,7 +16,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Paint;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
-import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -104,19 +103,19 @@ public abstract class BaseGameController {
 
 
         try {
-            bananaImage = new Image(getClass().getResource("/Images/banana.png").toExternalForm());
+            bananaImage = new Image(getClass().getResource("/Images/Entity/banana.png").toExternalForm());
 
             // 1. Ảnh RƠI cho Tăng tốc (Vd: speedPowerup.jpg)
-            speedImage = new Image(getClass().getResource("/Images/PSpeed.png").toExternalForm());
+            speedImage = new Image(getClass().getResource("/Images/PowerUp/PSpeed.png").toExternalForm());
 
             // 2. Ảnh RƠI cho Đổi Paddle (Tạo 1 ảnh mới, vd: paddle_powerup.png)
-            paddleChangeImage = new Image(getClass().getResource("/Images/sp.png").toExternalForm());
+            paddleChangeImage = new Image(getClass().getResource("/Images/Entity/sp.png").toExternalForm());
 
             // 3. Ảnh SKIN MỚI của paddle (Vd: paddlepuc.png)
-            newPaddleImage = new Image(getClass().getResource("/Images/paddlechange.png").toExternalForm());
+            newPaddleImage = new Image(getClass().getResource("/Images/PowerUp/paddlechange.png").toExternalForm());
 
-            magneticPowerUpImage = new Image(getClass().getResource("/Images/powerupnamcham.png").toExternalForm());
-            doubleScoreImage = new Image(getClass().getResource("/Images/xutang2.png").toExternalForm());
+            magneticPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/powerupnamcham.png").toExternalForm());
+            doubleScoreImage = new Image(getClass().getResource("/Images/PowerUp/xutang2.png").toExternalForm());
 
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
@@ -145,7 +144,7 @@ public abstract class BaseGameController {
         if (brickPane == null) return;
         Image damagedImg = null;
         try {
-            var damagedUrl = getClass().getResource("/Images/brick_strong_damaged.png");
+            var damagedUrl = getClass().getResource("/Images/Brick/brick_strong_damaged.png");
             if (damagedUrl != null) damagedImg = new Image(damagedUrl.toExternalForm());
         } catch (Exception e) { System.err.println("Không load được ảnh brick damaged: " + e.getMessage()); }
 

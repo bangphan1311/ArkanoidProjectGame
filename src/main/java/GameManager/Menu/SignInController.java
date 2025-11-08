@@ -123,7 +123,7 @@ public class SignInController {
             }
 
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Menu.fxml"));
                 Parent root = loader.load();
                 Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
@@ -155,7 +155,7 @@ public class SignInController {
     @FXML
     private void handleGoToSignup(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/SignUp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/SignUp.fxml"));
             Parent root = loader.load();
             Stage stage = (Stage) ((Hyperlink) event.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
