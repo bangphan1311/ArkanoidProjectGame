@@ -21,32 +21,32 @@
                     <children>
                         <ImageView fx:id="normal1" fitHeight="48.0" fitWidth="85.0" layoutX="484.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11" fitHeight="48.0" fitWidth="85.0" layoutX="399.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong11111" fitHeight="48.0" fitWidth="85.0" layoutX="185.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal111111" fitHeight="48.0" fitWidth="85.0" layoutX="162.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal1111111" fitHeight="48.0" fitWidth="85.0" layoutX="417.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal1111112" fitHeight="48.0" fitWidth="85.0" layoutX="247.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="doubleBall1" fitHeight="42.0" fitWidth="85.0" layoutX="357.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
@@ -56,12 +56,12 @@
                         </ImageView>
                         <ImageView fx:id="strong11111111" fitHeight="48.0" fitWidth="85.0" layoutX="527.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong11112121" fitHeight="48.0" fitWidth="85.0" layoutX="709.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="obstacle1" fitHeight="12.0" fitWidth="236.0" layoutX="7.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
@@ -96,47 +96,47 @@
                         </ImageView>
                         <ImageView fx:id="strong111112" fitHeight="48.0" fitWidth="85.0" layoutX="49.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal12" fitHeight="48.0" fitWidth="85.0" layoutX="77.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong111114" fitHeight="48.0" fitWidth="85.0" layoutX="442.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong1111142" fitHeight="48.0" fitWidth="85.0" layoutX="6.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111121" fitHeight="48.0" fitWidth="85.0" layoutX="502.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal1111113" fitHeight="48.0" fitWidth="85.0" layoutX="332.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal1111114" fitHeight="48.0" fitWidth="85.0" layoutX="314.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal1111" fitHeight="48.0" fitWidth="85.0" layoutX="229.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="paddlechange_1" fitHeight="48.0" fitWidth="85.0" layoutX="248.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/bricktrong.png" />
+                                <Image url="@../../Images/Entity/bricktrong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="shrink12" fitHeight="60.0" fitWidth="85.0" layoutX="166.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
@@ -166,17 +166,17 @@
                         </ImageView>
                         <ImageView fx:id="strong1111141" fitHeight="48.0" fitWidth="85.0" layoutX="662.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong11111411" fitHeight="48.0" fitWidth="85.0" layoutX="272.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal111111211" fitHeight="48.0" fitWidth="85.0" layoutX="587.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="shrink121" fitHeight="60.0" fitWidth="85.0" layoutX="500.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
@@ -186,37 +186,37 @@
                         </ImageView>
                         <ImageView fx:id="strong111114111" fitHeight="48.0" fitWidth="85.0" layoutX="290.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="strong1111143" fitHeight="48.0" fitWidth="85.0" layoutX="375.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick_strong.png" />
+                                <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111122" fitHeight="48.0" fitWidth="85.0" layoutX="205.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111131" fitHeight="48.0" fitWidth="85.0" layoutX="290.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111111" fitHeight="48.0" fitWidth="85.0" layoutX="375.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111112" fitHeight="48.0" fitWidth="85.0" layoutX="460.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="paddlechange_11" fitHeight="48.0" fitWidth="85.0" layoutX="417.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/bricktrong.png" />
+                                <Image url="@../../Images/Entity/bricktrong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="speedup_111" fitHeight="47.0" fitWidth="85.0" layoutX="462.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
@@ -226,17 +226,17 @@
                         </ImageView>
                         <ImageView fx:id="paddlechange_12" fitHeight="48.0" fitWidth="85.0" layoutX="332.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/bricktrong.png" />
+                                <Image url="@../../Images/Entity/bricktrong.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal11111141" fitHeight="48.0" fitWidth="85.0" layoutX="587.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                         <ImageView fx:id="normal111111411" fitHeight="48.0" fitWidth="85.0" layoutX="78.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../Images/Brick/brick.png" />
+                                <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
                     </children>

@@ -10,7 +10,7 @@
     <!-- background map -->
     <ImageView fitHeight="770.0" fitWidth="1064.0" layoutY="-1.0" preserveRatio="false">
         <image>
-            <Image url="@../../Images/Map/map.png" />
+            <Image url="@../../Images/MapLevel/map.png" />
         </image>
     </ImageView>
 
@@ -19,7 +19,7 @@
       <graphic>
             <ImageView fx:id="level1Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-70.0" translateY="-80.0">
                 <image>
-                    <Image url="@../../Images/Map/lv1.png" />
+                    <Image url="@../../Images/MapLevel/lv1.png" />
                 </image>
             </ImageView>
       </graphic></Button>
@@ -29,7 +29,7 @@
       <graphic>
             <ImageView fx:id="level2Image" fitHeight="200.0" fitWidth="200.0" preserveRatio="true" translateX="-260.0" translateY="-80.0">
                 <image>
-                    <Image url="@../../Images/Map/lv2.png" />
+                    <Image url="@../../Images/MapLevel/lv2.png" />
                 </image>
             </ImageView>
       </graphic></Button>
@@ -39,7 +39,7 @@
       <graphic>
             <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="80.0" translateY="-50.0">
                 <image>
-                    <Image url="@../../Images/Map/lv3.png" />
+                    <Image url="@../../Images/MapLevel/lv3.png" />
                 </image>
             </ImageView>
       </graphic></Button>
@@ -49,7 +49,7 @@
       <graphic>
             <ImageView fx:id="level4Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-200.0" translateY="-150.0">
                 <image>
-                    <Image url="@../../Images/Map/lv4.png" />
+                    <Image url="@../../Images/MapLevel/lv4.png" />
                 </image>
             </ImageView>
       </graphic></Button>
@@ -59,7 +59,7 @@
       <graphic>
             <ImageView fx:id="level5Image" fitHeight="250.0" fitWidth="150.0" preserveRatio="true" translateX="-50.0" translateY="-100.0">
                 <image>
-                    <Image url="@../../Images/Map/lv5.png" />
+                    <Image url="@../../Images/MapLevel/lv5.png" />
                 </image>
             </ImageView>
       </graphic></Button>
@@ -69,7 +69,7 @@
       <graphic>
             <ImageView fx:id="level6Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-80.0" translateY="-50.0">
                 <image>
-                    <Image url="@../../Images/Map/lv6.png" />
+                    <Image url="@../../Images/MapLevel/lv6.png" />
                 </image>
             </ImageView>
       </graphic></Button>

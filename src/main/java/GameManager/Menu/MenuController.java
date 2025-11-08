@@ -24,8 +24,7 @@ public class MenuController {
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
 
     // ========== START GAME ==========
-    // Option 1: Load specific level via LEVEL_TO_RUN
-    private static final int LEVEL_TO_RUN = 4;
+    private static final int LEVEL_TO_RUN = 5;
 
     @FXML
     void handleStartGame(ActionEvent event) {
@@ -54,6 +53,11 @@ public class MenuController {
                 case 4:
                     fxmlFile = "/RenderView/Level/Level4.fxml";
                     bgPath = "/Images/MapLevel/level4.jpg";
+                    paddlePath = "/Images/Entity/paddle.png";
+                    break;
+                case 5:
+                    fxmlFile = "/RenderView/Level/Level5.fxml";
+                    bgPath = "/Images/MapLevel/level4.png";
                     paddlePath = "/Images/Entity/paddle.png";
                     break;
                 default:
