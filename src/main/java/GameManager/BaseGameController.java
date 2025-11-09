@@ -38,6 +38,9 @@ public abstract class BaseGameController {
     protected boolean moveRight = false;
     protected AnimationTimer gameLoop;
     protected boolean isGameOver = false; // Chỉ cần 1 cờ
+
+    protected boolean ballLaunched = false; // bóng chx chạy
+
     protected static final long COLLISION_COOLDOWN_NANOS = 40_000_000L;
     protected double sceneWidth = 800;
     protected double sceneHeight = 600;
@@ -146,10 +149,16 @@ public abstract class BaseGameController {
             if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) moveLeft = true;
             if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) moveRight = true;
         });
-        gamePane.setOnKeyReleased(e -> {
-            if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) moveLeft = false;
-            if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) moveRight = false;
+        gamePane.setOnKeyPressed(e -> {
+            if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) moveLeft = true;
+            if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) moveRight = true;
+
+            // ấn SPACE hoặc ENTER để bóng chạy
+            if ((e.getCode() == KeyCode.SPACE || e.getCode() == KeyCode.ENTER) && !ballLaunched) {
+                launchBall();
+            }
         });
+
     }
 
     private void loadBricksFromPane() {
@@ -209,6 +218,15 @@ public abstract class BaseGameController {
 
     private void update(long now) {
         if (isGameOver) return;
+        // bóng chx chạy thì bóng đi theo paddle
+        if (!ballLaunched && !balls.isEmpty()) {
+            Ball ball = balls.get(0);
+            double ballX = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
+            double ballY = paddleRect.getLayoutY() - ball.getRadius() * 2;
+            ball.setPosition(ballX, ballY);
+            return; // chưa update vật lý khi chưa phóng
+        }
+
         for (MovingObstacle obs : obstacles) {
             obs.update();
         }
@@ -399,13 +417,34 @@ public abstract class BaseGameController {
 
         balls.clear();
         Ball newBall = new Ball(ballCircle, sceneWidth, sceneHeight);
-        newBall.setPosition(sceneWidth / 2.0, sceneHeight / 2.0);
-        newBall.setDirX(0);
-        newBall.setDirY(-1);
         balls.add(newBall);
+        resetBallPosition(); // giữ bóng trên paddle, chưa bay
+
 
         isGameOver = false;
     }
+
+    // chỉnh bóng chạy
+    protected void launchBall() {
+        if (balls.isEmpty()) return;
+        Ball ball = balls.get(0);
+        ballLaunched = true;
+        ball.setDirX(0.7);   // góc ban đầu hơi lệch
+        ball.setDirY(-1);    // hướng lên
+    }
+
+    protected void resetBallPosition() {
+        if (balls.isEmpty()) return;
+        Ball ball = balls.get(0);
+        ballLaunched = false;
+        ball.setDirX(0);
+        ball.setDirY(0);
+        ball.setPosition(
+                paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0,
+                paddleRect.getLayoutY() - ball.getRadius() * 2
+        );
+    }
+
     protected void onBrickHit(Brick brick, Ball ball) {
 
         brick.takeHit();
