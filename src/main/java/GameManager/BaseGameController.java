@@ -16,6 +16,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Paint;
 import javafx.animation.PauseTransition;
 import javafx.util.Duration;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import GameManager.Level.GameOverController;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -529,7 +534,7 @@ public abstract class BaseGameController {
         if (allDestroyed) {
             isGameOver = true;
             gameLoop.stop();
-            showGameEndScreen("YOU WIN!");
+            showGameEndScreen(true); // true = WIN, sẽ load GameOver.fxml
         }
     }
 
@@ -815,14 +820,11 @@ public abstract class BaseGameController {
         }
 
         if (lives > 0) {
-            // xóa hết bóng cũ
-            for (Ball b : balls) {
-                gamePane.getChildren().remove(b.getShape());
-            }
+            // reset bóng
+            for (Ball b : balls) gamePane.getChildren().remove(b.getShape());
             balls.clear();
 
-            // tạo bóng mới
-            Circle newBallCircle = new Circle(10); // radius giống trước
+            Circle newBallCircle = new Circle(10);
             newBallCircle.setFill(ballCircle.getFill());
             gamePane.getChildren().add(newBallCircle);
 
@@ -830,15 +832,13 @@ public abstract class BaseGameController {
             balls.add(newBall);
 
             resetBallPosition();
-            ballLaunched = false; // chờ người chơi nhấn SPACE
+            ballLaunched = false;
         } else {
             isGameOver = true;
             gameLoop.stop();
-            showGameEndScreen("GAME OVER");
+            showGameEndScreen(false); // false = LOSE, load GameOver.fxml
         }
     }
-
-
 
     // hieu ung mang
     private void addHeartBeatEffect(ImageView heart) {
@@ -953,5 +953,37 @@ public abstract class BaseGameController {
             e.printStackTrace();
         }
     }
+
+    // GAMEOVER
+    private void showGameEndScreen(boolean isWin) {
+        Platform.runLater(() -> {
+            try {
+                // Sửa đường dẫn đúng theo thư mục của bạn
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Level/GameOver.fxml"));
+                Parent root = loader.load();
+
+                GameOverController controller = loader.getController();
+                controller.setData(getCurrentLevel(), this.score, isWin);
+
+                Stage stage = (Stage) gamePane.getScene().getWindow();
+                stage.setScene(new Scene(root));
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("Không load được GameOver.fxml");
+            }
+        });
+    }
+
+
+    // phương thức lấy level hiện tại (theo class Controller)
+    private int getCurrentLevel() {
+        try {
+            String clsName = this.getClass().getSimpleName(); // ví dụ Level1Controller
+            return Integer.parseInt(clsName.replaceAll("\\D+", ""));
+        } catch (Exception e) {
+            return 1; // default level
+        }
+    }
+
 
 }

@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="hien thi tinh nag pause">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/PauseMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/PauseMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/PauseMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/PauseMenu.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +166,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00008" summary="cap nhat ball">
-      <option name="closed" value="true" />
-      <created>1760625851673</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1760625851673</updated>
     </task>
     <task id="LOCAL-00009" summary="update các file code, các gói">
       <option name="closed" value="true" />
@@ -569,7 +551,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762665682711</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="hien thi tinh nag pause">
+      <option name="closed" value="true" />
+      <created>1762671255587</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1762671255587</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +577,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix loi hieu ung phan highscores" />
     <MESSAGE value="do hoa menu" />
     <MESSAGE value="do hoa cua huong dan choi game" />
     <MESSAGE value="update phan huong dan choi game" />
@@ -612,7 +601,8 @@
     <MESSAGE value="chinh sua do hoa mang cho hop ly" />
     <MESSAGE value="fix loi mat mang khong hien bong va thay doi vin tri scores cho hop ly" />
     <MESSAGE value="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle" />
-    <option name="LAST_COMMIT_MESSAGE" value="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle" />
+    <MESSAGE value="hien thi tinh nag pause" />
+    <option name="LAST_COMMIT_MESSAGE" value="hien thi tinh nag pause" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -629,8 +619,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java</url>
-          <line>765</line>
+          <line>770</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java</url>
+          <line>939</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
