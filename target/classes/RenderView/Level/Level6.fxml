@@ -274,7 +274,7 @@
                                 <Image url="@../../Images/PowerUp/double.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="scoreLabel" layoutX="579.0" layoutY="-7.0" prefHeight="42.0" prefWidth="223.0" text="Score : 1000" textFill="#f7ff56">
+                        <Label fx:id="scoreLabel" layoutX="180.0" layoutY="-7.0" prefHeight="42.0" prefWidth="223.0" text="Score : 1000" textFill="#f7ff56">
                             <font>
                                 <Font name="Franklin Gothic Heavy" size="30.0" />
                             </font>

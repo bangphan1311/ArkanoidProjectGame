@@ -20,6 +20,11 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.ScaleTransition;
+import javafx.animation.Animation;
+
+
+
 import GameManager.Menu.HighScoresController;
 
 public abstract class BaseGameController {
@@ -770,16 +775,19 @@ public abstract class BaseGameController {
 
         double startX = 0;
         double startY = 0;
-        double spacing = 50; // kcach
+        double spacing = 45; // khoảng cách
 
         for (int i = 0; i < lives; i++) {
             ImageView heart = new ImageView(heartImage);
-            heart.setFitWidth(50);
-            heart.setFitHeight(50);
+            heart.setFitWidth(40);
+            heart.setFitHeight(40);
             heart.setLayoutX(startX + i * spacing);
             heart.setLayoutY(startY);
             heartIcons.add(heart);
             gamePane.getChildren().add(heart);
+
+            // thêm hiệu ứng nhịp tim
+            addHeartBeatEffect(heart);
         }
     }
 
@@ -795,21 +803,43 @@ public abstract class BaseGameController {
         }
 
         if (lives > 0) {
-            resetBallPosition();
-
-            // bóng mới sau khi mất mạng
-            if (balls.isEmpty()) {
-                Ball newBall = new Ball(ballCircle, sceneWidth, sceneHeight);
-                balls.add(newBall);
+            // xóa hết bóng cũ
+            for (Ball b : balls) {
+                gamePane.getChildren().remove(b.getShape());
             }
+            balls.clear();
 
-            ballLaunched = false; // chờ người chơi nhấn SPACE lại
+            // tạo bóng mới
+            Circle newBallCircle = new Circle(10); // radius giống trước
+            newBallCircle.setFill(ballCircle.getFill());
+            gamePane.getChildren().add(newBallCircle);
+
+            Ball newBall = new Ball(newBallCircle, sceneWidth, sceneHeight);
+            balls.add(newBall);
+
+            resetBallPosition();
+            ballLaunched = false; // chờ người chơi nhấn SPACE
         } else {
             isGameOver = true;
             gameLoop.stop();
             showGameEndScreen("GAME OVER");
         }
     }
+
+
+
+    // hieu ung mang
+    private void addHeartBeatEffect(ImageView heart) {
+        ScaleTransition st = new ScaleTransition(Duration.seconds(0.5), heart);
+        st.setFromX(1.0);
+        st.setFromY(1.0);
+        st.setToX(1.2); // to ra 1.2 lần
+        st.setToY(1.2);
+        st.setCycleCount(Animation.INDEFINITE);
+        st.setAutoReverse(true);
+        st.play();
+    }
+
 
 
 }

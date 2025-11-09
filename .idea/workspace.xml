@@ -4,18 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them phan mang">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="chinh sua do hoa mang cho hop ly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level3.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level4.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level5.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level6.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level3.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level3.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level4.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level5.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level6.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,14 +164,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00005" summary="sua doi fxml">
-      <option name="closed" value="true" />
-      <created>1759932556388</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1759932556388</updated>
     </task>
     <task id="LOCAL-00006" summary="qua bong">
       <option name="closed" value="true" />
@@ -558,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762662769659</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="chinh sua do hoa mang cho hop ly">
+      <option name="closed" value="true" />
+      <created>1762664187469</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1762664187469</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +575,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thiet ke, chinh sua high scores" />
     <MESSAGE value="them hieu ung cho highscores" />
     <MESSAGE value="xu ly forgot password" />
     <MESSAGE value="fix loi hieu ung phan highscores" />
@@ -601,7 +599,8 @@
     <MESSAGE value="them tinh nang vao game bong nam im tren paddle, an space hoac enter bong moi di chuyen" />
     <MESSAGE value="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung" />
     <MESSAGE value="them phan mang" />
-    <option name="LAST_COMMIT_MESSAGE" value="them phan mang" />
+    <MESSAGE value="chinh sua do hoa mang cho hop ly" />
+    <option name="LAST_COMMIT_MESSAGE" value="chinh sua do hoa mang cho hop ly" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,7 +617,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java</url>
-          <line>748</line>
+          <line>753</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
