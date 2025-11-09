@@ -257,25 +257,12 @@ public abstract class BaseGameController {
         if (gameLoop != null) gameLoop.stop();
     }
 
+
+    // paddle vs bóng khi bắt đầu
     private void update(long now) {
         if (isGameOver) return;
-        // bóng chx chạy thì bóng đi theo paddle
-        if (!ballLaunched && !balls.isEmpty()) {
-            Ball ball = balls.get(0);
 
-            // vgtri bong đứng im
-            double ballX = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
-            double ballY = paddleRect.getLayoutY() - ball.getRadius() - 2;
-
-
-            ball.setPosition(ballX, ballY);
-            return; // chưa update vật lý khi chưa phóng
-        }
-
-        for (MovingObstacle obs : obstacles) {
-            obs.update();
-        }
-
+        // di chuyển paddle trc
         if (moveLeft) {
             double newX = paddleRect.getLayoutX() - paddleSpeed;
             if (newX < 0) newX = 0;
@@ -287,14 +274,28 @@ public abstract class BaseGameController {
             paddleRect.setLayoutX(newX);
         }
 
+        // bóng chx chạy - di chuyển theo paddle
+        if (!ballLaunched && !balls.isEmpty()) {
+            Ball ball = balls.get(0);
+
+            double ballX = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
+            double ballY = paddleRect.getLayoutY() - ball.getRadius() - 2;
+
+            ball.setPosition(ballX, ballY);
+            return; // chưa update vật lý khi chưa phóng
+        }
+
+        // update vật lý bthg
+        for (MovingObstacle obs : obstacles) {
+            obs.update();
+        }
+
         List<Ball> toRemove = new ArrayList<>();
         for (Ball b : new ArrayList<>(balls)) {
             if (b.isCaught()) {
                 double newBallX = paddleRect.getLayoutX() + b.getCatchOffset();
                 b.setPosition(newBallX, paddleRect.getLayoutY() - b.getRadius() - 1);
-            }
-            else {
-
+            } else {
                 b.update();
             }
 
@@ -302,8 +303,6 @@ public abstract class BaseGameController {
             handleBrickCollisions(b, now);
             handleObstacleCollision(b);
             handleWallCollision(b, now);
-
-
 
             if (b.getY() - b.getRadius() > this.sceneHeight) {
                 toRemove.add(b);
@@ -313,10 +312,12 @@ public abstract class BaseGameController {
             gamePane.getChildren().remove(b.getShape());
             balls.remove(b);
         }
+
         updatePowerUps();
         checkLevelComplete();
         checkGameOver();
     }
+
 
     private void handlePaddleCollision(Ball ball) {
         Node ballNode = ball.getShape();
