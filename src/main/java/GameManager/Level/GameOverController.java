@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,19 +17,18 @@ public class GameOverController {
     @FXML private Button nextBtn;
     @FXML private Button previousBtn;
 
-    private int level;      // level hiện tại
+    private int level;
     private int score;
     private boolean isWin;
 
-    // Map level -> class Controller, bạn cần import đầy đủ
     private static final Map<Integer, Class<?>> levelControllerMap = new HashMap<>();
     static {
-        levelControllerMap.put(1, GameManager.Level.Level1Controller.class);
-        levelControllerMap.put(2, GameManager.Level.Level2Controller.class);
-        levelControllerMap.put(3, GameManager.Level.Level3Controller.class);
-        levelControllerMap.put(4, GameManager.Level.Level4Controller.class);
-        levelControllerMap.put(5, GameManager.Level.Level5Controller.class);
-        levelControllerMap.put(6, GameManager.Level.Level6Controller.class);
+        levelControllerMap.put(1, Level1Controller.class);
+        levelControllerMap.put(2, Level2Controller.class);
+        levelControllerMap.put(3, Level3Controller.class);
+        levelControllerMap.put(4, Level4Controller.class);
+        levelControllerMap.put(5, Level5Controller.class);
+        levelControllerMap.put(6, Level6Controller.class);
     }
 
     public void setData(int level, int score, boolean isWin) {
@@ -41,7 +41,9 @@ public class GameOverController {
     public void initialize() {
         homeBtn.setOnAction(e -> switchScene("/RenderView/Menu/Menu.fxml", null));
 
-        replayBtn.setOnAction(e -> switchScene("/RenderView/Level/Level" + level + ".fxml", levelControllerMap.get(level)));
+        replayBtn.setOnAction(e ->
+                switchScene("/RenderView/Level/Level" + level + ".fxml", levelControllerMap.get(level))
+        );
 
         nextBtn.setOnAction(e -> {
             int nextLevel = level + 1;
@@ -65,10 +67,12 @@ public class GameOverController {
 
             if (controllerClass != null) {
                 Object controller = loader.getController();
-                try {
-                    controllerClass.getMethod("initLevel").invoke(controller);
-                } catch (NoSuchMethodException ex) {
-                    System.err.println("Controller " + controllerClass.getSimpleName() + " chưa có method initLevel()");
+                if (controller != null) {
+                    try {
+                        controllerClass.getMethod("initLevel").invoke(controller);
+                    } catch (NoSuchMethodException ignored) {
+                        System.err.println("Controller " + controllerClass.getSimpleName() + " chưa có method initLevel()");
+                    }
                 }
             }
 

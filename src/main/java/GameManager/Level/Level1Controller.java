@@ -13,6 +13,9 @@ public class Level1Controller extends BaseGameController {
     public void initLevel() {
         setupLevel("/Images/MapLevel/level1.png", "/Images/Entity/paddle.png");
     }
-
+    @Override
+    protected int getCurrentLevelNumber() {
+        return 1;
+    }
 
 }

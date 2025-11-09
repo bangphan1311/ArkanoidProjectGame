@@ -845,7 +845,7 @@ public abstract class BaseGameController {
         ScaleTransition st = new ScaleTransition(Duration.seconds(0.5), heart);
         st.setFromX(1.0);
         st.setFromY(1.0);
-        st.setToX(1.2); // to ra 1.2 lần
+        st.setToX(1.2);
         st.setToY(1.2);
         st.setCycleCount(Animation.INDEFINITE);
         st.setAutoReverse(true);
@@ -962,17 +962,20 @@ public abstract class BaseGameController {
                 Parent root = loader.load();
 
                 GameOverController controller = loader.getController();
-                controller.setData(getCurrentLevel(), this.score, isWin);
+                controller.setData(getCurrentLevelNumber(), this.score, isWin);
 
                 Stage stage = (Stage) gamePane.getScene().getWindow();
                 stage.setScene(new Scene(root));
             } catch (Exception e) {
                 e.printStackTrace();
+                System.err.println("Không load được GameOver.fxml");
             }
         });
     }
 
-
+    protected int getCurrentLevelNumber() {
+        return 1; // Mặc định, override ở LevelXController
+    }
 
     // phương thức lấy level hiện tại
     private int getCurrentLevel() {

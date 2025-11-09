@@ -60,4 +60,9 @@ public class Level3Controller extends Level2Controller {
         setupLevel("/Images/MapLevel/nenlv3.png", "/Images/Entity/paddle.png");
     }
 
+    @Override
+    protected int getCurrentLevelNumber() {
+        return 3;
+    }
+
 }

@@ -38,7 +38,13 @@ public class Level4Controller extends Level3Controller {
     }
     @Override
     public void initLevel() {
-        setupLevel("/Images/MapLevel/level4.png", "/Images/Entity/paddle.png");
+        setupLevel("/Images/MapLevel/level4.jpg", "/Images/Entity/paddle.png");
     }
+
+    @Override
+    protected int getCurrentLevelNumber() {
+        return 4;
+    }
+
 
 }

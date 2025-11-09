@@ -21,6 +21,10 @@ public class Level2Controller extends Level1Controller {
     public void initLevel() {
         setupLevel("/Images/MapLevel/level2.png", "/Images/Entity/paddle.png");
     }
+    @Override
+    protected int getCurrentLevelNumber() {
+        return 2;
+    }
 
 
 }

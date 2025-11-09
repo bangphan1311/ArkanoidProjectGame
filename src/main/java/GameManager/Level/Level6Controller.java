@@ -31,5 +31,9 @@ public class Level6Controller extends Level5Controller {
     public void initLevel() {
         setupLevel("/Images/MapLevel/level6.png", "/Images/Entity/paddle.png");
     }
+    @Override
+    protected int getCurrentLevelNumber() {
+        return 6;
+    }
 
 }
