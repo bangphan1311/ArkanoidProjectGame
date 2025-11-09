@@ -13,16 +13,6 @@
     <children>
         <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="800.0">
             <children>
-
-                <ImageView fx:id="pauseButton"
-                           fitHeight="50.0" fitWidth="50.0"
-                           layoutX="740.0" layoutY="10.0"
-                           pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../Images/Page/page.png" />
-                    </image>
-                </ImageView>
-
                 <Rectangle fx:id="paddleRect" arcHeight="5.0" arcWidth="5.0" fill="#0b79e04f" height="22.0" layoutX="336.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
 
                 <Circle fx:id="ballCircle" centerX="400.0" centerY="350.0" fill="#eb7752eb" radius="12.0" />

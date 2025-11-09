@@ -24,11 +24,12 @@ import GameManager.Level.GameOverController;
 
 import java.util.ArrayList;
 import java.util.List;
+import GameManager.Menu.PauseMenuController;
+import java.io.IOException;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.Animation;
-
-
+import javafx.scene.control.Button;
 
 import GameManager.Menu.HighScoresController;
 
@@ -41,10 +42,9 @@ public abstract class BaseGameController {
     @FXML protected ImageView obstacle1;
     @FXML protected Label scoreLabel;
 
-    @FXML protected ImageView pauseButton;
-    private Pane pauseOverlay;
+    @FXML protected Button pauseBtn;
+    private Parent pauseOverlay;
     private boolean isPaused = false;
-
 
     protected final List<Ball> balls = new ArrayList<>();
     protected final List<Brick> bricks = new ArrayList<>();
@@ -183,8 +183,8 @@ public abstract class BaseGameController {
         }
 
         // pause
-        if (pauseButton != null) {
-            pauseButton.setOnMouseClicked(e -> togglePause());
+        if (pauseBtn != null) {
+            pauseBtn.setOnMouseClicked(e -> togglePause());
         }
 
         resetPositions();
@@ -745,46 +745,6 @@ public abstract class BaseGameController {
         }
     }
 
-    private void showGameEndScreen(String message) {
-        Platform.runLater(() -> {
-            double paneWidth = gamePane.getPrefWidth();
-            double paneHeight = gamePane.getPrefHeight();
-
-            Pane overlay = new Pane();
-            overlay.setStyle("-fx-background-color: rgba(0,0,0,0.7);");
-            overlay.setPrefSize(paneWidth, paneHeight);
-
-            Label messageLabel = new Label(message);
-            messageLabel.setStyle("-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white;");
-
-            Label finalScoreLabel = new Label("Final Score: " + this.score);
-            finalScoreLabel.setStyle("-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: gold;");
-
-            messageLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
-                messageLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
-                messageLabel.setLayoutY(paneHeight / 2 - 50);
-            });
-
-            finalScoreLabel.layoutBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
-                finalScoreLabel.setLayoutX(paneWidth / 2 - newBounds.getWidth() / 2);
-                finalScoreLabel.setLayoutY(paneHeight / 2 + 10);
-            });
-
-            overlay.getChildren().addAll(messageLabel, finalScoreLabel);
-            gamePane.getChildren().add(overlay);
-
-            // thêm ghi điểm
-            try {
-                HighScoresController highScoreCtrl = new HighScoresController();
-                String playerName = "PLAYER";
-                highScoreCtrl.saveScore(playerName, this.score);
-                System.out.println("Điểm đã lưu: " + this.score);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
     // mạng
     private void setupHearts() {
         System.out.println(" setupHearts() gọi, gamePane = " + gamePane);
@@ -853,93 +813,63 @@ public abstract class BaseGameController {
     }
 
     protected void togglePause() {
-        if (isPaused) {
-            // Tiếp tục game
-            gamePane.getChildren().remove(pauseOverlay);
-            startGameLoop();
-            isPaused = false;
-        } else {
-            // Tạm dừng
-            stopGameLoop();
+        if (pauseOverlay == null) {
             showPauseMenu();
-            isPaused = true;
+        } else {
+            hidePauseMenu();
         }
     }
 
-    private void showPauseMenu() {
-        pauseOverlay = new Pane();
-        pauseOverlay.setPrefSize(sceneWidth, sceneHeight);
-        pauseOverlay.setStyle("-fx-background-color: rgba(0, 0, 0, 0.6);");
+    protected void showPauseMenu() {
+        if (pauseOverlay != null) return; // tránh thêm nhiều lần
 
-        ImageView homeBtn = createPauseButton("/Images/Page/home.png", 300, 200);
-        ImageView resumeBtn = createPauseButton("/Images/Page/tieptuc.png", 370, 200);
-        ImageView retryBtn = createPauseButton("/Images/Page/choilai.png", 440, 200);
-        ImageView prevBtn = createPauseButton("/Images/Page/previous.png", 510, 200);
-        ImageView nextBtn = createPauseButton("/Images/Page/next.png", 580, 200);
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GameManager/UI/PauseMenu.fxml"));
+            pauseOverlay = loader.load();
 
-        pauseOverlay.getChildren().addAll(homeBtn, resumeBtn, retryBtn, prevBtn, nextBtn);
+            // đưa overlay lên trên cùng của gamePane
+            gamePane.getChildren().add(pauseOverlay);
 
-        // Home
-        homeBtn.setOnMouseClicked(e -> {
-            System.out.println("Về trang Home");
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/RenderView/Menu.fxml"));
-            try {
-                javafx.scene.Scene scene = new javafx.scene.Scene(loader.load());
-                javafx.stage.Stage stage = (javafx.stage.Stage) gamePane.getScene().getWindow();
-                stage.setScene(scene);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        });
+            // tạm dừng game loop
+            if (gameLoop != null) gameLoop.stop();
 
-        // tiếp tục
-        resumeBtn.setOnMouseClicked(e -> togglePause());
+            // gán sự kiện cho các nút trong PauseMenu (nếu có)
+            PauseMenuController controller = loader.getController();
+            controller.setBaseGameController(this);
 
-        // chs lại
-        retryBtn.setOnMouseClicked(e -> {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // Thêm phương thức pauseGame và resumeGame
+    protected void pauseGame() {
+        if (gameLoop != null) { // gameLoop là AnimationTimer
+            gameLoop.stop();
+        }
+    }
+
+    protected void resumeGame() {
+        if (gameLoop != null) {
+            gameLoop.start();
+        }
+    }
+
+
+    public void hidePauseMenu() {
+        if (pauseOverlay != null) {
             gamePane.getChildren().remove(pauseOverlay);
-            resetPositions();
-            startGameLoop();
-            isPaused = false;
-        });
+            pauseOverlay = null;
 
-        // Previous
-        prevBtn.setOnMouseClicked(e -> {
-            if (getClass().getSimpleName().equals("Level1Controller")) return;
-            switchLevel(-1);
-        });
-
-        // Next
-        nextBtn.setOnMouseClicked(e -> {
-            if (getClass().getSimpleName().equals("Level6Controller")) return;
-            switchLevel(1);
-        });
-
-        // Disable điều kiện
-        if (getClass().getSimpleName().equals("Level1Controller")) {
-            prevBtn.setOpacity(0.3);
-            prevBtn.setDisable(true);
+            // resume game loop
+            if (gameLoop != null) gameLoop.start();
         }
-        if (getClass().getSimpleName().equals("Level6Controller")) {
-            nextBtn.setOpacity(0.3);
-            nextBtn.setDisable(true);
-        }
-
-        gamePane.getChildren().add(pauseOverlay);
     }
 
-    private ImageView createPauseButton(String imgPath, double y, double centerX) {
-        ImageView btn = new ImageView(new Image(getClass().getResource(imgPath).toExternalForm()));
-        btn.setFitWidth(100);
-        btn.setFitHeight(60);
-        btn.setLayoutX(centerX - 50);
-        btn.setLayoutY(y);
-        btn.setOnMouseEntered(e -> btn.setOpacity(0.7));
-        btn.setOnMouseExited(e -> btn.setOpacity(1.0));
-        return btn;
-    }
 
-    private void switchLevel(int direction) {
+
+    public void switchLevel(int direction) {
         int currentLevel = Integer.parseInt(getClass().getSimpleName().replace("Level", "").replace("Controller", ""));
         int newLevel = currentLevel + direction;
         String newLevelFxml = "/RenderView/Level/Level" + newLevel + ".fxml";
@@ -1005,4 +935,7 @@ public abstract class BaseGameController {
         setupLevelController();
     }
 
+    public Pane getGamePane() {
+        return gamePane;
+    }
 }

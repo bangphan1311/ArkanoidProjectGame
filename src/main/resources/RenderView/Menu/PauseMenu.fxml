@@ -3,23 +3,40 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.control.Button?>
 
-<AnchorPane fx:id="pausePane" xmlns:fx="http://javafx.com/fxml"
-            fx:controller="GameManager.UI.PauseMenuController"
-            prefWidth="400" prefHeight="400"
-            style="-fx-background-color: rgba(0,0,0,0.6); -fx-background-radius: 20;">
+<AnchorPane fx:id="pauseRoot"
+            xmlns:fx="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="GameManager.Menu.PauseMenuController"
+            style="-fx-background-color: rgba(0,0,0,0.6);"
+            prefWidth="800" prefHeight="600">
 
-    <Button fx:id="homeButton" layoutX="150" layoutY="60" text="🏠 Home"
-            prefWidth="100" prefHeight="40" style="-fx-font-size: 16; -fx-background-radius: 10;" />
+    <Button fx:id="resumeBtn"
+            layoutX="350" layoutY="200"
+            text="▶ Resume"
+            prefWidth="100" prefHeight="40"
+            style="-fx-font-size: 16; -fx-background-radius: 10;" />
 
-    <Button fx:id="resumeButton" layoutX="150" layoutY="110" text="▶ Tiếp tục"
-            prefWidth="100" prefHeight="40" style="-fx-font-size: 16; -fx-background-radius: 10;" />
+    <Button fx:id="restartBtn"
+            layoutX="350" layoutY="260"
+            text="🔁 Restart"
+            prefWidth="100" prefHeight="40"
+            style="-fx-font-size: 16; -fx-background-radius: 10;" />
 
-    <Button fx:id="restartButton" layoutX="150" layoutY="160" text="🔁 Chơi lại"
-            prefWidth="100" prefHeight="40" style="-fx-font-size: 16; -fx-background-radius: 10;" />
+    <Button fx:id="homeBtn"
+            layoutX="350" layoutY="320"
+            text="🏠 Home"
+            prefWidth="100" prefHeight="40"
+            style="-fx-font-size: 16; -fx-background-radius: 10;" />
 
-    <Button fx:id="nextButton" layoutX="150" layoutY="210" text="⏭ Next"
-            prefWidth="100" prefHeight="40" style="-fx-font-size: 16; -fx-background-radius: 10;" />
+    <Button fx:id="nextBtn"
+            layoutX="350" layoutY="380"
+            text="⏭ Next"
+            prefWidth="100" prefHeight="40"
+            style="-fx-font-size: 16; -fx-background-radius: 10;" />
 
-    <Button fx:id="previousButton" layoutX="150" layoutY="260" text="⏮ Previous"
-            prefWidth="100" prefHeight="40" style="-fx-font-size: 16; -fx-background-radius: 10;" />
+    <Button fx:id="prevBtn"
+            layoutX="350" layoutY="440"
+            text="⏮ Previous"
+            prefWidth="100" prefHeight="40"
+            style="-fx-font-size: 16; -fx-background-radius: 10;" />
 </AnchorPane>
