@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them tinh nang vao game bong nam im tren paddle, an space hoac enter bong moi di chuyen">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/highscores.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Images/Entity/ball.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/Level1.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Images/Entity/ball.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,14 +161,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00003" summary="sua doi fxml">
-      <option name="closed" value="true" />
-      <created>1759916942109</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1759916942109</updated>
     </task>
     <task id="LOCAL-00004" summary="sua doi fxml">
       <option name="closed" value="true" />
@@ -554,7 +546,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762654877859</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung">
+      <option name="closed" value="true" />
+      <created>1762656692373</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1762656692373</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -572,7 +572,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="cap nhat phan remember.txt, ghi nho tkhoan va mkhau" />
     <MESSAGE value="them hieu ung cho settings" />
     <MESSAGE value="thiet ke, chinh sua high scores" />
     <MESSAGE value="them hieu ung cho highscores" />
@@ -597,7 +596,8 @@
     <MESSAGE value="them ghi diem o highscore - cap nhat lai code va cac anh" />
     <MESSAGE value="fix loi hien thi cac thanh phan o menu" />
     <MESSAGE value="them tinh nang vao game bong nam im tren paddle, an space hoac enter bong moi di chuyen" />
-    <option name="LAST_COMMIT_MESSAGE" value="them tinh nang vao game bong nam im tren paddle, an space hoac enter bong moi di chuyen" />
+    <MESSAGE value="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -611,11 +611,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java</url>
           <line>8</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java</url>
-          <line>354</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

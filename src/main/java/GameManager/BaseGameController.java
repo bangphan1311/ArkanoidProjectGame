@@ -67,6 +67,12 @@ public abstract class BaseGameController {
     private Paint originalPaddleFill;
     protected Image doubleScoreImage;
 
+    // mạng
+    protected int lives = 3;
+    protected final List<ImageView> heartIcons = new ArrayList<>();
+    protected Image heartImage;
+
+
     public void setupLevel(String bgPath, String paddlePath) {
         try {
             var bgUrl = getClass().getResource(bgPath);
@@ -99,6 +105,19 @@ public abstract class BaseGameController {
             startGameLoop();
             if (gamePane != null) gamePane.requestFocus();
         });
+
+        //reset lại mạng mỗi khi qua level
+        lives = 3;
+
+        // Xóa tim cũ
+        for (ImageView heart : heartIcons) {
+            gamePane.getChildren().remove(heart);
+        }
+        heartIcons.clear();
+
+        // hthi lại 3 mạng mới khi qua level khác
+        Platform.runLater(this::setupHearts);
+
     }
 
     @FXML
@@ -135,6 +154,15 @@ public abstract class BaseGameController {
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
         }
+
+        // mạng
+        try {
+            heartImage = new Image(getClass().getResource("/Images/Entity/tym.png").toExternalForm());
+            setupHearts(); // htih 3 mạng
+        } catch (Exception e) {
+            System.err.println("Không tải được ảnh : " + e.getMessage());
+        }
+
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + this.score);
         }
@@ -164,7 +192,7 @@ public abstract class BaseGameController {
             else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = false;
         });
 
-        // --- Đảm bảo luôn có focus để nhận phím ---
+        // dbao focus luôn nhân phím
         Platform.runLater(() -> gamePane.requestFocus());
     }
 
@@ -488,15 +516,14 @@ public abstract class BaseGameController {
         }
     }
 
+    //giảm mạng khi rơi bóng
     private void checkGameOver() {
         if (isGameOver) return;
         if (balls.isEmpty()) {
-            System.out.println(" Tất cả bóng đã rơi!");
-            isGameOver = true;
-            gameLoop.stop();
-            showGameEndScreen("GAME OVER");
+            loseLife(); // trừ mạng
         }
     }
+
 
     protected void spawnPowerUp(Brick brick, String type) {
         Image imageToSpawn = null;
@@ -727,7 +754,7 @@ public abstract class BaseGameController {
             // thêm ghi điểm
             try {
                 HighScoresController highScoreCtrl = new HighScoresController();
-                String playerName = "PLAYER"; // có thể sửa thành input từ người chơi
+                String playerName = "PLAYER";
                 highScoreCtrl.saveScore(playerName, this.score);
                 System.out.println("Điểm đã lưu: " + this.score);
             } catch (Exception e) {
@@ -735,4 +762,54 @@ public abstract class BaseGameController {
             }
         });
     }
+
+    // mạng
+    private void setupHearts() {
+        System.out.println(" setupHearts() gọi, gamePane = " + gamePane);
+        if (gamePane == null) return;
+
+        double startX = 20;
+        double startY = 20;
+        double spacing = 40;
+
+        for (int i = 0; i < lives; i++) {
+            ImageView heart = new ImageView(heartImage);
+            heart.setFitWidth(30);
+            heart.setFitHeight(30);
+            heart.setLayoutX(startX + i * spacing);
+            heart.setLayoutY(startY);
+            heartIcons.add(heart);
+            gamePane.getChildren().add(heart);
+        }
+    }
+
+
+
+    // mạng - mất mạng thif mất 1 tym và reset bóng lên paddle
+    protected void loseLife() {
+        lives--;
+        System.out.println("Mất mạng! Còn lại: " + lives);
+
+        if (lives >= 0 && lives < heartIcons.size()) {
+            heartIcons.get(lives).setVisible(false);
+        }
+
+        if (lives > 0) {
+            resetBallPosition();
+
+            // bóng mới sau khi mất mạng
+            if (balls.isEmpty()) {
+                Ball newBall = new Ball(ballCircle, sceneWidth, sceneHeight);
+                balls.add(newBall);
+            }
+
+            ballLaunched = false; // chờ người chơi nhấn SPACE lại
+        } else {
+            isGameOver = true;
+            gameLoop.stop();
+            showGameEndScreen("GAME OVER");
+        }
+    }
+
+
 }
