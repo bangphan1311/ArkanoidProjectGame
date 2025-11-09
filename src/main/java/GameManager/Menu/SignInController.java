@@ -28,10 +28,10 @@ public class SignInController {
 
     @FXML
     public void initialize() {
-        // load dsach tkhoan đã lưu
+        // load danh sách tài khoản đã lưu
         loadRememberedAccounts();
 
-        // khi chọn thì hiện cả username và password
+        // khi chọn user, điền password
         usernameField.setOnAction(e -> {
             String selectedUser = usernameField.getValue();
             if (rememberedAccounts.containsKey(selectedUser)) {
@@ -40,9 +40,6 @@ public class SignInController {
         });
     }
 
-    /**
-     * load dsach tkhoan đã lưu ở remember.txt
-     */
     private void loadRememberedAccounts() {
         File file = new File(REMEMBER_FILE);
         if (!file.exists()) return;
@@ -59,14 +56,10 @@ public class SignInController {
             e.printStackTrace();
         }
 
-        // thêm danh sách username vào ComboBox
         ObservableList<String> usernames = FXCollections.observableArrayList(rememberedAccounts.keySet());
         usernameField.setItems(usernames);
     }
 
-    /**
-     * xử lý nút hiển thị và ẩn mật khẩu
-     */
     @FXML
     private void togglePasswordVisibility(ActionEvent event) {
         if (showPasswordCheck.isSelected()) {
@@ -84,9 +77,6 @@ public class SignInController {
         }
     }
 
-    /**
-     * xử lý đăng nhập
-     */
     @FXML
     private void handleSignIn(ActionEvent event) {
         String username = usernameField.getEditor().getText().trim();
@@ -106,7 +96,7 @@ public class SignInController {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
-                if (parts.length == 2 && parts[0].equals(username) && parts[1].equals(password)) {
+                if (parts.length == 2 && parts[0].trim().equals(username) && parts[1].trim().equals(password)) {
                     isValid = true;
                     break;
                 }
@@ -116,8 +106,8 @@ public class SignInController {
         }
 
         if (isValid) {
-            Session.currentUsername = username; // username lấy từ file users.txt
-            // tick remember me thì lưu tkhoan
+            Session.currentUsername = username; // set current user
+
             if (rememberMeCheck.isSelected()) {
                 rememberedAccounts.put(username, password);
                 saveRememberedAccounts();
@@ -139,9 +129,6 @@ public class SignInController {
         }
     }
 
-    /**
-     * lưu danh sách tài khoản vào remember.txt
-     */
     private void saveRememberedAccounts() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(REMEMBER_FILE))) {
             for (Map.Entry<String, String> entry : rememberedAccounts.entrySet()) {
@@ -167,9 +154,6 @@ public class SignInController {
         }
     }
 
-    /**
-     * Xử lý forgot password
-     */
     @FXML
     private void handleForgotPassword(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -178,5 +162,4 @@ public class SignInController {
         alert.setContentText("Sorry. Chức năng này hiện chưa được thực hiện.");
         alert.showAndWait();
     }
-
 }

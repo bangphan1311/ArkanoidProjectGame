@@ -17,9 +17,9 @@ import javafx.util.Duration;
 public class MapController {
 
     @FXML
-    private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button;
+    private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button, menuButton;
 
-    // tích hợp nút =====
+    // ===== Xử lý các level =====
     @FXML
     private void handleLevel1() {
         loadLevel("/RenderView/Level/Level1.fxml", "/Images/MapLevel/level1.png", "/Images/Entity/paddle.png", "Level 1");
@@ -50,7 +50,24 @@ public class MapController {
         loadLevel("/RenderView/Level/Level6.fxml", "/Images/MapLevel/level6.png", "/Images/Entity/paddle.png", "Level 6");
     }
 
-    //  Hàm tiện ích load level
+    // ===== Xử lý nút Menu =====
+    @FXML
+    private void handleMenu() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/RenderView/Menu/Menu.fxml"));
+            Stage stage = (Stage) menuButton.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Arkanoid - Main Menu");
+            stage.show();
+            stage.centerOnScreen();
+            root.requestFocus();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    // ===== Hàm tiện ích load level =====
     private void loadLevel(String fxmlFile, String bgPath, String paddlePath, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -65,17 +82,14 @@ public class MapController {
             stage.setTitle("Arkanoid - " + title);
             stage.show();
 
-            // ⚠️ Đặt ở SAU show()
             stage.centerOnScreen();
-
             root.requestFocus();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
-    // hiệu ứng
+    // ===== Hiệu ứng hover =====
     @FXML
     private void onHover(MouseEvent event) {
         Node node = (Node) event.getSource();
@@ -92,6 +106,7 @@ public class MapController {
         shake.setAutoReverse(true);
         shake.setCycleCount(6);
         shake.play();
+
         node.setEffect(new Glow(0.6));
     }
 

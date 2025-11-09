@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Menu.MapController">
 
@@ -13,65 +14,77 @@
             <Image url="@../../Images/MapLevel/map.png" />
         </image>
     </ImageView>
+    
+    <!-- Menu Button -->
+    <Button fx:id="menuButton" layoutX="53.0" layoutY="682.0" onAction="#handleMenu" onMouseEntered="#onHover" onMouseExited="#onExit" prefHeight="58.0" prefWidth="174.0" style="-fx-background-color: #f7e17c; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 15; -fx-padding: 10 20;" text="Menu">
+      <font>
+         <Font size="30.0" />
+      </font></Button>
 
     <!-- level 1 -->
     <Button fx:id="level1Button" layoutX="110.0" layoutY="83.0" onAction="#handleLevel1" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fx:id="level1Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-70.0" translateY="-80.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv1.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
     <!-- level 2 -->
     <Button fx:id="level2Button" layoutX="380.0" layoutY="280.0" onAction="#handleLevel2" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fx:id="level2Image" fitHeight="200.0" fitWidth="200.0" preserveRatio="true" translateX="-260.0" translateY="-80.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv2.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
     <!-- level 3 -->
     <Button fx:id="level3Button" layoutX="228.0" layoutY="540.0" onAction="#handleLevel3" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" translateX="80.0" translateY="-50.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv3.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
     <!-- level 4 -->
     <Button fx:id="level4Button" layoutX="750.0" layoutY="413.0" onAction="#handleLevel4" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fx:id="level4Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-200.0" translateY="-150.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv4.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
     <!-- level 5 -->
     <Button fx:id="level5Button" layoutX="886.0" layoutY="173.0" onAction="#handleLevel5" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fx:id="level5Image" fitHeight="250.0" fitWidth="150.0" preserveRatio="true" translateX="-50.0" translateY="-100.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv5.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
     <!-- level 6 -->
     <Button fx:id="level6Button" layoutX="848.0" layoutY="501.0" onAction="#handleLevel6" onMouseEntered="#onHover" onMouseExited="#onExit" style="-fx-background-color: transparent; -fx-padding: 0;">
-      <graphic>
+        <graphic>
             <ImageView fx:id="level6Image" fitHeight="150.0" fitWidth="150.0" preserveRatio="true" translateX="-80.0" translateY="-50.0">
                 <image>
                     <Image url="@../../Images/MapLevel/lv6.png" />
                 </image>
             </ImageView>
-      </graphic></Button>
+        </graphic>
+    </Button>
 
 </AnchorPane>
