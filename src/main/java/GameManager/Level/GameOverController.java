@@ -10,6 +10,7 @@ public class GameOverController {
     @FXML private Button nextBtn;
     @FXML private Button previousBtn;
 
+
     private int level;
     private int score;
     private boolean isWin;
