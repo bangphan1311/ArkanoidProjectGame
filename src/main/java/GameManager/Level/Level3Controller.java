@@ -55,4 +55,9 @@ public class Level3Controller extends Level2Controller {
         });
         timer.play();
     }
+    @Override
+    public void initLevel() {
+        setupLevel("/Images/MapLevel/nenlv3.png", "/Images/Entity/paddle.png");
+    }
+
 }

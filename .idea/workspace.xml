@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="chinh sua lai backgroun va cac nut bam">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi lap anh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level2Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level2Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level3Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level3Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level4Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level4Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level5Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level6Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level6Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level2Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level2Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level3Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level3Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level4Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level4Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level5Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level5Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level6Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level6Controller.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,14 +173,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00011" summary="fix, update ball, gamecontroller">
-      <option name="closed" value="true" />
-      <created>1761660972126</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1761660972126</updated>
     </task>
     <task id="LOCAL-00012" summary="demo menu 1">
       <option name="closed" value="true" />
@@ -551,7 +558,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762677630862</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="fix loi lap anh">
+      <option name="closed" value="true" />
+      <created>1762678045060</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1762678045060</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -569,7 +584,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update phan huong dan choi game" />
     <MESSAGE value="them hieu ung tung trag" />
     <MESSAGE value="thiet ke, chinh sua map level" />
     <MESSAGE value="fix loi va update phan map" />
@@ -594,7 +608,8 @@
     <MESSAGE value="hien thi tinh nag pause" />
     <MESSAGE value="khi het mang, het gach hien thi bang gameover co cac nut" />
     <MESSAGE value="chinh sua lai backgroun va cac nut bam" />
-    <option name="LAST_COMMIT_MESSAGE" value="chinh sua lai backgroun va cac nut bam" />
+    <MESSAGE value="fix loi lap anh" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loi lap anh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

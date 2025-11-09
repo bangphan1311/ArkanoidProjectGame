@@ -958,7 +958,6 @@ public abstract class BaseGameController {
     private void showGameEndScreen(boolean isWin) {
         Platform.runLater(() -> {
             try {
-                // Sửa đường dẫn đúng theo thư mục của bạn
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Level/GameOver.fxml"));
                 Parent root = loader.load();
 
@@ -969,13 +968,13 @@ public abstract class BaseGameController {
                 stage.setScene(new Scene(root));
             } catch (Exception e) {
                 e.printStackTrace();
-                System.out.println("Không load được GameOver.fxml");
             }
         });
     }
 
 
-    // phương thức lấy level hiện tại (theo class Controller)
+
+    // phương thức lấy level hiện tại
     private int getCurrentLevel() {
         try {
             String clsName = this.getClass().getSimpleName(); // ví dụ Level1Controller
@@ -985,5 +984,22 @@ public abstract class BaseGameController {
         }
     }
 
+    public void setupLevelController() {
+        // reset lại mọi thứ giống khi khởi tạo level
+        resetPositions();
+        setupHearts();
+        loadBricksFromPane();
+        startGameLoop();
+    }
+
+    public abstract class BaseLevelController {
+        protected int level;
+
+        public abstract void initLevel(); // reset
+    }
+
+    public void initLevel() {
+        setupLevelController();
+    }
 
 }

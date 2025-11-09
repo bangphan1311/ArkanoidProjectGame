@@ -20,4 +20,9 @@ public class Level5Controller extends Level4Controller {
             super.onBrickHit(brick, ball);
         }
     }
+    @Override
+    public void initLevel() {
+        setupLevel("/Images/MapLevel/level5.png", "/Images/Entity/paddle.png");
+    }
+
 }
