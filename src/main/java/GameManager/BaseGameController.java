@@ -768,14 +768,14 @@ public abstract class BaseGameController {
         System.out.println(" setupHearts() gọi, gamePane = " + gamePane);
         if (gamePane == null) return;
 
-        double startX = 20;
-        double startY = 20;
-        double spacing = 40;
+        double startX = 0;
+        double startY = 0;
+        double spacing = 50; // kcach
 
         for (int i = 0; i < lives; i++) {
             ImageView heart = new ImageView(heartImage);
-            heart.setFitWidth(30);
-            heart.setFitHeight(30);
+            heart.setFitWidth(50);
+            heart.setFitHeight(50);
             heart.setLayoutX(startX + i * spacing);
             heart.setLayoutY(startY);
             heartIcons.add(heart);

@@ -125,7 +125,7 @@
                         <ImageView fx:id="strong21121" fitHeight="55.0" fitWidth="86.0" layoutX="503.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
                             <image><Image url="@../../Images/Entity/brick_strong.png" /></image>
                         </ImageView>
-                        <Label fx:id="scoreLabel" layoutX="603.0" text="Score : 1000" textFill="#0b21c9">
+                        <Label fx:id="scoreLabel" layoutX="180.0" text="Score : 1000" textFill="#0b21c9">
                             <font>
                                 <Font name="Franklin Gothic Heavy" size="30.0" />
                             </font>

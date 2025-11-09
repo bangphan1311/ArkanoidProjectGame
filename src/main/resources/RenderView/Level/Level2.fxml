@@ -164,7 +164,7 @@
                                 <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
-                        <Label fx:id="scoreLabel" layoutX="584.0" prefHeight="36.0" prefWidth="213.0" text="Score : 1000" textFill="WHITE">
+                        <Label fx:id="scoreLabel" layoutX="180.0" prefHeight="36.0" prefWidth="213.0" text="Score : 1000" textFill="WHITE">
                             <font>
                                 <Font name="Franklin Gothic Heavy" size="30.0" />
                             </font>
