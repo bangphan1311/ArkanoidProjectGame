@@ -21,7 +21,7 @@ public class SignUpController {
     @FXML private Button signUpButton;
     @FXML private Label messageLabel;
 
-    private final String USERS_FILE = "src/main/data/users.txt";
+    private final String USERS_FILE = "src/data/users.txt";
 
     @FXML
     public void initialize() {

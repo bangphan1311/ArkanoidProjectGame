@@ -8,3 +8,4 @@ ahoho;2600
 ahoho;2900
 bangphan;11200
 ahihi;1200
+ahihi;1000

@@ -21,8 +21,8 @@ public class SignInController {
     @FXML private CheckBox rememberMeCheck;
     @FXML private Label errorLabel;
 
-    private final String USERS_FILE = "src/main/data/users.txt";
-    private final String REMEMBER_FILE = "src/main/data/remember.txt";
+    private final String USERS_FILE = "src/data/users.txt";
+    private final String REMEMBER_FILE = "src/data/remember.txt";
 
     private Map<String, String> rememberedAccounts = new HashMap<>();
 

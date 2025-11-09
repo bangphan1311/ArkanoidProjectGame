@@ -26,7 +26,7 @@ public class HighScoresController {
     @FXML private TableColumn<ScoreEntry, Integer> scoreColumn;
     @FXML private Button backButton;
 
-    private final Path highscoreFile = Path.of("src/main/data/highscores.txt");
+    private final Path highscoreFile = Path.of("src/data/highscores.txt");
 
     @FXML
     public void initialize() {
@@ -65,11 +65,10 @@ public class HighScoresController {
                     setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"); // Top 2
                 } else if (index == 2) {
                     setStyle("-fx-background-color: #5dade2; -fx-text-fill: white;"); // Top 3
-                } else if (currentUser != null && item.getName().equals(currentUser)) {
-                    setStyle("-fx-background-color: linear-gradient(to right, #f39c12, #f1c40f); -fx-text-fill: white;");
                 } else {
-                    setStyle("");
+                    setStyle(""); // các hàng còn lại bình thường
                 }
+
             }
         });
 
