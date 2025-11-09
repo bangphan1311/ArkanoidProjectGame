@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="them hieu ung cho cac nut game over">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/Level1.fxml" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix lai gach">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,14 +158,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00018" summary="thiet ke, chinh sua phan settings">
-      <option name="closed" value="true" />
-      <created>1761922731017</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1761922731017</updated>
     </task>
     <task id="LOCAL-00019" summary="update settings ( them on/ off va hieu ung, background)">
       <option name="closed" value="true" />
@@ -552,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762695778535</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="fix lai gach">
+      <option name="closed" value="true" />
+      <created>1762696689241</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1762696689241</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="thay doi do hoa cua map" />
     <MESSAGE value="cap nhat tat ca do hoa" />
     <MESSAGE value="chia lai file cho de nhin" />
     <MESSAGE value="fix hien thi" />
@@ -595,7 +593,8 @@
     <MESSAGE value="hien thi tren bang highscores" />
     <MESSAGE value="them nut menu cho map" />
     <MESSAGE value="them hieu ung cho cac nut game over" />
-    <option name="LAST_COMMIT_MESSAGE" value="them hieu ung cho cac nut game over" />
+    <MESSAGE value="fix lai gach" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix lai gach" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
