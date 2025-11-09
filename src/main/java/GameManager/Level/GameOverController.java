@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -21,11 +22,13 @@ public class GameOverController {
     @FXML private Button replayBtn;
     @FXML private Button nextBtn;
     @FXML private Button previousBtn;
+    @FXML private Label scoreLabel;
 
     private int level;
     private int score;
     private boolean isWin;
 
+    // Map liên kết level với controller tương ứng
     private static final Map<Integer, Class<?>> levelControllerMap = new HashMap<>();
     static {
         levelControllerMap.put(1, Level1Controller.class);
@@ -36,15 +39,21 @@ public class GameOverController {
         levelControllerMap.put(6, Level6Controller.class);
     }
 
+    // ===== Phương thức để set dữ liệu trước khi hiển thị GameOver =====
     public void setData(int level, int score, boolean isWin) {
         this.level = level;
         this.score = score;
         this.isWin = isWin;
+
+        // Hiển thị điểm trên Label
+        if (scoreLabel != null) {
+            scoreLabel.setText("Score: " + score);
+        }
     }
 
     @FXML
     public void initialize() {
-        // ===== Thiết lập hành động các nút =====
+        // Thiết lập hành động cho các nút
         homeBtn.setOnAction(e -> switchScene("/RenderView/Menu/Menu.fxml", null));
         replayBtn.setOnAction(e ->
                 switchScene("/RenderView/Level/Level" + level + ".fxml", levelControllerMap.get(level))
@@ -62,11 +71,16 @@ public class GameOverController {
             }
         });
 
-        // ===== Đăng ký hover cho tất cả các nút =====
+        // Hover effect cho các nút
         addHoverEffect(homeBtn);
         addHoverEffect(replayBtn);
         addHoverEffect(nextBtn);
         addHoverEffect(previousBtn);
+
+        // Nếu setData được gọi trước khi initialize, update Label
+        if (scoreLabel != null) {
+            scoreLabel.setText("FINAL SCORE: " + score);
+        }
     }
 
     private void addHoverEffect(Button btn) {
@@ -74,7 +88,6 @@ public class GameOverController {
         btn.setOnMouseExited(this::onExit);
     }
 
-    // ===== Hiệu ứng hover =====
     private void onHover(MouseEvent event) {
         Button btn = (Button) event.getSource();
 
@@ -105,12 +118,13 @@ public class GameOverController {
         btn.setEffect(null);
     }
 
-    // ===== Chuyển scene =====
+    // ===== Phương thức chuyển scene =====
     private void switchScene(String fxmlPath, Class<?> controllerClass) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
+            // Nếu có controller level, gọi initLevel()
             if (controllerClass != null) {
                 Object controller = loader.getController();
                 if (controller != null) {
