@@ -16,6 +16,13 @@
         <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="800.0">
             <children>
 
+                <Label fx:id="highScoreLabel" layoutX="20.0" layoutY="20.0" text="High Score: 0" textFill="#00aaff">
+                    <font>
+                        <Font name="Franklin Gothic Heavy" size="24.0" />
+                    </font>
+                </Label>
+
+
                 <!-- Paddle -->
                 <Rectangle fx:id="paddleRect" arcHeight="5.0" arcWidth="5.0" fill="#0b79e04f" height="22.0" layoutX="336.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
 

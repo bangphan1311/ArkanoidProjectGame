@@ -30,7 +30,9 @@ import java.io.IOException;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Animation;
 import javafx.scene.control.Button;
-
+import java.nio.file.Path;
+import java.nio.file.Files;
+import java.io.BufferedReader;
 import GameManager.Menu.HighScoresController;
 
 public abstract class BaseGameController {
@@ -938,4 +940,28 @@ public abstract class BaseGameController {
     public Pane getGamePane() {
         return gamePane;
     }
+
+    public int getHighScoreForLevel(int level) {
+        Path file = Path.of("src/main/data/highscores.txt");
+        int maxScore = 0;
+        if (!Files.exists(file)) return 0;
+
+        try (BufferedReader br = Files.newBufferedReader(file)) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(";");
+                if (parts.length == 2) {
+                    int score = Integer.parseInt(parts[0]);
+                    int lvl = Integer.parseInt(parts[1]);
+                    if (lvl == level && score > maxScore) {
+                        maxScore = score;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return maxScore;
+    }
+
 }
