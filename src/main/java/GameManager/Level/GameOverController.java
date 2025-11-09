@@ -43,7 +43,7 @@ public class GameOverController {
         levelControllerMap.put(6, Level6Controller.class);
     }
 
-    // ===== Phương thức để set dữ liệu trước khi hiển thị GameOver =====
+    // set dữ liệu trước khi hiển thị GameOver
     public void setData(int level, int score, boolean isWin) {
         this.level = level;
         this.score = score;
@@ -89,7 +89,6 @@ public class GameOverController {
         addHoverEffect(nextBtn);
         addHoverEffect(previousBtn);
 
-        // Nếu setData được gọi trước khi initialize, update Label
         if (scoreLabel != null) {
             scoreLabel.setText("FINAL SCORE: " + score);
         }
@@ -130,7 +129,7 @@ public class GameOverController {
         btn.setEffect(null);
     }
 
-    // ===== Phương thức chuyển scene =====
+    // Phương thức chuyển scene
     private void switchScene(String fxmlPath, Class<?> controllerClass) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));

@@ -18,21 +18,13 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class HighScoresController {
 
-    @FXML
-    private TableView<ScoreEntry> scoreTable;
-
-    @FXML
-    private TableColumn<ScoreEntry, String> nameColumn;
-
-    @FXML
-    private TableColumn<ScoreEntry, Integer> scoreColumn;
-
-    @FXML
-    private Button backButton;
+    @FXML private TableView<ScoreEntry> scoreTable;
+    @FXML private TableColumn<ScoreEntry, String> nameColumn;
+    @FXML private TableColumn<ScoreEntry, Integer> scoreColumn;
+    @FXML private Button backButton;
 
     private final Path highscoreFile = Path.of("src/main/data/highscores.txt");
 
@@ -41,35 +33,39 @@ public class HighScoresController {
         nameColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("name"));
         scoreColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("score"));
 
-        // Tải danh sách điểm
-        List<ScoreEntry> scores = loadHighScores();
+        // Load tất cả điểm
+        List<ScoreEntry> allScores = loadHighScores();
 
-        // điểm cao nhẩt
-        Map<String, Integer> bestScores = new HashMap<>();
-        for (ScoreEntry s : scores) {
-            bestScores.merge(s.getName(), s.getScore(), Math::max);
-        }
+        // sx
+        allScores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
 
-        // giảm dần
-        List<ScoreEntry> topScores = bestScores.entrySet().stream()
-                .sorted((a, b) -> Integer.compare(b.getValue(), a.getValue()))
-                .limit(10)
-                .map(e -> new ScoreEntry(e.getKey(), e.getValue()))
-                .collect(Collectors.toList());
+        // ghan 10
+        List<ScoreEntry> top10 = allScores.size() > 10 ? allScores.subList(0, 10) : allScores;
+
+        ObservableList<ScoreEntry> data = FXCollections.observableArrayList(top10);
+        scoreTable.setItems(data);
 
         // Lấy username hiện tại
         String currentUser = Session.getUsername();
 
-        // Hiển thị trong bảng
-        ObservableList<ScoreEntry> data = FXCollections.observableArrayList(topScores);
-        scoreTable.setItems(data);
-
-        // Làm nổi bật tài khoản hiện tại
+        // Highlight top 3 + user hiện tại
         scoreTable.setRowFactory(tv -> new TableRow<>() {
             @Override
             protected void updateItem(ScoreEntry item, boolean empty) {
                 super.updateItem(item, empty);
-                if (item != null && currentUser != null && item.getName().equals(currentUser)) {
+                if (item == null || empty) {
+                    setStyle("");
+                    return;
+                }
+
+                int index = getIndex();
+                if (index == 0) {
+                    setStyle("-fx-background-color: #2980b9; -fx-text-fill: white;"); // Top 1
+                } else if (index == 1) {
+                    setStyle("-fx-background-color: #3498db; -fx-text-fill: white;"); // Top 2
+                } else if (index == 2) {
+                    setStyle("-fx-background-color: #5dade2; -fx-text-fill: white;"); // Top 3
+                } else if (currentUser != null && item.getName().equals(currentUser)) {
                     setStyle("-fx-background-color: linear-gradient(to right, #f39c12, #f1c40f); -fx-text-fill: white;");
                 } else {
                     setStyle("");
@@ -135,9 +131,7 @@ public class HighScoresController {
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
                 if (parts.length == 2) {
-                    String name = parts[0];
-                    int score = Integer.parseInt(parts[1]);
-                    list.add(new ScoreEntry(name, score));
+                    list.add(new ScoreEntry(parts[0], Integer.parseInt(parts[1])));
                 }
             }
         } catch (IOException e) {
@@ -146,44 +140,21 @@ public class HighScoresController {
         return list;
     }
 
+    // lưu
     public void saveScore(String name, int newScore) {
         try {
             Files.createDirectories(highscoreFile.getParent());
-            List<ScoreEntry> scores = loadHighScores();
-
-            boolean found = false;
-            for (ScoreEntry entry : new ArrayList<>(scores)) {
-                if (entry.getName().equals(name)) {
-                    // Nếu đã có user -> chỉ cập nhật nếu điểm mới cao hơn
-                    if (newScore > entry.getScore()) {
-                        int index = scores.indexOf(entry);
-                        scores.remove(index);
-                        scores.add(new ScoreEntry(name, newScore));
-                    }
-                    found = true;
-                    break;
-                }
-            }
-
-            // Nếu chưa có user, thêm mới
-            if (!found) {
-                scores.add(new ScoreEntry(name, newScore));
-            }
-
-            // Sắp xếp giảm dần theo điểm
-            scores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
-
-            // Ghi lại toàn bộ danh sách vào file (ghi đè)
-            try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile)) {
-                for (ScoreEntry s : scores) {
-                    bw.write(s.getName() + ";" + s.getScore());
-                    bw.newLine();
-                }
+            try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
+                    java.nio.file.StandardOpenOption.CREATE,
+                    java.nio.file.StandardOpenOption.APPEND)) {
+                bw.write(name + ";" + newScore);
+                bw.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public static class ScoreEntry {
         private final String name;
         private final int score;
@@ -193,25 +164,7 @@ public class HighScoresController {
             this.score = score;
         }
 
-        public String getName() {
-            return name;
-        }
-
-        public int getScore() {
-            return score;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof ScoreEntry)) return false;
-            ScoreEntry that = (ScoreEntry) o;
-            return Objects.equals(name, that.name);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(name);
-        }
+        public String getName() { return name; }
+        public int getScore() { return score; }
     }
 }

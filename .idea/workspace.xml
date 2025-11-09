@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi logic gameover">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="hien thi danh sach player ơ highscore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/remember.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/remember.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/HighScores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/HighScores.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/SignInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/SignInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/HighScores.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/HighScores.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,14 +164,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00021" summary="update signin">
-      <option name="closed" value="true" />
-      <created>1762002245844</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1762002245844</updated>
     </task>
     <task id="LOCAL-00022" summary="thiet ke, chinh sua phan sign up">
       <option name="closed" value="true" />
@@ -560,7 +549,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762699445609</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="hien thi danh sach player ơ highscore">
+      <option name="closed" value="true" />
+      <created>1762700670509</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1762700670509</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -578,7 +575,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix hien thi" />
     <MESSAGE value="thay doi vi tri file" />
     <MESSAGE value="fix loi, tao ban demo level 5 o scenebuilder" />
     <MESSAGE value="lam tau di chuyen, thanh di chuyen cho level 5" />
@@ -603,7 +599,8 @@
     <MESSAGE value="fix lai gach" />
     <MESSAGE value="cap nhat lai vi tri cac nut va fix loi" />
     <MESSAGE value="fix loi logic gameover" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix loi logic gameover" />
+    <MESSAGE value="hien thi danh sach player ơ highscore" />
+    <option name="LAST_COMMIT_MESSAGE" value="hien thi danh sach player ơ highscore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
