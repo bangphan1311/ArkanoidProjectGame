@@ -9,13 +9,17 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GameManager.Level.Level3Controller">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Level.Level4Controller">
     <children>
         <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="800.0">
             <children>
+
+                <ImageView fx:id="pauseButton" fitHeight="50.0" fitWidth="50.0" layoutX="740.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../Images/Page/page.png" />
+                    </image>
+                </ImageView>
+
                 <Rectangle fx:id="paddleRect" arcHeight="5.0" arcWidth="5.0" fill="#0b79e04f" height="22.0" layoutX="336.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
 
                 <Circle fx:id="ballCircle" centerX="400.0" centerY="350.0" fill="#eb7752eb" radius="12.0" />
@@ -42,7 +46,7 @@
                                 <Image url="@../../Images/PowerUp/2ball.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="doubleBall14" fitHeight="48.0" fitWidth="103.0" layoutX="184.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doubleBall14" fitHeight="48.0" fitWidth="103.0" layoutX="612.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Images/PowerUp/2ball.png" />
                             </image>
@@ -192,7 +196,7 @@
                                 <Image url="@../../Images/Entity/bricktrong.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="paddlechange_12121" fitHeight="48.0" fitWidth="85.0" layoutX="99.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="paddlechange_12121" fitHeight="48.0" fitWidth="85.0" layoutX="358.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Images/Entity/bricktrong.png" />
                             </image>
@@ -202,7 +206,7 @@
                                 <Image url="@../../Images/Entity/brick.png" />
                             </image>
                         </ImageView>
-                        <ImageView fx:id="strong1111141121" fitHeight="48.0" fitWidth="85.0" layoutX="459.0" layoutY="237.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="strong1111141121" fitHeight="48.0" fitWidth="85.0" layoutX="531.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../../Images/Entity/brick_strong.png" />
                             </image>
