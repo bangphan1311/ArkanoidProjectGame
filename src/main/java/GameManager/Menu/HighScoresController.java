@@ -2,16 +2,12 @@ package GameManager.Menu;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -22,7 +18,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
-
 
 public class HighScoresController {
 
@@ -42,58 +37,75 @@ public class HighScoresController {
 
     @FXML
     public void initialize() {
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("PLAYER NAME"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<>("SCORE"));
+        // Đặt tên cột trùng getter trong ScoreEntry
+        nameColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("name"));
+        scoreColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("score"));
 
-        // Load dữ liệu từ file
+        // Load điểm từ file
         List<ScoreEntry> scores = loadHighScores();
-        scores.sort((a, b) -> b.getScore() - a.getScore()); // giảm dần
-        if (scores.size() > 10) scores = scores.subList(0, 10); // Top 10
+        scores.sort((a, b) -> b.getScore() - a.getScore());  // sx
+        List<ScoreEntry> topScores = scores.size() > 10 ? new ArrayList<>(scores.subList(0, 10)) : new ArrayList<>(scores);
 
-        ObservableList<ScoreEntry> data = FXCollections.observableArrayList(scores);
+        // Nếu tài khoản hiện tại chưa có trong top 10, thêm vào cuối
+        String currentUser = Session.currentUsername;
+        if (currentUser != null) {
+            scores.stream()
+                    .filter(s -> s.getName().equals(currentUser))
+                    .findFirst()
+                    .ifPresent(userScore -> {
+                        if (!topScores.contains(userScore)) topScores.add(userScore);
+                    });
+        }
+
+        // Chuyển vào TableView
+        ObservableList<ScoreEntry> data = FXCollections.observableArrayList(topScores);
         scoreTable.setItems(data);
 
-        scoreTable.setPlaceholder(new javafx.scene.control.Label("Chưa có điểm nào được ghi nhận!"));
+        // Nổi bật người chơi hiện tại
+        scoreTable.setRowFactory(tv -> new TableRow<>() {
+            @Override
+            protected void updateItem(ScoreEntry item, boolean empty) {
+                super.updateItem(item, empty);
+                if (item != null && currentUser != null && item.getName().equals(currentUser)) {
+                    setStyle("-fx-background-color: linear-gradient(to right, #f39c12, #f1c40f); -fx-text-fill: white;");
+                } else {
+                    setStyle("");
+                }
+            }
+        });
 
-        addHoverEffect(backButton);  // hiệu ứng nút
+        scoreTable.setPlaceholder(new Label("Chưa có điểm nào được ghi nhận!"));
+
+        addHoverEffect(backButton);
     }
 
-    // back to menu
     @FXML
     void handleBackToMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Menu.fxml"));
         Parent root = loader.load();
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.setTitle("Menu");
         stage.show();
     }
 
-    // hiệu ứng
     private void addHoverEffect(Button button) {
-        // style gốc của nút (giống trong FXML)
         String normalStyle = "-fx-background-color: linear-gradient(to bottom, #74b9ff, #0984e3);"
                 + "-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"
                 + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
                 + "-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);";
 
-        // style khi hover
         String hoverStyle = "-fx-background-color: linear-gradient(to bottom, #a0cfff, #3b7de3);"
                 + "-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;"
                 + "-fx-background-radius: 25; -fx-pref-width: 160; -fx-pref-height: 45;"
                 + "-fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(255,255,180,0.9), 15, 0.5, 0, 0);";
 
-        // style bdau
         button.setStyle(normalStyle);
 
-        //di chuột vào nút
         button.setOnMouseEntered(e -> {
-            button.setStyle(hoverStyle); // chuyển sang style hover
+            button.setStyle(hoverStyle);
             button.setScaleX(1.08);
             button.setScaleY(1.08);
-
-            // rug
             Timeline shake = new Timeline(
                     new KeyFrame(Duration.ZERO, new KeyValue(button.translateXProperty(), 0)),
                     new KeyFrame(Duration.millis(50), new KeyValue(button.translateXProperty(), -4)),
@@ -105,20 +117,17 @@ public class HighScoresController {
             shake.play();
         });
 
-        // Khi rời chuột khỏi nút
         button.setOnMouseExited(e -> {
             button.setScaleX(1.0);
             button.setScaleY(1.0);
             button.setTranslateX(0);
-            button.setStyle(normalStyle); // trở lại style gốc (không xóa trắng)
+            button.setStyle(normalStyle);
         });
     }
 
-    // đọc file highscores.txt
     private List<ScoreEntry> loadHighScores() {
         List<ScoreEntry> list = new ArrayList<>();
         if (!Files.exists(highscoreFile)) return list;
-
         try (BufferedReader br = Files.newBufferedReader(highscoreFile)) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -135,10 +144,9 @@ public class HighScoresController {
         return list;
     }
 
-    // ghi điểm mới vào file
     public void saveScore(String name, int score) {
         try {
-            Files.createDirectories(highscoreFile.getParent()); // tạo thư mục nếu chưa có
+            Files.createDirectories(highscoreFile.getParent());
             try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
                     java.nio.file.StandardOpenOption.CREATE,
                     java.nio.file.StandardOpenOption.APPEND)) {
@@ -150,7 +158,6 @@ public class HighScoresController {
         }
     }
 
-    // lớp phụ để lưu dữ liệu điểm
     public static class ScoreEntry {
         private final String name;
         private final int score;

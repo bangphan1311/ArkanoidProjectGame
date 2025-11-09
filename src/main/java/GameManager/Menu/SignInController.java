@@ -116,6 +116,7 @@ public class SignInController {
         }
 
         if (isValid) {
+            Session.currentUsername = username; // username lấy từ file users.txt
             // tick remember me thì lưu tkhoan
             if (rememberMeCheck.isSelected()) {
                 rememberedAccounts.put(username, password);
