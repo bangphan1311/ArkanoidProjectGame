@@ -16,14 +16,6 @@
         <Pane fx:id="gamePane" prefHeight="600.0" prefWidth="800.0">
             <children>
 
-                <!-- === Nút Tạm Dừng (Pause) === -->
-                <Button fx:id="pauseButton"
-                        text="II"
-                        layoutX="10.0" layoutY="10.0"
-                        prefWidth="40.0" prefHeight="30.0"
-                        style="-fx-font-size: 18px; -fx-background-color: #ffffff55; -fx-text-fill: black;"
-                        onAction="#handlePause" />
-
                 <!-- Paddle -->
                 <Rectangle fx:id="paddleRect" arcHeight="5.0" arcWidth="5.0" fill="#0b79e04f" height="22.0" layoutX="336.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" width="128.0" />
 

@@ -144,22 +144,30 @@ public abstract class BaseGameController {
     }
     private void setupControls() {
         if (gamePane == null) return;
+
         gamePane.setFocusTraversable(true);
         gamePane.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) moveLeft = true;
-            if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) moveRight = true;
-        });
-        gamePane.setOnKeyPressed(e -> {
-            if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) moveLeft = true;
-            if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) moveRight = true;
+            KeyCode code = e.getCode();
+            if (code == KeyCode.LEFT || code == KeyCode.A) moveLeft = true;
+            else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = true;
 
-            // ấn SPACE hoặc ENTER để bóng chạy
-            if ((e.getCode() == KeyCode.SPACE || e.getCode() == KeyCode.ENTER) && !ballLaunched) {
+            // Ấn SPACE hoặc ENTER để phóng bóng
+            if ((code == KeyCode.SPACE || code == KeyCode.ENTER) && !ballLaunched) {
                 launchBall();
             }
         });
 
+        // giữu paddle ko nhả phím
+        gamePane.setOnKeyReleased(e -> {
+            KeyCode code = e.getCode();
+            if (code == KeyCode.LEFT || code == KeyCode.A) moveLeft = false;
+            else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = false;
+        });
+
+        // --- Đảm bảo luôn có focus để nhận phím ---
+        Platform.runLater(() -> gamePane.requestFocus());
     }
+
 
     private void loadBricksFromPane() {
         if (brickPane == null) return;
@@ -221,8 +229,12 @@ public abstract class BaseGameController {
         // bóng chx chạy thì bóng đi theo paddle
         if (!ballLaunched && !balls.isEmpty()) {
             Ball ball = balls.get(0);
+
+            // vgtri bong đứng im
             double ballX = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
-            double ballY = paddleRect.getLayoutY() - ball.getRadius() * 2;
+            double ballY = paddleRect.getLayoutY() - ball.getRadius() - 2;
+
+
             ball.setPosition(ballX, ballY);
             return; // chưa update vật lý khi chưa phóng
         }
@@ -418,11 +430,14 @@ public abstract class BaseGameController {
         balls.clear();
         Ball newBall = new Ball(ballCircle, sceneWidth, sceneHeight);
         balls.add(newBall);
-        resetBallPosition(); // giữ bóng trên paddle, chưa bay
-
+        resetBallPosition();
 
         isGameOver = false;
+
+        // dbao focus khi reset lại
+        Platform.runLater(() -> gamePane.requestFocus());
     }
+
 
     // chỉnh bóng chạy
     protected void launchBall() {
@@ -441,8 +456,9 @@ public abstract class BaseGameController {
         ball.setDirY(0);
         ball.setPosition(
                 paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0,
-                paddleRect.getLayoutY() - ball.getRadius() * 2
+                paddleRect.getLayoutY() + paddleRect.getHeight() - ball.getRadius() - 2
         );
+
     }
 
     protected void onBrickHit(Brick brick, Ball ball) {
