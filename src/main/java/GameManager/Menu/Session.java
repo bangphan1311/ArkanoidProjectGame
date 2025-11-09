@@ -1,8 +1,13 @@
-package GameManager.Menu;
+package GameManager.Menu;  // ⚠️ Phải trùng với nơi bạn import trong GameOverController
 
 public class Session {
-    // Lưu username người dùng hiện tại
-    public static String currentUsername = null;
+    private static String currentUsername;
 
-    // Có thể thêm các thông tin khác nếu cần, ví dụ userID, email...
+    public static void setUsername(String username) {
+        currentUsername = username;
+    }
+
+    public static String getUsername() {
+        return currentUsername;
+    }
 }

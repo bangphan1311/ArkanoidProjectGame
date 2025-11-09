@@ -15,6 +15,10 @@ import javafx.util.Duration;
 
 import java.util.HashMap;
 import java.util.Map;
+import GameManager.Menu.Session;
+import GameManager.Menu.HighScoresController;
+
+
 
 public class GameOverController {
 
@@ -49,7 +53,15 @@ public class GameOverController {
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + score);
         }
+
+        // Cập nhật điểm cao cho tài khoản hiện tại
+        String currentUser = Session.getUsername();
+        if (currentUser != null && !currentUser.isEmpty()) {
+            HighScoresController highScoresController = new HighScoresController();
+            highScoresController.saveScore(currentUser, score);
+        }
     }
+
 
     @FXML
     public void initialize() {

@@ -106,7 +106,7 @@ public class SignInController {
         }
 
         if (isValid) {
-            Session.currentUsername = username; // set current user
+            Session.setUsername(username);
 
             if (rememberMeCheck.isSelected()) {
                 rememberedAccounts.put(username, password);
