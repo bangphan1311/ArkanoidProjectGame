@@ -6,43 +6,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400" prefWidth="600" style="-fx-background-color: #222;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Level.GameOverController">
-   <ImageView fitHeight="419.0" fitWidth="737.0" layoutX="-83.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@../../Images/Background/backgroundgameover.png" />
-      </image>
-   </ImageView>
+    
+    <ImageView fitHeight="419.0" fitWidth="737.0" layoutX="-83.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../Images/Background/backgroundgameover.png" />
+        </image>
+    </ImageView>
 
-    <Button fx:id="homeBtn" layoutX="74.0" layoutY="250.0" prefHeight="60" prefWidth="100" style="-fx-background-image: url('@../../Images/Page/home.png'); -fx-background-size: cover; -fx-background-color: transparent;">
-      <graphic>
-         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="-45.0">
-            <image>
-               <Image url="@../../Images/Page/home.png" />
-            </image>
-         </ImageView>
-      </graphic></Button>
-    <Button fx:id="replayBtn" layoutX="227.0" layoutY="250.0" prefHeight="60" prefWidth="100" style="-fx-background-image: url('@../../Images/Page/choilai.png'); -fx-background-size: cover; -fx-background-color: transparent;">
-      <graphic>
-         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="-30.0" translateY="-45.0">
-            <image>
-               <Image url="@../../Images/Page/choilai.png" />
-            </image>
-         </ImageView>
-      </graphic></Button>
-    <Button fx:id="nextBtn" layoutX="94.0" layoutY="324.0" prefHeight="60" prefWidth="100" style="-fx-background-image: url('@../../Images/Page/next.png'); -fx-background-size: cover; -fx-background-color: transparent;">
-      <graphic>
-         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="100.0" translateY="-40.0">
-            <image>
-               <Image url="@../../Images/Page/next.png" />
-            </image>
-         </ImageView>
-      </graphic></Button>
-    <Button fx:id="previousBtn" layoutX="209.0" layoutY="311.0" prefHeight="60.0" prefWidth="100" style="-fx-background-image: url('@../../Images/Page/previous.png'); -fx-background-size: cover; -fx-background-color: transparent;" translateX="20.0" translateY="40.0">
-      <graphic>
-         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="-150.0" translateY="-64.0">
-            <image>
-               <Image url="@../../Images/Page/previous.png" />
-            </image>
-         </ImageView>
-      </graphic></Button>
+    <Button fx:id="homeBtn" layoutX="74.0" layoutY="250.0" prefHeight="60" prefWidth="100" style="-fx-background-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateY="-40.0">
+                <image>
+                    <Image url="@../../Images/Page/home.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+
+    <Button fx:id="replayBtn" layoutX="227.0" layoutY="250.0" prefHeight="60" prefWidth="100" style="-fx-background-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="-15.0" translateY="-40.0">
+                <image>
+                    <Image url="@../../Images/Page/choilai.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+
+    <Button fx:id="nextBtn" layoutX="94.0" layoutY="324.0" prefHeight="60" prefWidth="100" style="-fx-background-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="-20.0">
+                <image>
+                    <Image url="@../../Images/Page/next.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+
+
+    <Button fx:id="previousBtn" layoutX="209.0" layoutY="311.0" prefHeight="60" prefWidth="100" style="-fx-background-color: transparent;">
+        <graphic>
+            <ImageView fitHeight="82.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true" translateY="-5.0">
+                <image>
+                    <Image url="@../../Images/Page/previous.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
 
 </AnchorPane>

@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="khi het mang, het gach hien thi bang gameover co cac nut">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="chinh sua lai backgroun va cac nut bam">
       <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,14 +158,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00010" summary="fix ball, gamecontroller">
-      <option name="closed" value="true" />
-      <created>1761660317623</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1761660317623</updated>
     </task>
     <task id="LOCAL-00011" summary="fix, update ball, gamecontroller">
       <option name="closed" value="true" />
@@ -553,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762676830918</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="chinh sua lai backgroun va cac nut bam">
+      <option name="closed" value="true" />
+      <created>1762677630862</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1762677630862</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -571,7 +569,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="do hoa cua huong dan choi game" />
     <MESSAGE value="update phan huong dan choi game" />
     <MESSAGE value="them hieu ung tung trag" />
     <MESSAGE value="thiet ke, chinh sua map level" />
@@ -596,7 +593,8 @@
     <MESSAGE value="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle" />
     <MESSAGE value="hien thi tinh nag pause" />
     <MESSAGE value="khi het mang, het gach hien thi bang gameover co cac nut" />
-    <option name="LAST_COMMIT_MESSAGE" value="khi het mang, het gach hien thi bang gameover co cac nut" />
+    <MESSAGE value="chinh sua lai backgroun va cac nut bam" />
+    <option name="LAST_COMMIT_MESSAGE" value="chinh sua lai backgroun va cac nut bam" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
