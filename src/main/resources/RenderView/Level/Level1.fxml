@@ -131,18 +131,6 @@
                                 <Font name="Franklin Gothic Heavy" size="30.0" />
                             </font>
                         </Label>
-                        <Button fx:id="pauseButton" layoutX="738.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlePause">
-                            <graphic>
-                                <ImageView fitHeight="56.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0" translateY="-15.0">
-                                    <image>
-                                        <Image url="@../../Images/Page/page.png" />
-                                    </image>
-                                </ImageView>
-                            </graphic>
-                        </Button>
-
-                        <fx:include fx:id="pauseMenuPane" source="PauseMenu.fxml"/>
-
                     </children>
                 </Pane>
 

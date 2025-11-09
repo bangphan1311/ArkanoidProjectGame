@@ -4,7 +4,6 @@ import Entity.Ball;
 import Entity.Brick;
 import GameManager.BaseGameController;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
@@ -16,13 +15,10 @@ public class Level1Controller extends BaseGameController {
     protected Pane gamePane;
 
     @FXML
-    private Label highScoreLabel;
-
-    @FXML
     private AnchorPane pauseMenuPane;
 
     @FXML
-    private Button resumeButton, restartButton, menuButton, nextButton, prevButton, pauseButton;
+    private Button pauseButton, resumeButton, restartButton, menuButton, nextButton, prevButton;
 
     private AnimationTimer gameLoop;
 
@@ -34,7 +30,6 @@ public class Level1Controller extends BaseGameController {
     @Override
     public void initLevel() {
         setupLevel("/Images/MapLevel/level1.png", "/Images/Entity/paddle.png");
-        showHighScore();
 
         // Khởi tạo game loop nếu chưa có
         if (gameLoop == null) {
@@ -45,13 +40,13 @@ public class Level1Controller extends BaseGameController {
                 }
             };
         }
-        startGame();
-    }
 
-    private void showHighScore() {
-        int level = getCurrentLevelNumber();
-        int highScore = getHighScoreForLevel(level);
-        highScoreLabel.setText("High Score: " + highScore);
+        // Ẩn pause menu lúc bắt đầu
+        if (pauseMenuPane != null) {
+            pauseMenuPane.setVisible(false);
+        }
+
+        startGame();
     }
 
     @Override
@@ -62,20 +57,26 @@ public class Level1Controller extends BaseGameController {
     /*** Pause / Resume ***/
     @FXML
     private void handlePause() {
-        pauseMenuPane.setVisible(true);
+        if (pauseMenuPane != null) {
+            pauseMenuPane.setVisible(true);
+        }
         stopGame();
     }
 
     @FXML
     private void handleResume() {
-        pauseMenuPane.setVisible(false);
+        if (pauseMenuPane != null) {
+            pauseMenuPane.setVisible(false);
+        }
         startGame();
     }
 
-    /*** Restart ***/
+    /*** Restart Level ***/
     @FXML
     private void handleRestart() {
-        pauseMenuPane.setVisible(false);
+        if (pauseMenuPane != null) {
+            pauseMenuPane.setVisible(false);
+        }
         initLevel(); // reset level
     }
 
@@ -83,21 +84,22 @@ public class Level1Controller extends BaseGameController {
     @FXML
     private void handleMenu() {
         System.out.println("Menu button pressed");
-        // Thêm chuyển scene về Menu chính nếu muốn
+        // Chuyển scene về menu chính nếu muốn
     }
 
     @FXML
     private void handleNext() {
         System.out.println("Next button pressed");
-        // Chuyển sang level tiếp theo
+        // Chuyển sang level tiếp theo nếu muốn
     }
 
     @FXML
     private void handlePrevious() {
         System.out.println("Previous button pressed");
-        // Chuyển sang level trước
+        // Chuyển sang level trước nếu muốn
     }
 
+    /*** Game control ***/
     private void startGame() {
         if (gameLoop != null) gameLoop.start();
     }

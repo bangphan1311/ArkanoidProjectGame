@@ -24,7 +24,6 @@ import GameManager.Level.GameOverController;
 
 import java.util.ArrayList;
 import java.util.List;
-import GameManager.Menu.PauseMenuController;
 import java.io.IOException;
 
 import javafx.animation.ScaleTransition;
@@ -33,7 +32,6 @@ import javafx.scene.control.Button;
 import java.nio.file.Path;
 import java.nio.file.Files;
 import java.io.BufferedReader;
-import GameManager.Menu.HighScoresController;
 
 public abstract class BaseGameController {
 
@@ -184,10 +182,6 @@ public abstract class BaseGameController {
             scoreLabel.setText("Score: " + this.score);
         }
 
-        // pause
-        if (pauseBtn != null) {
-            pauseBtn.setOnMouseClicked(e -> togglePause());
-        }
 
         resetPositions();
         setupControls();
@@ -202,7 +196,6 @@ public abstract class BaseGameController {
             if (code == KeyCode.LEFT || code == KeyCode.A) moveLeft = true;
             else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = true;
 
-            // Ấn SPACE hoặc ENTER để phóng bóng
             if ((code == KeyCode.SPACE || code == KeyCode.ENTER) && !ballLaunched) {
                 launchBall();
             }
@@ -812,36 +805,6 @@ public abstract class BaseGameController {
         st.setCycleCount(Animation.INDEFINITE);
         st.setAutoReverse(true);
         st.play();
-    }
-
-    protected void togglePause() {
-        if (pauseOverlay == null) {
-            showPauseMenu();
-        } else {
-            hidePauseMenu();
-        }
-    }
-
-    protected void showPauseMenu() {
-        if (pauseOverlay != null) return; // tránh thêm nhiều lần
-
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GameManager/UI/PauseMenu.fxml"));
-            pauseOverlay = loader.load();
-
-            // đưa overlay lên trên cùng của gamePane
-            gamePane.getChildren().add(pauseOverlay);
-
-            // tạm dừng game loop
-            if (gameLoop != null) gameLoop.stop();
-
-            // gán sự kiện cho các nút trong PauseMenu (nếu có)
-            PauseMenuController controller = loader.getController();
-            controller.setBaseGameController(this);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 
