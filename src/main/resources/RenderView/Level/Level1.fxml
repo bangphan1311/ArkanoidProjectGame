@@ -133,6 +133,16 @@
                         </Label>
                     </children>
                 </Pane>
+            <Button fx:id="pauseButton" layoutX="722.0" layoutY="10.0" mnemonicParsing="false" onAction="#handlePauseButton" prefHeight="47.0" prefWidth="85.0" style="-fx-background-color: transparent; -fx-padding: 0;">
+               <graphic>
+                  <ImageView fx:id="pauseIcon" fitHeight="47.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/Page/thu1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Pane fx:id="pauseOverlay" layoutX="-2.0" layoutY="-8.0" prefHeight="626.0" prefWidth="817.0" style="-fx-background-color: rgba(0, 0, 0, 0.7);" visible="false" />
 
             </children>
         </Pane>
