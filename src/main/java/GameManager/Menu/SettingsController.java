@@ -1,6 +1,8 @@
 package GameManager.Menu;
 
-import GameManager.SoundManager; // ✅ 1. Import công tắc
+import GameManager.SoundManager;
+import GameManager.Menu.MenuController;
+import GameManager.Menu.MapController;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -14,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.util.Duration;
 import java.io.IOException;
+import javafx.scene.media.MediaPlayer;
 
 public class SettingsController {
 
@@ -40,12 +43,30 @@ public class SettingsController {
         boolean isSelected = musicToggle.isSelected();
         SoundManager.isMusicMuted = !isSelected;
         updateToggleStyle(musicToggle, isSelected);
+        if (isSelected) {
+
+            if (MenuController.menuMusicPlayer != null &&
+                    MenuController.menuMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
+                MenuController.menuMusicPlayer.play();
+            }
+            if (MapController.gameMusicPlayer != null &&
+                    MapController.gameMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
+                MapController.gameMusicPlayer.play();
+            }
+        }else {
+            if (MenuController.menuMusicPlayer != null) {
+                MenuController.menuMusicPlayer.stop();
+            }
+            if (MapController.gameMusicPlayer != null) {
+                MapController.gameMusicPlayer.stop();
+            }
+        }
 
     }
 
     private void handleSoundToggle() {
         boolean isSelected = soundToggle.isSelected();
-        SoundManager.isSoundMuted = !isSelected; // Cập nhật công tắc toàn cục
+        SoundManager.isSoundMuted = !isSelected;
         updateToggleStyle(soundToggle, isSelected);
     }
 
@@ -83,6 +104,9 @@ public class SettingsController {
     // back to menu
     @FXML
     void handleBackToMenu(ActionEvent event) throws IOException {
+        if (!SoundManager.isMusicMuted && MenuController.menuMusicPlayer != null) {
+            MenuController.menuMusicPlayer.play();
+        }
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/RenderView/Menu/Menu.fxml"));
         Parent root = loader.load();
 
