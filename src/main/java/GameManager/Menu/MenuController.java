@@ -17,15 +17,21 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class MenuController {
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
+    private static MediaPlayer menuMusicPlayer;
     private static final int LEVEL_TO_RUN = 5;
 
     @FXML
     void handleStartGame(ActionEvent event) {
+        if (menuMusicPlayer != null) {
+            menuMusicPlayer.stop();
+        }
         boolean useLevelToRun = false;
         if (useLevelToRun) {
             String fxmlFile;
@@ -190,6 +196,7 @@ public class MenuController {
     // ========== HOVER EFFECT ==========
     @FXML
     public void initialize() {
+        startMenuMusic();
         addHoverAnimation(startButton);
         addHoverAnimation(instructionsButton);
         addHoverAnimation(settingsButton);
@@ -219,5 +226,23 @@ public class MenuController {
                 new KeyFrame(Duration.millis(250), new KeyValue(button.translateXProperty(), 0))
         );
         timeline.play();
+    }
+    private void startMenuMusic() {
+        if (menuMusicPlayer == null) { // Chỉ phát nếu nhạc chưa chạy
+            try {
+                URL resource = getClass().getResource("/sounds/gameMenu.mp3"); // Đổi tên file nếu cần
+                if (resource != null) {
+                    Media media = new Media(resource.toString());
+                    menuMusicPlayer = new MediaPlayer(media);
+                    menuMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE); // Lặp lại
+                    menuMusicPlayer.setVolume(0.5); // 50% âm lượng
+                    menuMusicPlayer.play();
+                } else {
+                    System.err.println("Không tìm thấy file /sounds/menu_music.mp3");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

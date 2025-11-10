@@ -13,8 +13,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.net.URL;
 
 public class MapController {
+    private static MediaPlayer gameMusicPlayer;
 
     @FXML
     private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button, menuButton;
@@ -65,6 +70,11 @@ public class MapController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    @FXML
+    public void initialize() {
+
+        startGameMusic();
     }
 
     // ===== Hàm tiện ích load level =====
@@ -118,5 +128,25 @@ public class MapController {
         scale.setToY(1.0);
         scale.play();
         node.setEffect(null);
+    }
+    private void startGameMusic() {
+        if (gameMusicPlayer == null) {
+            try {
+                URL resource = getClass().getResource("/sounds/startgame.mp3");
+                if (resource != null) {
+                    Media media = new Media(resource.toString());
+                    gameMusicPlayer = new MediaPlayer(media);
+                    gameMusicPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+                    gameMusicPlayer.setVolume(0.5);
+                    gameMusicPlayer.play();
+                } else {
+                    System.err.println("Không tìm thấy file /sounds/game_music.mp3");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (gameMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
+            gameMusicPlayer.play();
+        }
     }
 }
