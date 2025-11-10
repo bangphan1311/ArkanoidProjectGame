@@ -2,6 +2,7 @@ package GameManager.Level;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform; // ✅ Import
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,15 +19,25 @@ import java.util.Map;
 import GameManager.Menu.Session;
 import GameManager.Menu.HighScoresController;
 
-
+// ✅ 1. THÊM CÁC IMPORT CẦN THIẾT CHO ĐA LUỒNG
+import javafx.concurrent.Task;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameOverController {
 
+    @FXML private Label scoreLabel;
+    @FXML private Label highScoreStatusLabel; // ✅ 2. Đảm bảo FXML của bạn CÓ Label này
     @FXML private Button homeBtn;
     @FXML private Button replayBtn;
     @FXML private Button nextBtn;
     @FXML private Button previousBtn;
-    @FXML private Label scoreLabel;
 
     private int level;
     private int score;
@@ -43,23 +54,81 @@ public class GameOverController {
         levelControllerMap.put(6, Level6Controller.class);
     }
 
-    // set dữ liệu trước khi hiển thị GameOver
+    /**
+     * ✅ 3. SỬA LẠI HÀM SETDATA
+     * Hàm này sẽ nhận dữ liệu, cập nhật UI, và BẮT ĐẦU luồng nền.
+     */
     public void setData(int level, int score, boolean isWin) {
         this.level = level;
         this.score = score;
         this.isWin = isWin;
 
-        // Hiển thị điểm trên Label
+        // Cập nhật UI ngay lập tức
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + score);
         }
 
-        // Cập nhật điểm cao cho tài khoản hiện tại
-        String currentUser = Session.getUsername();
-        if (currentUser != null && !currentUser.isEmpty()) {
-            HighScoresController highScoresController = new HighScoresController();
-            highScoresController.saveScore(currentUser, score);
+        // Ẩn/hiện nút "Next"
+
+
+        // ✅ 4. BẮT ĐẦU TÁC VỤ NẶNG (Lưu điểm) TRÊN LUỒNG RIÊNG
+        startSaveScoreTask();
+    }
+
+    /**
+     * ✅ 5. HÀM MỚI: TẠO VÀ CHẠY LUỒNG NỀN (Task)
+     * (Đây là code "Đa luồng" của bạn)
+     */
+    private void startSaveScoreTask() {
+        // Lấy tên người dùng hiện tại
+        final String currentUser = Session.getUsername();
+        if (currentUser == null || currentUser.isEmpty()) {
+            highScoreStatusLabel.setText("Không thể lưu điểm (Chưa đăng nhập).");
+            return;
         }
+
+        // Tạo một "Task" (nhiệm vụ) để chạy ngầm
+        Task<Void> saveTask = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                // ĐÂY LÀ TÁC VỤ NẶNG (ĐỌC/GHI FILE)
+                // Nó chạy trên một luồng riêng, không làm treo UI
+                try {
+                    HighScoresController highScoresController = new HighScoresController();
+
+                    // 1. Lấy điểm cao cũ (Tác vụ I/O)
+                    int oldHighScore = highScoresController.getHighScore(currentUser);
+
+                    // 2. Lưu điểm mới nếu cao hơn (Tác vụ I/O)
+                    if (score > oldHighScore) {
+                        highScoresController.saveScore(currentUser, score);
+
+                        // Cập nhật UI (phải dùng Platform.runLater)
+                        Platform.runLater(() -> {
+                            highScoreStatusLabel.setText("⭐ ĐIỂM CAO MỚI! ⭐");
+                            highScoreStatusLabel.setStyle("-fx-text-fill: gold;");
+                        });
+                    } else {
+                        Platform.runLater(() -> {
+                            highScoreStatusLabel.setText("Điểm cao của bạn: " + oldHighScore);
+                        });
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Platform.runLater(() -> {
+                        highScoreStatusLabel.setText("Lỗi khi lưu điểm cao.");
+                    });
+                }
+                return null;
+            }
+        };
+
+        // Báo cho label biết là đang tải
+        highScoreStatusLabel.setText("Đang kiểm tra điểm cao...");
+
+        // ✅ 6. KHỞI CHẠY LUỒNG NỀN
+        new Thread(saveTask).start();
     }
 
 
@@ -89,9 +158,11 @@ public class GameOverController {
         addHoverEffect(nextBtn);
         addHoverEffect(previousBtn);
 
-        if (scoreLabel != null) {
-            scoreLabel.setText("FINAL SCORE: " + score);
-        }
+        // ❌ XÓA DÒNG NÀY:
+        // if (scoreLabel != null) {
+        //     scoreLabel.setText("FINAL SCORE: " + score);
+        // }
+        // (Vì `score` vẫn là 0 ở thời điểm này, `setData` sẽ cập nhật nó)
     }
 
     private void addHoverEffect(Button btn) {
