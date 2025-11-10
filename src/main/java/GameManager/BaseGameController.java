@@ -40,6 +40,8 @@ import java.io.BufferedReader;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import GameManager.SoundManager;
+
 public abstract class BaseGameController {
 
     @FXML protected Pane gamePane;
@@ -980,8 +982,7 @@ public abstract class BaseGameController {
     }
 
     private void playSound(AudioClip clip) {
-        if (clip != null) {
-            // Ném việc phát âm thanh sang luồng riêng
+        if (clip != null && !SoundManager.isSoundMuted) {
             audioExecutor.submit(() -> clip.play());
         }
     }
