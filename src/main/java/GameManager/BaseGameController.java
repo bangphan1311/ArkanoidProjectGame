@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import GameManager.Level.GameOverController;
 import javafx.scene.media.AudioClip;
+import GameManager.Menu.MapController;
 
 
 
@@ -558,6 +559,7 @@ public abstract class BaseGameController {
         if (allDestroyed) {
             isGameOver = true;
             gameLoop.stop();
+            stopGameMusic();
             showGameEndScreen(true); // true = WIN, sẽ load GameOver.fxml
         }
     }
@@ -823,6 +825,7 @@ public abstract class BaseGameController {
             isGameOver = true;
             playSound(loseBallSound);
             gameLoop.stop();
+            stopGameMusic();
             showGameEndScreen(false); // false = LOSE, load GameOver.fxml
         }
     }
@@ -861,6 +864,12 @@ public abstract class BaseGameController {
 
             // resume game loop
             if (gameLoop != null) gameLoop.start();
+        }
+    }
+    private void stopGameMusic() {
+        // Chúng ta gọi biến "static" của MapController
+        if (MapController.gameMusicPlayer != null) {
+            MapController.gameMusicPlayer.stop();
         }
     }
 
