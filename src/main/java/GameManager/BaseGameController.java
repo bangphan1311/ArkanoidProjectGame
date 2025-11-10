@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import GameManager.Level.GameOverController;
 import javafx.scene.media.AudioClip;
 import GameManager.Menu.MapController;
+import javafx.scene.control.Button;
 
 
 
@@ -45,16 +46,28 @@ import GameManager.SoundManager;
 
 public abstract class BaseGameController {
 
-    @FXML protected Pane gamePane;
-    @FXML protected Pane brickPane;
-    @FXML protected Rectangle paddleRect;
-    @FXML protected Circle ballCircle;
-    @FXML protected ImageView obstacle1;
-    @FXML protected Label scoreLabel;
+    @FXML
+    protected Pane gamePane;
+    @FXML
+    protected Pane brickPane;
+    @FXML
+    protected Rectangle paddleRect;
+    @FXML
+    protected Circle ballCircle;
+    @FXML
+    protected ImageView obstacle1;
+    @FXML
+    protected Label scoreLabel;
+    @FXML
+    protected Button pauseButton;
+    @FXML
+    protected ImageView pauseIcon;
+    @FXML
+    protected Pane pauseOverlay;
 
-    @FXML protected Button pauseBtn;
-    private Parent pauseOverlay;
-    private boolean isPaused = false;
+    protected boolean isPaused = false;
+    protected Image pauseIconImage;
+    protected Image playIconImage;
 
     protected final List<Ball> balls = new ArrayList<>();
     protected final List<Brick> bricks = new ArrayList<>();
@@ -150,11 +163,18 @@ public abstract class BaseGameController {
 
         // hthi lại 3 mạng mới khi qua level khác
         Platform.runLater(this::setupHearts);
+        if (pauseButton != null) {
+            pauseButton.setOnAction(e -> togglePause());
+        }
 
     }
 
     @FXML
     public void initialize() {
+        System.out.println("--- KIỂM TRA NÚT PAUSE ---");
+        System.out.println("pauseButton (Nút bấm): " + pauseButton);
+        System.out.println("pauseIcon (Icon vuông/tam giác): " + pauseIcon);
+        System.out.println("pauseOverlay (Màn hình mờ): " + pauseOverlay);
         if (gamePane != null) {
             if (gamePane.getPrefWidth() > 0) sceneWidth = gamePane.getPrefWidth();
             if (gamePane.getPrefHeight() > 0) sceneHeight = gamePane.getPrefHeight();
@@ -183,6 +203,12 @@ public abstract class BaseGameController {
             slowDownImage = new Image(getClass().getResource("/Images/PowerUp/sloww.png").toExternalForm());
             bombPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/bombepup.png").toExternalForm());
             enlargePowerUpImage = new Image(getClass().getResource("/Images/PowerUp/pupdaira.png").toExternalForm());
+            pauseIconImage = new Image(getClass().getResource("/Images/Page/thu1.png").toExternalForm());
+            playIconImage = new Image(getClass().getResource("/Images/Page/thu2.png").toExternalForm());
+
+            if (pauseIcon != null) {
+                pauseIcon.setImage(pauseIconImage); // Đặt ảnh mặc định
+            }
 
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
@@ -200,18 +226,28 @@ public abstract class BaseGameController {
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + this.score);
         }
+        // ✅ SỬA LỖI: CHO PHÉP CHUỘT CLICK XUYÊN QUA LỚP PHỦ TÀNG HÌNH
+        if (pauseOverlay != null) {
+            pauseOverlay.setMouseTransparent(true);
+        }
 
 
         resetPositions();
         setupControls();
         loadBricksFromPane();
     }
+
     private void setupControls() {
         if (gamePane == null) return;
 
         gamePane.setFocusTraversable(true);
         gamePane.setOnKeyPressed(e -> {
             KeyCode code = e.getCode();
+            if (code == KeyCode.P || code == KeyCode.ESCAPE) {
+                togglePause();
+                return; // Dừng lại, không xử lý phím khác
+            }
+            if (isPaused) return;
             if (code == KeyCode.LEFT || code == KeyCode.A) moveLeft = true;
             else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = true;
 
@@ -238,7 +274,9 @@ public abstract class BaseGameController {
         try {
             var damagedUrl = getClass().getResource("/Images/Entity/brick_strong_damaged.png");
             if (damagedUrl != null) damagedImg = new Image(damagedUrl.toExternalForm());
-        } catch (Exception e) { System.err.println("Không load được ảnh brick damaged: " + e.getMessage()); }
+        } catch (Exception e) {
+            System.err.println("Không load được ảnh brick damaged: " + e.getMessage());
+        }
 
         for (var node : new ArrayList<>(brickPane.getChildren())) {
             if (node instanceof ImageView img) {
@@ -250,8 +288,7 @@ public abstract class BaseGameController {
                     obstacles.add(obs);
 
                     continue;
-                }
-                else if (fxId.contains("wall")) {
+                } else if (fxId.contains("wall")) {
                     staticWalls.add(img);
 
                     continue;
@@ -290,7 +327,7 @@ public abstract class BaseGameController {
 
     // paddle vs bóng khi bắt đầu
     private void update(long now) {
-        if (isGameOver) return;
+        if (isGameOver || isPaused) return;
 
         // di chuyển paddle trc
         if (moveLeft) {
@@ -379,8 +416,7 @@ public abstract class BaseGameController {
                     ball.setDirY(-1);
                 });
                 timer.play();
-            }
-            else if(!ball.isCaught()) {
+            } else if (!ball.isCaught()) {
                 ball.reverseY();
                 double paddleY = paddleRect.getLayoutY();
                 double newY = paddleY - ball.getRadius() - 1;
@@ -404,9 +440,16 @@ public abstract class BaseGameController {
                 double ballX = ball.getX(), ballY = ball.getY(), radius = ball.getRadius();
                 double brickX = r.getLayoutX(), brickY = r.getLayoutY();
                 double brickW, brickH;
-                if (r instanceof ImageView iv) { brickW = iv.getFitWidth(); brickH = iv.getFitHeight(); }
-                else if (r instanceof Rectangle rect) { brickW = rect.getWidth(); brickH = rect.getHeight(); }
-                else { brickW = r.getBoundsInParent().getWidth(); brickH = r.getBoundsInParent().getHeight(); }
+                if (r instanceof ImageView iv) {
+                    brickW = iv.getFitWidth();
+                    brickH = iv.getFitHeight();
+                } else if (r instanceof Rectangle rect) {
+                    brickW = rect.getWidth();
+                    brickH = rect.getHeight();
+                } else {
+                    brickW = r.getBoundsInParent().getWidth();
+                    brickH = r.getBoundsInParent().getHeight();
+                }
 
                 double overlapLeft = (ballX + radius) - brickX, overlapRight = (brickX + brickW) - (ballX - radius);
                 double overlapTop = (ballY + radius) - brickY, overlapBottom = (brickY + brickH) - (ballY - radius);
@@ -591,11 +634,14 @@ public abstract class BaseGameController {
             case "DOUBLE_SCORE":
                 imageToSpawn = doubleScoreImage;
                 break;
-            case "SLOW_DOWN": imageToSpawn = slowDownImage;
+            case "SLOW_DOWN":
+                imageToSpawn = slowDownImage;
                 break;
-            case "BOMB": imageToSpawn = bombPowerUpImage;
+            case "BOMB":
+                imageToSpawn = bombPowerUpImage;
                 break;
-            case "ENLARGE_PADDLE": imageToSpawn = enlargePowerUpImage;
+            case "ENLARGE_PADDLE":
+                imageToSpawn = enlargePowerUpImage;
                 break;
         }
         if (imageToSpawn == null) {
@@ -680,6 +726,7 @@ public abstract class BaseGameController {
         });
         timer.play();
     }
+
     protected void spawnBanana(Brick brick) {
         if (bananaImage == null) return;
 
@@ -690,6 +737,7 @@ public abstract class BaseGameController {
         powerUps.add(banana);
         gamePane.getChildren().add(banana.getShape());
     }
+
     protected void addScore(int pointsToAdd) {
         this.score += pointsToAdd;
 
@@ -697,6 +745,7 @@ public abstract class BaseGameController {
             scoreLabel.setText("Score: " + this.score);
         }
     }
+
     protected void activateMagneticPaddle(double durationSeconds) {
         System.out.println("EFFECT: Paddle is Magnetic!");
         isPaddleMagnetic = true;
@@ -709,6 +758,7 @@ public abstract class BaseGameController {
         });
         timer.play();
     }
+
     protected void activateSlowDown(double durationSeconds) {
         System.out.println("EFFECT: Ball Slow Down!");
         for (Ball ball : balls) {
@@ -724,6 +774,7 @@ public abstract class BaseGameController {
         });
         timer.play();
     }
+
     protected void activateBomb() {
         System.out.println("EFFECT: BOMB ACTIVATED! ");
         for (Brick brick : new ArrayList<>(bricks)) {
@@ -733,6 +784,7 @@ public abstract class BaseGameController {
             }
         }
     }
+
     protected void activateEnlargePaddle(double durationSeconds) {
         if (isPaddleAltered) return;
 
@@ -749,6 +801,7 @@ public abstract class BaseGameController {
         });
         timer.play();
     }
+
     private void handleWallCollision(Ball ball, long now) {
 
         for (ImageView wall : staticWalls) {
@@ -795,7 +848,6 @@ public abstract class BaseGameController {
             addHeartBeatEffect(heart);
         }
     }
-
 
 
     // mạng - mất mạng thif mất 1 tym và reset bóng lên paddle
@@ -866,13 +918,13 @@ public abstract class BaseGameController {
             if (gameLoop != null) gameLoop.start();
         }
     }
+
     private void stopGameMusic() {
         // Chúng ta gọi biến "static" của MapController
         if (MapController.gameMusicPlayer != null) {
             MapController.gameMusicPlayer.stop();
         }
     }
-
 
 
     public void switchLevel(int direction) {
@@ -967,6 +1019,7 @@ public abstract class BaseGameController {
         }
         return maxScore;
     }
+
     private void loadSounds() {
         hitSound = loadSound("/sounds/wavbrickpaddle.wav");
         breakSound = loadSound("/sounds/wavpaddleball.wav");
@@ -996,4 +1049,44 @@ public abstract class BaseGameController {
         }
     }
 
+    @FXML
+    private void handlePauseButton() {
+        togglePause();
+    }
+
+    private void togglePause() {
+        if (isGameOver) return;
+
+        isPaused = !isPaused; // Lật trạng thái
+
+        if (isPaused) {
+            // DỪNG GAME
+            gameLoop.stop();
+            // Hiện màn hình mờ "PAUSED"
+            if (pauseOverlay != null) {
+                pauseOverlay.setVisible(true);
+                pauseOverlay.setMouseTransparent(false);
+            }
+            // Đổi icon nút sang hình Tam giác (Play)
+            if (pauseIcon != null) {
+                pauseIcon.setImage(playIconImage);
+            }
+            if (pauseButton != null) {
+                pauseButton.toFront();
+            }
+        } else {
+
+            gameLoop.start();
+            if (pauseOverlay != null) {
+                pauseOverlay.setVisible(false);
+                pauseOverlay.setMouseTransparent(true);
+            }
+
+            if (pauseIcon != null) {
+                pauseIcon.setImage(pauseIconImage);
+            }
+
+            gamePane.requestFocus();
+        }
+    }
 }
