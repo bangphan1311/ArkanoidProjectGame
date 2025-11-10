@@ -1,5 +1,6 @@
 package GameManager.Menu;
 
+import GameManager.SoundManager; // ✅ 1. Import công tắc
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
@@ -14,87 +15,70 @@ import javafx.scene.Scene;
 import javafx.util.Duration;
 import java.io.IOException;
 
-
 public class SettingsController {
 
-    @FXML
-    private ToggleButton musicToggle;
-
-    @FXML
-    private ToggleButton soundToggle;
-
-    @FXML
-    private Button backButton;
+    @FXML private ToggleButton musicToggle;
+    @FXML private ToggleButton soundToggle;
+    @FXML private Button backButton;
 
     @FXML
     public void initialize() {
-        // Hiệu ứng hover cho nút
+        musicToggle.setSelected(!SoundManager.isMusicMuted);
+        soundToggle.setSelected(!SoundManager.isSoundMuted);
+        updateToggleStyle(musicToggle, !SoundManager.isMusicMuted);
+        updateToggleStyle(soundToggle, !SoundManager.isSoundMuted);
+
+        musicToggle.setOnAction(e -> handleMusicToggle());
+        soundToggle.setOnAction(e -> handleSoundToggle());
+
         addHoverEffect(musicToggle);
         addHoverEffect(soundToggle);
         addHoverEffect(backButton);
-
-        // music
-        musicToggle.setOnAction(e -> {
-            if (musicToggle.isSelected()) {
-                musicToggle.setText("ON");
-                musicToggle.setStyle(
-                        "-fx-background-color: #4CAF50;" +  // xah
-                                "-fx-text-fill: #0b3d02;" +
-                                "-fx-font-size: 16px;" +
-                                "-fx-font-weight: bold;" +
-                                "-fx-background-radius: 25;" +
-                                "-fx-pref-width: 120;" +
-                                "-fx-pref-height: 40;" +
-                                "-fx-cursor: hand;" +
-                                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
-                );
-            } else {
-                musicToggle.setText("OFF");
-                musicToggle.setStyle(
-                        "-fx-background-color: #F44336;" +  // nền đỏ
-                                "-fx-text-fill: white;" +           // chữ trắng
-                                "-fx-font-size: 16px;" +
-                                "-fx-font-weight: bold;" +
-                                "-fx-background-radius: 25;" +
-                                "-fx-pref-width: 120;" +
-                                "-fx-pref-height: 40;" +
-                                "-fx-cursor: hand;" +
-                                "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
-                );
-            }
-        });
-
-        // sound
-        soundToggle.setOnAction(e -> {
-                    if (soundToggle.isSelected()) {
-                        soundToggle.setText("ON");
-                        soundToggle.setStyle(
-                                "-fx-background-color: #4CAF50;" +
-                                        "-fx-text-fill: #0b3d02;" +
-                                        "-fx-font-size: 16px;" +
-                                        "-fx-font-weight: bold;" +
-                                        "-fx-background-radius: 25;" +
-                                        "-fx-pref-width: 120;" +
-                                        "-fx-pref-height: 40;" +
-                                        "-fx-cursor: hand;" +
-                                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
-                        );
-                    } else {
-                        soundToggle.setText("OFF");
-                        soundToggle.setStyle(
-                                "-fx-background-color: #F44336;" +
-                                        "-fx-text-fill: white;" +
-                                        "-fx-font-size: 16px;" +
-                                        "-fx-font-weight: bold;" +
-                                        "-fx-background-radius: 25;" +
-                                        "-fx-pref-width: 120;" +
-                                        "-fx-pref-height: 40;" +
-                                        "-fx-cursor: hand;" +
-                                        "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
-                        );
-                    }
-        });
     }
+
+    private void handleMusicToggle() {
+        boolean isSelected = musicToggle.isSelected();
+        SoundManager.isMusicMuted = !isSelected;
+        updateToggleStyle(musicToggle, isSelected);
+
+    }
+
+    private void handleSoundToggle() {
+        boolean isSelected = soundToggle.isSelected();
+        SoundManager.isSoundMuted = !isSelected; // Cập nhật công tắc toàn cục
+        updateToggleStyle(soundToggle, isSelected);
+    }
+
+    private void updateToggleStyle(ToggleButton toggle, boolean isSelected) {
+        if (isSelected) {
+            toggle.setText("ON");
+            toggle.setStyle(
+                    "-fx-background-color: #4CAF50;" +  // xah
+                            "-fx-text-fill: #0b3d02;" +
+                            "-fx-font-size: 16px;" +
+                            "-fx-font-weight: bold;" +
+                            "-fx-background-radius: 25;" +
+                            "-fx-pref-width: 120;" +
+                            "-fx-pref-height: 40;" +
+                            "-fx-cursor: hand;" +
+                            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+            );
+        } else {
+            toggle.setText("OFF");
+            toggle.setStyle(
+                    "-fx-background-color: #F44336;" +  // nền đỏ
+                            "-fx-text-fill: white;" +           // chữ trắng
+                            "-fx-font-size: 16px;" +
+                            "-fx-font-weight: bold;" +
+                            "-fx-background-radius: 25;" +
+                            "-fx-pref-width: 120;" +
+                            "-fx-pref-height: 40;" +
+                            "-fx-cursor: hand;" +
+                            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 4, 0, 0, 2);"
+            );
+        }
+    }
+
 
     // back to menu
     @FXML
