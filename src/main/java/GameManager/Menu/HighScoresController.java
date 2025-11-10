@@ -17,6 +17,7 @@ import javafx.util.Duration;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 public class HighScoresController {
@@ -122,38 +123,91 @@ public class HighScoresController {
         });
     }
 
+    public int getHighScore(String username) {
+        if (username == null || username.isEmpty()) return 0;
+
+        // Đọc file và lấy điểm của user
+        Map<String, Integer> userScores = readAllUserScores();
+        return userScores.getOrDefault(username.toLowerCase(), 0);
+    }
+
+    /**
+     * ✅ HÀM LƯU ĐIỂM (ĐÃ NÂNG CẤP)
+     * Lưu điểm mới nếu nó cao hơn điểm cũ.
+     */
+    public void saveScore(String name, int newScore) {
+        if (name == null || name.isEmpty()) return;
+
+        String userKey = name.toLowerCase();
+        Map<String, Integer> userScores = readAllUserScores();
+
+        int oldHighScore = userScores.getOrDefault(userKey, 0);
+
+        // Chỉ lưu nếu điểm mới cao hơn
+        if (newScore > oldHighScore) {
+            userScores.put(userKey, newScore);
+            writeAllUserScores(userScores); // Ghi đè file
+        }
+    }
+
+
     private List<ScoreEntry> loadHighScores() {
+        Map<String, Integer> scoreMap = readAllUserScores();
         List<ScoreEntry> list = new ArrayList<>();
-        if (!Files.exists(highscoreFile)) return list;
+        for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {
+            list.add(new ScoreEntry(entry.getKey(), entry.getValue()));
+        }
+        return list;
+    }
+
+    private Map<String, Integer> readAllUserScores() {
+        Map<String, Integer> scores = new HashMap<>();
+        if (!Files.exists(highscoreFile)) {
+            try { Files.createDirectories(highscoreFile.getParent()); } catch (IOException e) { e.printStackTrace(); }
+            return scores;
+        }
+
         try (BufferedReader br = Files.newBufferedReader(highscoreFile)) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
+                // Định dạng: username;score
                 if (parts.length == 2) {
-                    list.add(new ScoreEntry(parts[0], Integer.parseInt(parts[1])));
+                    try {
+                        String username = parts[0].toLowerCase();
+                        int score = Integer.parseInt(parts[1]);
+
+                        // Chỉ giữ lại điểm cao nhất
+                        if (score > scores.getOrDefault(username, 0)) {
+                            scores.put(username, score);
+                        }
+                    } catch (NumberFormatException e) {
+                        System.err.println("Bỏ qua dòng lỗi: " + line);
+                    }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return list;
+        return scores;
     }
 
-    // lưu
-    public void saveScore(String name, int newScore) {
-        try {
-            Files.createDirectories(highscoreFile.getParent());
-            try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
-                    java.nio.file.StandardOpenOption.CREATE,
-                    java.nio.file.StandardOpenOption.APPEND)) {
-                bw.write(name + ";" + newScore);
+    private void writeAllUserScores(Map<String, Integer> scores) {
+        try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
+                StandardOpenOption.CREATE,
+                StandardOpenOption.TRUNCATE_EXISTING)) { // TRUNCATE_EXISTING = Xóa cũ ghi mới
+
+            for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+                bw.write(entry.getKey() + ";" + entry.getValue());
                 bw.newLine();
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    // Class ScoreEntry (giữ nguyên)
     public static class ScoreEntry {
         private final String name;
         private final int score;
