@@ -21,7 +21,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import GameManager.Level.GameOverController;
+import javafx.scene.media.AudioClip;
 
+
+
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -32,6 +36,9 @@ import javafx.scene.control.Button;
 import java.nio.file.Path;
 import java.nio.file.Files;
 import java.io.BufferedReader;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public abstract class BaseGameController {
 
@@ -74,6 +81,14 @@ public abstract class BaseGameController {
     protected Image enlargePowerUpImage;
     private double originalPaddleWidth = -1;
     private boolean isPaddleAltered = false;
+
+    protected AudioClip hitSound;
+    protected AudioClip breakSound;
+    protected AudioClip powerUpSound;
+    protected AudioClip loseBallSound;
+    protected AudioClip bananaSound;
+
+    private ExecutorService audioExecutor = Executors.newCachedThreadPool();
 
     protected final List<ImageView> staticWalls = new ArrayList<>();
 
@@ -158,7 +173,7 @@ public abstract class BaseGameController {
             paddleChangeImage = new Image(getClass().getResource("/Images/Entity/sp.png").toExternalForm());
 
             // 3. Ảnh SKIN MỚI của paddle
-            newPaddleImage = new Image(getClass().getResource("/Images/PowerUp/paddlechange.png").toExternalForm());
+            newPaddleImage = new Image(getClass().getResource("/Images/PowerUp/padchange.png").toExternalForm());
 
             magneticPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/powerupnamcham.png").toExternalForm());
             doubleScoreImage = new Image(getClass().getResource("/Images/PowerUp/xutang2.png").toExternalForm());
@@ -169,6 +184,7 @@ public abstract class BaseGameController {
         } catch (Exception e) {
             System.err.println("Lỗi tải ảnh power-up: " + e.getMessage());
         }
+        loadSounds();
 
         // mạng
         try {
@@ -303,6 +319,11 @@ public abstract class BaseGameController {
 
         List<Ball> toRemove = new ArrayList<>();
         for (Ball b : new ArrayList<>(balls)) {
+            double nextX = b.getShape().getCenterX() + b.getDirX() * b.getSpeed();
+            double nextY = b.getShape().getCenterY() + b.getDirY() * b.getSpeed();
+            if (nextX - b.getRadius() <= 0 || nextX + b.getRadius() >= sceneWidth || nextY - b.getRadius() <= 0) {
+                playSound(hitSound);
+            }
             if (b.isCaught()) {
                 double newBallX = paddleRect.getLayoutX() + b.getCatchOffset();
                 b.setPosition(newBallX, paddleRect.getLayoutY() - b.getRadius() - 1);
@@ -333,6 +354,7 @@ public abstract class BaseGameController {
     private void handlePaddleCollision(Ball ball) {
         Node ballNode = ball.getShape();
         if (ball.getDirY() > 0 && ballNode.getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
+            playSound(hitSound);
 
 
             if (isPaddleMagnetic && !ball.isCaught()) {
@@ -402,6 +424,8 @@ public abstract class BaseGameController {
     private void handleObstacleCollision(Ball ball) {
         for (MovingObstacle obs : obstacles) {
             if (ball.getShape().getBoundsInParent().intersects(obs.getShape().getBoundsInParent())) {
+                playSound(hitSound);
+
                 double ballX = ball.getX();
                 double ballY = ball.getY();
                 double radius = ball.getRadius();
@@ -511,6 +535,7 @@ public abstract class BaseGameController {
         brick.takeHit();
 
         if (brick.isDestroyed()) {
+            playSound(breakSound);
             gamePane.getChildren().remove(brick.getShape());
 
             if (brick instanceof StrongBrick || brick instanceof NormalBrick) {
@@ -520,6 +545,8 @@ public abstract class BaseGameController {
             if ("doubleBall".equals(brick.getType())) {
                 spawnDoubleBall();
             }
+        } else {
+            playSound(hitSound);
         }
     }
 
@@ -585,12 +612,14 @@ public abstract class BaseGameController {
             item.update();
 
             if (item.getShape().getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
+                playSound(powerUpSound);
                 item.setCollected();
                 gamePane.getChildren().remove(item.getShape());
                 switch (item.getType()) {
                     case "BANANA":
                         addScore(100);
                         System.out.println("Hứng được chuối! Điểm: " + score);
+                        playSound(bananaSound);
                         break;
                     case "SPEED_UP":
                         activateSpeedUp(2);
@@ -790,6 +819,7 @@ public abstract class BaseGameController {
             ballLaunched = false;
         } else {
             isGameOver = true;
+            playSound(loseBallSound);
             gameLoop.stop();
             showGameEndScreen(false); // false = LOSE, load GameOver.fxml
         }
@@ -925,6 +955,35 @@ public abstract class BaseGameController {
             e.printStackTrace();
         }
         return maxScore;
+    }
+    private void loadSounds() {
+        hitSound = loadSound("/sounds/wavbrickpaddle.wav");
+        breakSound = loadSound("/sounds/wavpaddleball.wav");
+        powerUpSound = loadSound("/sounds/powerUPP2.wav");
+        loseBallSound = loadSound("/sounds/gameover.mp3");
+        bananaSound = loadSound("/sounds/Anchuoi.wav");
+    }
+
+    private AudioClip loadSound(String path) {
+        try {
+            URL url = getClass().getResource(path);
+            if (url != null) {
+                return new AudioClip(url.toExternalForm());
+            } else {
+                System.err.println("Không tìm thấy file âm thanh: " + path);
+                return null;
+            }
+        } catch (Exception e) {
+            System.err.println("Lỗi tải âm thanh: " + path + " - " + e.getMessage());
+            return null;
+        }
+    }
+
+    private void playSound(AudioClip clip) {
+        if (clip != null) {
+            // Ném việc phát âm thanh sang luồng riêng
+            audioExecutor.submit(() -> clip.play());
+        }
     }
 
 }
