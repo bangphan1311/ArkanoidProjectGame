@@ -15,11 +15,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
+import GameManager.SoundManager;
+import java.io.IOException;
 import java.net.URL;
 
 public class MapController {
-    private static MediaPlayer gameMusicPlayer;
+    public static MediaPlayer gameMusicPlayer;
 
     @FXML
     private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button, menuButton;
@@ -58,6 +59,9 @@ public class MapController {
     // ===== Xử lý nút Menu =====
     @FXML
     private void handleMenu() {
+        if (gameMusicPlayer != null) {
+            gameMusicPlayer.stop();
+        }
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/RenderView/Menu/Menu.fxml"));
             Stage stage = (Stage) menuButton.getScene().getWindow();
@@ -130,7 +134,7 @@ public class MapController {
         node.setEffect(null);
     }
     private void startGameMusic() {
-        if (gameMusicPlayer == null) {
+        if (gameMusicPlayer == null && !SoundManager.isMusicMuted) {
             try {
                 URL resource = getClass().getResource("/sounds/startgame.mp3");
                 if (resource != null) {
@@ -145,7 +149,7 @@ public class MapController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        } else if (gameMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
+        } else if (gameMusicPlayer != null && gameMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING && !SoundManager.isMusicMuted) {
             gameMusicPlayer.play();
         }
     }
