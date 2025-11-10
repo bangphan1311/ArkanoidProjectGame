@@ -6,7 +6,7 @@ import javafx.scene.shape.Circle;
 
 public class Ball extends MovableObject {
     private Circle ballShape;
-    private double speed = 2.5;
+    private double speed = 2;
     private double dirX = 0;
     private double dirY = -1;
     private double sceneWidth;
