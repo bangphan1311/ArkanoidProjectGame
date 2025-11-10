@@ -19,12 +19,13 @@ import javafx.animation.Timeline;
 import javafx.util.Duration;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import GameManager.SoundManager;
 
 public class MenuController {
 
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
-    private static MediaPlayer menuMusicPlayer;
+    public static MediaPlayer menuMusicPlayer;
     private static final int LEVEL_TO_RUN = 5;
 
     @FXML
@@ -228,7 +229,7 @@ public class MenuController {
         timeline.play();
     }
     private void startMenuMusic() {
-        if (menuMusicPlayer == null) { // Chỉ phát nếu nhạc chưa chạy
+        if (menuMusicPlayer == null && !SoundManager.isMusicMuted) { // Chỉ phát nếu nhạc chưa chạy
             try {
                 URL resource = getClass().getResource("/sounds/gameMenu.mp3"); // Đổi tên file nếu cần
                 if (resource != null) {
@@ -243,6 +244,8 @@ public class MenuController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else if(menuMusicPlayer != null && menuMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING && !SoundManager.isMusicMuted) {
+            menuMusicPlayer.play();
         }
     }
 }
