@@ -1,5 +1,4 @@
-package GameManager.Menu;  // ⚠️ Phải trùng với nơi bạn import trong GameOverController
-
+package GameManager.Menu;
 public class Session {
     private static String currentUsername;
 

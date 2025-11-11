@@ -24,24 +24,17 @@ import GameManager.Level.GameOverController;
 import javafx.scene.media.AudioClip;
 import GameManager.Menu.MapController;
 import javafx.scene.control.Button;
-
-
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
-
 import javafx.animation.ScaleTransition;
 import javafx.animation.Animation;
-import javafx.scene.control.Button;
 import java.nio.file.Path;
 import java.nio.file.Files;
 import java.io.BufferedReader;
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
 import GameManager.SoundManager;
 
 public abstract class BaseGameController {
@@ -226,7 +219,6 @@ public abstract class BaseGameController {
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + this.score);
         }
-        // ✅ SỬA LỖI: CHO PHÉP CHUỘT CLICK XUYÊN QUA LỚP PHỦ TÀNG HÌNH
         if (pauseOverlay != null) {
             pauseOverlay.setMouseTransparent(true);
         }
@@ -615,7 +607,6 @@ public abstract class BaseGameController {
         }
     }
 
-
     protected void spawnPowerUp(Brick brick, String type) {
         Image imageToSpawn = null;
         switch (type) {
@@ -843,12 +834,9 @@ public abstract class BaseGameController {
             heart.setLayoutY(startY);
             heartIcons.add(heart);
             gamePane.getChildren().add(heart);
-
-            // thêm hiệu ứng nhịp tim
-            addHeartBeatEffect(heart);
+            addHeartBeatEffect(heart); // thêm hiệu ứng nhịp tim
         }
     }
-
 
     // mạng - mất mạng thif mất 1 tym và reset bóng lên paddle
     protected void loseLife() {
@@ -894,7 +882,6 @@ public abstract class BaseGameController {
         st.play();
     }
 
-
     // Thêm phương thức pauseGame và resumeGame
     protected void pauseGame() {
         if (gameLoop != null) { // gameLoop là AnimationTimer
@@ -907,7 +894,6 @@ public abstract class BaseGameController {
             gameLoop.start();
         }
     }
-
 
     public void hidePauseMenu() {
         if (pauseOverlay != null) {
@@ -925,7 +911,6 @@ public abstract class BaseGameController {
             MapController.gameMusicPlayer.stop();
         }
     }
-
 
     public void switchLevel(int direction) {
         int currentLevel = Integer.parseInt(getClass().getSimpleName().replace("Level", "").replace("Controller", ""));
@@ -962,7 +947,7 @@ public abstract class BaseGameController {
     }
 
     protected int getCurrentLevelNumber() {
-        return 1; // Mặc định, override ở LevelXController
+        return 1; // Mặc định ở 1 level controller
     }
 
     // phương thức lấy level hiện tại
@@ -1102,7 +1087,4 @@ public abstract class BaseGameController {
     public List<Ball> getBalls() {
         return balls;
     }
-
-
-
 }

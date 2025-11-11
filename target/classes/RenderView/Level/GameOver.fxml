@@ -17,7 +17,7 @@
     </ImageView>
 
     <!-- Score Label -->
-    <Label fx:id="scoreLabel" layoutX="110.0" layoutY="195.0" style="-fx-font-size: 36; -fx-text-fill: black;">
+    <Label fx:id="scoreLabel" layoutX="110.0" layoutY="195.0" style="-fx-font-size: 36; -fx-text-fill: black;" translateY="-10.0">
       <font>
          <Font name="Eras Bold ITC" size="28.0" />
       </font></Label>

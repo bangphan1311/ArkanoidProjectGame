@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="UniTest4: kiem tra diem cao va cap nhat dung tai khoan">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GameManager/LifeSystemTest.java" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="fix loi test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/BaseGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/SoundManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameManager/Menu/HighScoresControllerTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameManager/ScoreUpdateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameManager/ScoreUpdateTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Level/GameOver.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$BaseLevelController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController$BaseLevelController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/BaseGameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Level/GameOver.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Level/GameOver.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +85,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX",
@@ -174,14 +176,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00030" summary="them hieu ung cho highscores">
-      <option name="closed" value="true" />
-      <created>1762148166749</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1762148166749</updated>
     </task>
     <task id="LOCAL-00031" summary="xu ly forgot password">
       <option name="closed" value="true" />
@@ -567,7 +561,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762841141534</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="fix loi test">
+      <option name="closed" value="true" />
+      <created>1762844178369</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1762844178369</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -585,7 +587,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chinh sua do hoa mang cho hop ly" />
     <MESSAGE value="fix loi mat mang khong hien bong va thay doi vin tri scores cho hop ly" />
     <MESSAGE value="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle" />
     <MESSAGE value="hien thi tinh nag pause" />
@@ -610,7 +611,8 @@
     <MESSAGE value="UniTest2: kiem tra score khi pha gach" />
     <MESSAGE value="UniTest3: kiem tra cac tai khoan dang nhap" />
     <MESSAGE value="UniTest4: kiem tra diem cao va cap nhat dung tai khoan" />
-    <option name="LAST_COMMIT_MESSAGE" value="UniTest4: kiem tra diem cao va cap nhat dung tai khoan" />
+    <MESSAGE value="fix loi test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix loi test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
