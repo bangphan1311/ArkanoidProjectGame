@@ -657,7 +657,7 @@ public abstract class BaseGameController {
         gamePane.getChildren().add(item.getShape());
     }
 
-    private void updatePowerUps() {
+    protected void updatePowerUps() {
         for (PowerUp item : new ArrayList<>(powerUps)) {
             item.update();
 
@@ -1089,4 +1089,10 @@ public abstract class BaseGameController {
             gamePane.requestFocus();
         }
     }
+
+    // để test
+    public void updateAllPowerUps() {
+        updatePowerUps();
+    }
+
 }
