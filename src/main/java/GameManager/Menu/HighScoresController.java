@@ -151,7 +151,7 @@ public class HighScoresController {
     }
 
 
-    private List<ScoreEntry> loadHighScores() {
+    public List<ScoreEntry> loadHighScores() {
         Map<String, Integer> scoreMap = readAllUserScores();
         List<ScoreEntry> list = new ArrayList<>();
         for (Map.Entry<String, Integer> entry : scoreMap.entrySet()) {

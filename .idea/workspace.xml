@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="UniTest2: kiem tra score khi pha gach">
-      <change afterPath="$PROJECT_DIR$/src/test/java/GameManager/Menu/UserLoginTest.java" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="UniTest3: kiem tra cac tai khoan dang nhap">
+      <change afterPath="$PROJECT_DIR$/src/test/java/GameManager/Menu/HighScoresControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +63,8 @@
     "Application.Main.executor": "Run",
     "Application.RunGame.executor": "Run",
     "JUnit.BallCollisionTest.executor": "Run",
+    "JUnit.HighScoresControllerTest.executor": "Run",
+    "JUnit.HighScoresSimpleTest.executor": "Run",
     "JUnit.ScoreUpdateTest.executor": "Run",
     "JUnit.UserLoginTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -164,14 +169,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00028" summary="them hieu ung cho settings">
-      <option name="closed" value="true" />
-      <created>1762087579208</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1762087579208</updated>
     </task>
     <task id="LOCAL-00029" summary="thiet ke, chinh sua high scores">
       <option name="closed" value="true" />
@@ -557,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762837907360</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="UniTest3: kiem tra cac tai khoan dang nhap">
+      <option name="closed" value="true" />
+      <created>1762839032609</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1762839032609</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -575,7 +580,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix loi bong xa paddle, thanh paddle di chuyen 1 luc roi dung" />
     <MESSAGE value="them phan mang" />
     <MESSAGE value="chinh sua do hoa mang cho hop ly" />
     <MESSAGE value="fix loi mat mang khong hien bong va thay doi vin tri scores cho hop ly" />
@@ -600,7 +604,8 @@
     <MESSAGE value="cap nhat cac code hien tai" />
     <MESSAGE value="UniTest1: kiem tra va cham of ball va brick" />
     <MESSAGE value="UniTest2: kiem tra score khi pha gach" />
-    <option name="LAST_COMMIT_MESSAGE" value="UniTest2: kiem tra score khi pha gach" />
+    <MESSAGE value="UniTest3: kiem tra cac tai khoan dang nhap" />
+    <option name="LAST_COMMIT_MESSAGE" value="UniTest3: kiem tra cac tai khoan dang nhap" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
