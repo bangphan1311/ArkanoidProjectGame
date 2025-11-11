@@ -1095,4 +1095,14 @@ public abstract class BaseGameController {
         updatePowerUps();
     }
 
+    public boolean isPaddleMagneticActive() {
+        return isPaddleMagnetic;
+    }
+
+    public List<Ball> getBalls() {
+        return balls;
+    }
+
+
+
 }
