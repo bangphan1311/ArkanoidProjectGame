@@ -4,18 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="cap nhat code">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="sua fxml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Exit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Instructions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/Map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/RenderView/Menu/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/InstructionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/InstructionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/Ball.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Brick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/Brick.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/ExitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/ExitController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/InstructionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/InstructionsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Exit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Instructions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Map.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignUp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,14 +195,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00032" summary="fix loi hieu ung phan highscores">
-      <option name="closed" value="true" />
-      <created>1762164578700</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1762164578700</updated>
     </task>
     <task id="LOCAL-00033" summary="do hoa menu">
       <option name="closed" value="true" />
@@ -569,7 +580,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762848378553</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="sua fxml">
+      <option name="closed" value="true" />
+      <created>1762872214733</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1762872214733</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -587,7 +606,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="them tinh nang khi bong chua di chuyen thi co the di chuyen theo thanh paddle" />
     <MESSAGE value="hien thi tinh nag pause" />
     <MESSAGE value="khi het mang, het gach hien thi bang gameover co cac nut" />
     <MESSAGE value="chinh sua lai backgroun va cac nut bam" />
@@ -612,7 +630,8 @@
     <MESSAGE value="UniTest4: kiem tra diem cao va cap nhat dung tai khoan" />
     <MESSAGE value="fix loi test" />
     <MESSAGE value="cap nhat code" />
-    <option name="LAST_COMMIT_MESSAGE" value="cap nhat code" />
+    <MESSAGE value="sua fxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="sua fxml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

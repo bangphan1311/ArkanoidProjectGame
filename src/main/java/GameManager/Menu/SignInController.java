@@ -26,6 +26,7 @@ public class SignInController {
 
     private Map<String, String> rememberedAccounts = new HashMap<>();
 
+    // khởi tạo initialize
     @FXML
     public void initialize() {
         // load danh sách tài khoản đã lưu
@@ -40,6 +41,7 @@ public class SignInController {
         });
     }
 
+    // ghi nhớ tkhoan
     private void loadRememberedAccounts() {
         File file = new File(REMEMBER_FILE);
         if (!file.exists()) return;
@@ -60,6 +62,7 @@ public class SignInController {
         usernameField.setItems(usernames);
     }
 
+    // hiện/ ẩn mật khẩu
     @FXML
     private void togglePasswordVisibility(ActionEvent event) {
         if (showPasswordCheck.isSelected()) {
@@ -77,6 +80,7 @@ public class SignInController {
         }
     }
 
+    // xử lý đăng nhập
     @FXML
     private void handleSignIn(ActionEvent event) {
         String username = usernameField.getEditor().getText().trim();
@@ -118,7 +122,7 @@ public class SignInController {
                 Parent root = loader.load();
                 Stage stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
-                stage.setTitle("Game Menu");
+                stage.setTitle("Menu");
                 stage.show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -129,6 +133,7 @@ public class SignInController {
         }
     }
 
+    // lưu tkhoan
     private void saveRememberedAccounts() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(REMEMBER_FILE))) {
             for (Map.Entry<String, String> entry : rememberedAccounts.entrySet()) {
@@ -140,6 +145,7 @@ public class SignInController {
         }
     }
 
+    // chuyển sag sign up
     @FXML
     private void handleGoToSignup(ActionEvent event) {
         try {
@@ -154,6 +160,7 @@ public class SignInController {
         }
     }
 
+    // quên mkhau
     @FXML
     private void handleForgotPassword(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

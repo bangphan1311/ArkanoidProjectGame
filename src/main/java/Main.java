@@ -14,14 +14,12 @@ import java.net.URL;
 import GameManager.SoundManager;
 
 public class Main extends Application {
-
     private AudioClip clickSound;
 
     @Override
     public void start(Stage stage) throws Exception {
-
         try {
-            URL resource = getClass().getResource("/sounds/Click.wav"); // (Đảm bảo tên file đúng)
+            URL resource = getClass().getResource("/sounds/Click.wav");
             if (resource != null) {
                 clickSound = new AudioClip(resource.toExternalForm());
             } else {
@@ -32,7 +30,7 @@ public class Main extends Application {
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/RenderView/Menu/SignIn.fxml"));
-        Parent root = fxmlLoader.load(); // ✅ Sửa: Tải vào Parent
+        Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         stage.setTitle("Sign In");
         stage.setScene(scene);
@@ -50,9 +48,8 @@ public class Main extends Application {
             }
         });
 
-        // 5. Hiển thị
+        // Hiển thị
         stage.show();
-
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
         stage.setX((screenBounds.getWidth() - stage.getWidth()) / 2);

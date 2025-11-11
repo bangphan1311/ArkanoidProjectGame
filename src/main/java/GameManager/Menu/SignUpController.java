@@ -47,6 +47,7 @@ public class SignUpController {
         });
     }
 
+    // xử lý đăng ký
     @FXML
     private void handleSignUp(javafx.event.ActionEvent event) {
         String username = usernameField.getText().trim();
@@ -91,6 +92,7 @@ public class SignUpController {
         }
     }
 
+    // chuyển sag sign in
     @FXML
     private void handleGoToSignIn(javafx.event.ActionEvent event) {
         try {

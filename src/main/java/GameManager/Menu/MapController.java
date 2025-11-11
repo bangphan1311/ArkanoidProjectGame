@@ -25,7 +25,6 @@ public class MapController {
     @FXML
     private Button level1Button, level2Button, level3Button, level4Button, level5Button, level6Button, menuButton;
 
-    // ===== Xử lý các level =====
     @FXML
     private void handleLevel1() {
         loadLevel("/RenderView/Level/Level1.fxml", "/Images/MapLevel/level1.png", "/Images/Entity/paddle.png", "Level 1");
@@ -56,7 +55,7 @@ public class MapController {
         loadLevel("/RenderView/Level/Level6.fxml", "/Images/MapLevel/level6.png", "/Images/Entity/paddle.png", "Level 6");
     }
 
-    // ===== Xử lý nút Menu =====
+    // nút Menu
     @FXML
     private void handleMenu() {
         if (gameMusicPlayer != null) {
@@ -67,7 +66,7 @@ public class MapController {
             Stage stage = (Stage) menuButton.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
-            stage.setTitle("Arkanoid - Main Menu");
+            stage.setTitle("Menu");
             stage.show();
             stage.centerOnScreen();
             root.requestFocus();
@@ -77,11 +76,10 @@ public class MapController {
     }
     @FXML
     public void initialize() {
-
         startGameMusic();
     }
 
-    // ===== Hàm tiện ích load level =====
+    // hàm load level
     private void loadLevel(String fxmlFile, String bgPath, String paddlePath, String title) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
@@ -103,7 +101,7 @@ public class MapController {
         }
     }
 
-    // ===== Hiệu ứng hover =====
+    // hiệu ứng
     @FXML
     private void onHover(MouseEvent event) {
         Node node = (Node) event.getSource();
@@ -124,6 +122,7 @@ public class MapController {
         node.setEffect(new Glow(0.6));
     }
 
+    // âm thah
     @FXML
     private void onExit(MouseEvent event) {
         Node node = (Node) event.getSource();

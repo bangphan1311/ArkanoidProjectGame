@@ -26,9 +26,9 @@ public class ExitController {
         addHoverEffect(keepPlayingButton);
     }
 
-    // Hiệu ứng sáng + rung
+    // hiệu ứng
     private void addHoverEffect(Button button) {
-        DropShadow glow = new DropShadow();
+        DropShadow glow = new DropShadow();  // ság
         glow.setColor(Color.WHITE);
         glow.setRadius(15);
         glow.setSpread(0.4);
@@ -36,11 +36,13 @@ public class ExitController {
         button.setOnMouseEntered(e -> {
             button.setEffect(glow);
 
+            // phosg to 1,08
             ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
             st.setToX(1.08);
             st.setToY(1.08);
             st.play();
 
+            // rung
             TranslateTransition tt = new TranslateTransition(Duration.millis(60), button);
             tt.setFromX(0);
             tt.setByX(5);
@@ -58,13 +60,14 @@ public class ExitController {
         });
     }
 
+    // bye
     @FXML
     void onByeClicked(ActionEvent event) {
         System.out.println("Exit Game!");
         System.exit(0);
     }
 
-    // ko chạy menu ms
+    // keepplaying
     @FXML
     void onKeepPlayingClicked(ActionEvent event) {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

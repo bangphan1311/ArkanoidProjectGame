@@ -32,11 +32,6 @@ public abstract class Brick {
         return destroyed;
     }
 
-    /**
-     * SỬA ĐỔI: Thay đổi kiểu trả về từ void thành String.
-     * Bây giờ, khi một viên gạch bị phá hủy, nó sẽ trả về loại của nó.
-     * @return Loại của viên gạch (ví dụ: "Normal", "Strong", "DoubleBall") hoặc null nếu đã bị phá hủy từ trước.
-     */
     public String destroy() {
         if (!this.destroyed) {
             this.destroyed = true;

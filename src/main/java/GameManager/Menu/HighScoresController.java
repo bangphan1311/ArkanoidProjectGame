@@ -34,22 +34,15 @@ public class HighScoresController {
         nameColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("name"));
         scoreColumn.setCellValueFactory(new javafx.scene.control.cell.PropertyValueFactory<>("score"));
 
-        // Load tất cả điểm
-        List<ScoreEntry> allScores = loadHighScores();
+        List<ScoreEntry> allScores = loadHighScores(); // load tất cả điểm
 
-        // sx
-        allScores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));
-
-        // ghan 10
+        allScores.sort((a, b) -> Integer.compare(b.getScore(), a.getScore()));  // sx
         List<ScoreEntry> top10 = allScores.size() > 10 ? allScores.subList(0, 10) : allScores;
-
         ObservableList<ScoreEntry> data = FXCollections.observableArrayList(top10);
         scoreTable.setItems(data);
+        String currentUser = Session.getUsername();  // lấy username hiện tại
 
-        // Lấy username hiện tại
-        String currentUser = Session.getUsername();
-
-        // Highlight top 3 + user hiện tại
+        // highlight 3 ng cao nhất
         scoreTable.setRowFactory(tv -> new TableRow<>() {
             @Override
             protected void updateItem(ScoreEntry item, boolean empty) {
@@ -132,8 +125,7 @@ public class HighScoresController {
     }
 
     /**
-     * ✅ HÀM LƯU ĐIỂM (ĐÃ NÂNG CẤP)
-     * Lưu điểm mới nếu nó cao hơn điểm cũ.
+     * lưu điểm mới nếu nó cao hơn điểm cũ
      */
     public void saveScore(String name, int newScore) {
         if (name == null || name.isEmpty()) return;
@@ -142,14 +134,12 @@ public class HighScoresController {
         Map<String, Integer> userScores = readAllUserScores();
 
         int oldHighScore = userScores.getOrDefault(userKey, 0);
-
-        // Chỉ lưu nếu điểm mới cao hơn
+        // lưu điểm nếu cao hơn điểm cũ
         if (newScore > oldHighScore) {
             userScores.put(userKey, newScore);
-            writeAllUserScores(userScores); // Ghi đè file
+            writeAllUserScores(userScores); // ghi đè file
         }
     }
-
 
     private List<ScoreEntry> loadHighScores() {
         Map<String, Integer> scoreMap = readAllUserScores();
@@ -160,18 +150,18 @@ public class HighScoresController {
         return list;
     }
 
+    // đọc tất cả user scores
     private Map<String, Integer> readAllUserScores() {
         Map<String, Integer> scores = new HashMap<>();
         if (!Files.exists(highscoreFile)) {
             try { Files.createDirectories(highscoreFile.getParent()); } catch (IOException e) { e.printStackTrace(); }
             return scores;
         }
-
         try (BufferedReader br = Files.newBufferedReader(highscoreFile)) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] parts = line.split(";");
-                // Định dạng: username;score
+                // định dạng: username;score
                 if (parts.length == 2) {
                     try {
                         String username = parts[0].toLowerCase();
@@ -192,6 +182,7 @@ public class HighScoresController {
         return scores;
     }
 
+    // ghi tất cả user scores
     private void writeAllUserScores(Map<String, Integer> scores) {
         try (BufferedWriter bw = Files.newBufferedWriter(highscoreFile,
                 StandardOpenOption.CREATE,
@@ -207,7 +198,7 @@ public class HighScoresController {
         }
     }
 
-    // Class ScoreEntry (giữ nguyên)
+    // Class ScoreEntry : giữ tên điểm, dùng cho TableView
     public static class ScoreEntry {
         private final String name;
         private final int score;
@@ -216,7 +207,6 @@ public class HighScoresController {
             this.name = name;
             this.score = score;
         }
-
         public String getName() { return name; }
         public int getScore() { return score; }
     }

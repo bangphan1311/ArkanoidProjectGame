@@ -2,7 +2,7 @@ package GameManager.Level;
 
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform; // ✅ Import
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +19,7 @@ import java.util.Map;
 import GameManager.Menu.Session;
 import GameManager.Menu.HighScoresController;
 
-// ✅ 1. THÊM CÁC IMPORT CẦN THIẾT CHO ĐA LUỒNG
+// import cho đa luong
 import javafx.concurrent.Task;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -33,7 +33,7 @@ import java.util.List;
 public class GameOverController {
 
     @FXML private Label scoreLabel;
-    @FXML private Label highScoreStatusLabel; // ✅ 2. Đảm bảo FXML của bạn CÓ Label này
+    @FXML private Label highScoreStatusLabel;
     @FXML private Button homeBtn;
     @FXML private Button replayBtn;
     @FXML private Button nextBtn;
@@ -43,7 +43,7 @@ public class GameOverController {
     private int score;
     private boolean isWin;
 
-    // Map liên kết level với controller tương ứng
+    // map liên kết level với controller tương ứng of nó
     private static final Map<Integer, Class<?>> levelControllerMap = new HashMap<>();
     static {
         levelControllerMap.put(1, Level1Controller.class);
@@ -55,29 +55,24 @@ public class GameOverController {
     }
 
     /**
-     * ✅ 3. SỬA LẠI HÀM SETDATA
-     * Hàm này sẽ nhận dữ liệu, cập nhật UI, và BẮT ĐẦU luồng nền.
+     *  nhận dữ liệu, cập nhật UI, và bắt đầu luồng nền
      */
     public void setData(int level, int score, boolean isWin) {
         this.level = level;
         this.score = score;
         this.isWin = isWin;
 
-        // Cập nhật UI ngay lập tức
+        // cập nhật UI ngay cho scoreLabel
         if (scoreLabel != null) {
             scoreLabel.setText("Score: " + score);
         }
 
-        // Ẩn/hiện nút "Next"
-
-
-        // ✅ 4. BẮT ĐẦU TÁC VỤ NẶNG (Lưu điểm) TRÊN LUỒNG RIÊNG
+        // lưu điểm trên luồng riêng ( tác vụ nặng)
         startSaveScoreTask();
     }
 
     /**
-     * ✅ 5. HÀM MỚI: TẠO VÀ CHẠY LUỒNG NỀN (Task)
-     * (Đây là code "Đa luồng" của bạn)
+     * Lưu điểm cao trên luồng nền
      */
     private void startSaveScoreTask() {
         // Lấy tên người dùng hiện tại
@@ -87,23 +82,22 @@ public class GameOverController {
             return;
         }
 
-        // Tạo một "Task" (nhiệm vụ) để chạy ngầm
+        // Tạo Task để chạy ngầm
         Task<Void> saveTask = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                // ĐÂY LÀ TÁC VỤ NẶNG (ĐỌC/GHI FILE)
-                // Nó chạy trên một luồng riêng, không làm treo UI
+                // chạy trên một luồng riêng, không làm treo UI ( tác vụ nặng )
                 try {
                     HighScoresController highScoresController = new HighScoresController();
 
-                    // 1. Lấy điểm cao cũ (Tác vụ I/O)
+                    // lấy điểm cao cũ (Tác vụ I/O)
                     int oldHighScore = highScoresController.getHighScore(currentUser);
 
-                    // 2. Lưu điểm mới nếu cao hơn (Tác vụ I/O)
+                    // nếu cao hơn - lưu điểm cũ  (Tác vụ I/O)
                     if (score > oldHighScore) {
                         highScoresController.saveScore(currentUser, score);
 
-                        // Cập nhật UI (phải dùng Platform.runLater)
+                        // cập nhật UI (dùng Platform.runLater)
                         Platform.runLater(() -> {
                             highScoreStatusLabel.setText("⭐ ĐIỂM CAO MỚI! ⭐");
                             highScoreStatusLabel.setStyle("-fx-text-fill: gold;");
@@ -124,17 +118,17 @@ public class GameOverController {
             }
         };
 
-        // Báo cho label biết là đang tải
         highScoreStatusLabel.setText("Đang kiểm tra điểm cao...");
 
-        // ✅ 6. KHỞI CHẠY LUỒNG NỀN
+        // khởi chạy luồng nền
         new Thread(saveTask).start();
     }
 
-
+    /**
+     * thiết lập hành động cho các nút
+     */
     @FXML
     public void initialize() {
-        // Thiết lập hành động cho các nút
         homeBtn.setOnAction(e -> switchScene("/RenderView/Menu/Menu.fxml", null));
         replayBtn.setOnAction(e ->
                 switchScene("/RenderView/Level/Level" + level + ".fxml", levelControllerMap.get(level))
@@ -152,19 +146,15 @@ public class GameOverController {
             }
         });
 
-        // Hover effect cho các nút
         addHoverEffect(homeBtn);
         addHoverEffect(replayBtn);
         addHoverEffect(nextBtn);
         addHoverEffect(previousBtn);
-
-        // ❌ XÓA DÒNG NÀY:
-        // if (scoreLabel != null) {
-        //     scoreLabel.setText("FINAL SCORE: " + score);
-        // }
-        // (Vì `score` vẫn là 0 ở thời điểm này, `setData` sẽ cập nhật nó)
     }
 
+    /**
+     * hiệu ứng cho nút
+      */
     private void addHoverEffect(Button btn) {
         btn.setOnMouseEntered(this::onHover);
         btn.setOnMouseExited(this::onExit);
@@ -189,6 +179,7 @@ public class GameOverController {
         btn.setEffect(new Glow(0.6));
     }
 
+    // trở về ban đầu
     private void onExit(MouseEvent event) {
         Button btn = (Button) event.getSource();
 
@@ -200,13 +191,15 @@ public class GameOverController {
         btn.setEffect(null);
     }
 
-    // Phương thức chuyển scene
+    /**
+     * phg thức chuyển scene
+     */
     private void switchScene(String fxmlPath, Class<?> controllerClass) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-            // Nếu có controller level, gọi initLevel()
+            // nếu là controller level, gọi initLevel()
             if (controllerClass != null) {
                 Object controller = loader.getController();
                 if (controller != null) {

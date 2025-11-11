@@ -26,7 +26,7 @@ public class MenuController {
     @FXML
     private Button startButton, instructionsButton, settingsButton, highScoresButton, exitButton;
     public static MediaPlayer menuMusicPlayer;
-    private static final int LEVEL_TO_RUN = 5;
+    private static final int LEVEL_TO_RUN = 6;
 
     @FXML
     void handleStartGame(ActionEvent event) {
@@ -115,7 +115,7 @@ public class MenuController {
         }
     }
 
-    // ========== INSTRUCTIONS ==========
+    // INSTRUCTIONS
     @FXML
     void handleInstructions(ActionEvent event) {
         try {
@@ -134,7 +134,7 @@ public class MenuController {
         }
     }
 
-    // ========== HIGH SCORES ==========
+    // HIGH SCORES
     @FXML
     void handleHighScores(ActionEvent event) {
         try {
@@ -152,7 +152,7 @@ public class MenuController {
         }
     }
 
-    // ========== SETTINGS ==========
+    // SETTINGS
     @FXML
     void handleSettings(ActionEvent event) {
         try {
@@ -168,7 +168,7 @@ public class MenuController {
         }
     }
 
-    // ========== EXIT ==========
+    // EXIT
     @FXML
     void handleExit(ActionEvent event) {
         try {
@@ -188,13 +188,14 @@ public class MenuController {
         }
     }
 
+    // hthi loi
     private void showError(String msg) {
         Alert a = new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK);
         a.setHeaderText("Error");
         a.showAndWait();
     }
 
-    // ========== HOVER EFFECT ==========
+    // hiệu ứng
     @FXML
     public void initialize() {
         startMenuMusic();
@@ -217,6 +218,7 @@ public class MenuController {
         });
     }
 
+    // rug
     private void shakeButton(Button button) {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(button.translateXProperty(), 0)),
@@ -228,6 +230,8 @@ public class MenuController {
         );
         timeline.play();
     }
+
+    // nhạc nền
     private void startMenuMusic() {
         if (menuMusicPlayer == null && !SoundManager.isMusicMuted) { // Chỉ phát nếu nhạc chưa chạy
             try {

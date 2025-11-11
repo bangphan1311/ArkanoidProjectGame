@@ -54,7 +54,9 @@ public class Level1Controller extends BaseGameController {
         return 1;
     }
 
-    /*** Pause / Resume ***/
+    /**
+     *Pause / Resume
+     */
     @FXML
     private void handlePause() {
         if (pauseMenuPane != null) {
@@ -71,7 +73,9 @@ public class Level1Controller extends BaseGameController {
         startGame();
     }
 
-    /*** Restart Level ***/
+    /**
+     * Restart Level
+     */
     @FXML
     private void handleRestart() {
         if (pauseMenuPane != null) {
@@ -80,26 +84,27 @@ public class Level1Controller extends BaseGameController {
         initLevel(); // reset level
     }
 
-    /*** Menu / Next / Previous ***/
+    /**
+     * Menu / Next / Previous
+     */
     @FXML
     private void handleMenu() {
         System.out.println("Menu button pressed");
-        // Chuyển scene về menu chính nếu muốn
     }
 
     @FXML
     private void handleNext() {
         System.out.println("Next button pressed");
-        // Chuyển sang level tiếp theo nếu muốn
     }
 
     @FXML
     private void handlePrevious() {
         System.out.println("Previous button pressed");
-        // Chuyển sang level trước nếu muốn
     }
 
-    /*** Game control ***/
+    /**
+     *Game control
+     */
     private void startGame() {
         if (gameLoop != null) gameLoop.start();
     }

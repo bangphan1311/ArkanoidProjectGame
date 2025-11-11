@@ -20,19 +20,17 @@ import java.io.IOException;
 public class InstructionsController {
 
     @FXML
-    private ImageView storyImage; // hthi hình minh họa cho từng trang
+    private ImageView storyImage; // hthi h/a cho từng trag
 
     @FXML
     private Button nextButton, previousButton, menuButton;
-
     private int currentPage = 1;           // trag hiện tại
-    private final int totalPages = 5;      // 5 trag
+    private final int totalPages = 5;      // tổg
 
     @FXML
     public void initialize() {
         showPage(currentPage); // hthi trang đầu tiên
 
-        // hiệu ứng hover sáng + rung nhẹ cho các nút
         addHoverEffect(menuButton);
         addHoverEffect(nextButton);
         addHoverEffect(previousButton);
@@ -68,13 +66,12 @@ public class InstructionsController {
             System.err.println("Không thể tải ảnh: " + imagePath);
             e.printStackTrace();
         }
-
         updateButtons();
     }
 
 
     /**
-     * nút Next - Previous tùy theo vị trí trang
+     *  Next - Previous
      */
     private void updateButtons() {
         if (currentPage == 1) {
@@ -90,7 +87,7 @@ public class InstructionsController {
     }
 
     /**
-     * Xử lý khi nhấn nút NEXT
+     * Xử lý khi ấn NEXT
      */
     @FXML
     void handleNext(ActionEvent event) {
@@ -101,7 +98,7 @@ public class InstructionsController {
     }
 
     /**
-     * Xử lý khi nhấn nút PREVIOUS
+     * Xử lý khi ấn PREVIOUS
      */
     @FXML
     void handlePrevious(ActionEvent event) {
@@ -129,7 +126,7 @@ public class InstructionsController {
     }
 
     /**
-     * Hiệu ứng khi di chuột vào các nút
+     * hiệu ứg
      */
     private void addHoverEffect(Button button) {
         DropShadow glow = new DropShadow();
@@ -141,13 +138,13 @@ public class InstructionsController {
         button.setOnMouseEntered(e -> {
             button.setEffect(glow); // phát sáng
 
-            // Phóng to nhẹ
+            // phóng to
             ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
             st.setToX(1.08);
             st.setToY(1.08);
             st.play();
 
-            //rung nhẹ
+            //rung
             TranslateTransition tt = new TranslateTransition(Duration.millis(60), button);
             tt.setFromX(0);
             tt.setByX(5);
@@ -159,7 +156,6 @@ public class InstructionsController {
         //rời chuột
         button.setOnMouseExited(e -> {
             button.setEffect(null);
-
             ScaleTransition st = new ScaleTransition(Duration.millis(150), button);
             st.setToX(1.0);
             st.setToY(1.0);
