@@ -7,48 +7,21 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="300" prefWidth="400"
-            style="-fx-background-radius: 20; -fx-background-color: transparent;"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="GameManager.Menu.ExitController">
+<AnchorPane prefHeight="300" prefWidth="400" style="-fx-background-radius: 20; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameManager.Menu.ExitController">
 
-    <!-- Background -->
     <ImageView fx:id="backgroundImage" fitHeight="300" fitWidth="400">
         <image>
             <Image url="@../../Images/Background/backgroundexit.png" />
         </image>
     </ImageView>
 
-    <!-- Tiêu đề -->
-    <Label layoutX="80" layoutY="60" text="Hey! Are you really leaving us? 😢">
+    <Label layoutX="80" layoutY="60" text="Hey! Are you really leaving us? 😢" translateX="30.0">
         <font>
             <Font name="Berlin Sans FB Demi Bold" size="18.0" />
         </font>
     </Label>
 
-    <!-- Nút Bye Bye -->
-    <Button fx:id="byeButton"
-            layoutX="60" layoutY="180"
-            onAction="#onByeClicked"
-            prefHeight="50" prefWidth="120"
-            style="-fx-background-color: #ff6666;
-                   -fx-text-fill: white;
-                   -fx-font-size: 18;
-                   -fx-font-weight: bold;
-                   -fx-background-radius: 15;"
-            text="Bye Bye" />
+    <Button fx:id="byeButton" layoutX="60" layoutY="180" onAction="#onByeClicked" prefHeight="50" prefWidth="120" style="-fx-background-color: #ff6666;                    -fx-text-fill: white;                    -fx-font-size: 18;                    -fx-font-weight: bold;                    -fx-background-radius: 15;" text="Bye Bye" />
 
-    <!-- Nút Keep Playing -->
-    <Button fx:id="keepPlayingButton"
-            layoutX="220" layoutY="180"
-            onAction="#onKeepPlayingClicked"
-            prefHeight="50" prefWidth="146"
-            style="-fx-background-color: #66cc66;
-                   -fx-text-fill: white;
-                   -fx-font-size: 18;
-                   -fx-font-weight: bold;
-                   -fx-background-radius: 15;"
-            text="Keep Playing" />
-
+    <Button fx:id="keepPlayingButton" layoutX="220" layoutY="180" onAction="#onKeepPlayingClicked" prefHeight="50" prefWidth="146" style="-fx-background-color: #66cc66;                    -fx-text-fill: white;                    -fx-font-size: 18;                    -fx-font-weight: bold;                    -fx-background-radius: 15;" text="Keep Playing" />
 </AnchorPane>
