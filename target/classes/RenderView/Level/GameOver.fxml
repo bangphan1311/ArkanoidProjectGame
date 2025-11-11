@@ -62,7 +62,7 @@
             </ImageView>
         </graphic>
     </Button>
-   <Label fx:id="highScoreStatusLabel" layoutX="15.0" layoutY="452.0" prefHeight="54.0" prefWidth="346.0" text="Đang kiểm tra điểm cao...">
+   <Label fx:id="highScoreStatusLabel" layoutX="15.0" layoutY="452.0" prefHeight="54.0" prefWidth="346.0" text="Đang kiểm tra điểm cao..." textFill="#030726">
       <font>
          <Font size="23.0" />
       </font>
