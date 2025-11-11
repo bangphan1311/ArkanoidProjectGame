@@ -178,19 +178,12 @@ public abstract class BaseGameController {
             balls.add(mainBall);
         }
 
-
+        ///  load các ảnh power up
         try {
             bananaImage = new Image(getClass().getResource("/Images/Entity/banana.png").toExternalForm());
-
-            // 1. Ảnh RƠI cho Tăng tốc
             speedImage = new Image(getClass().getResource("/Images/PowerUp/PSpeed.png").toExternalForm());
-
-            // 2. Ảnh RƠI cho Đổi Paddle
             paddleChangeImage = new Image(getClass().getResource("/Images/Entity/sp.png").toExternalForm());
-
-            // 3. Ảnh SKIN MỚI của paddle
             newPaddleImage = new Image(getClass().getResource("/Images/PowerUp/padchange.png").toExternalForm());
-
             magneticPowerUpImage = new Image(getClass().getResource("/Images/PowerUp/powerupnamcham.png").toExternalForm());
             doubleScoreImage = new Image(getClass().getResource("/Images/PowerUp/xutang2.png").toExternalForm());
             slowDownImage = new Image(getClass().getResource("/Images/PowerUp/sloww.png").toExternalForm());
@@ -198,7 +191,6 @@ public abstract class BaseGameController {
             enlargePowerUpImage = new Image(getClass().getResource("/Images/PowerUp/pupdaira.png").toExternalForm());
             pauseIconImage = new Image(getClass().getResource("/Images/Page/thu1.png").toExternalForm());
             playIconImage = new Image(getClass().getResource("/Images/Page/thu2.png").toExternalForm());
-
             if (pauseIcon != null) {
                 pauseIcon.setImage(pauseIconImage); // Đặt ảnh mặc định
             }
@@ -231,14 +223,10 @@ public abstract class BaseGameController {
 
     private void setupControls() {
         if (gamePane == null) return;
-
+        ///  xử lý các phím
         gamePane.setFocusTraversable(true);
         gamePane.setOnKeyPressed(e -> {
             KeyCode code = e.getCode();
-            if (code == KeyCode.P || code == KeyCode.ESCAPE) {
-                togglePause();
-                return; // Dừng lại, không xử lý phím khác
-            }
             if (isPaused) return;
             if (code == KeyCode.LEFT || code == KeyCode.A) moveLeft = true;
             else if (code == KeyCode.RIGHT || code == KeyCode.D) moveRight = true;
@@ -262,6 +250,7 @@ public abstract class BaseGameController {
 
     private void loadBricksFromPane() {
         if (brickPane == null) return;
+        ///  xử lý strong brick riêng
         Image damagedImg = null;
         try {
             var damagedUrl = getClass().getResource("/Images/Entity/brick_strong_damaged.png");
@@ -269,6 +258,7 @@ public abstract class BaseGameController {
         } catch (Exception e) {
             System.err.println("Không load được ảnh brick damaged: " + e.getMessage());
         }
+        ///  duyệt các iamge view và phân biệt nó qua id
 
         for (var node : new ArrayList<>(brickPane.getChildren())) {
             if (node instanceof ImageView img) {
@@ -290,7 +280,7 @@ public abstract class BaseGameController {
                     brick = new StrongBrick(img.getLayoutX(), img.getLayoutY(), img.getFitWidth(), img.getFitHeight(), img.getImage(), damagedImg);
                 } else {
                     NormalBrick nb = new NormalBrick(img.getLayoutX(), img.getLayoutY(), img.getFitWidth(), img.getFitHeight(), img.getImage());
-                    if (fxId.contains("doubleball")) nb.setType("doubleBall"); // Gán type
+                    if (fxId.contains("doubleball")) nb.setType("doubleBall");
                     brick = nb;
                 }
                 brick.setFxId(fxId);
@@ -303,6 +293,7 @@ public abstract class BaseGameController {
 
     public void startGameLoop() {
         if (gameLoop != null) gameLoop.stop();
+        ///  60 FPS
         gameLoop = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -350,6 +341,7 @@ public abstract class BaseGameController {
         }
 
         List<Ball> toRemove = new ArrayList<>();
+        ///  xử lý va chạm tất cả các bóng khi đc tạo ra từ power up nhân đôi bóng
         for (Ball b : new ArrayList<>(balls)) {
             double nextX = b.getShape().getCenterX() + b.getDirX() * b.getSpeed();
             double nextY = b.getShape().getCenterY() + b.getDirY() * b.getSpeed();
@@ -363,13 +355,16 @@ public abstract class BaseGameController {
                 b.update();
             }
 
+            ///  quản lý mọi va chạm bóng
             handlePaddleCollision(b);
             handleBrickCollisions(b, now);
             handleObstacleCollision(b);
             handleWallCollision(b, now);
 
+
             if (b.getY() - b.getRadius() > this.sceneHeight) {
                 toRemove.add(b);
+                ///  đi ra khỏi màn hình
             }
         }
         for (Ball b : toRemove) {
@@ -388,27 +383,29 @@ public abstract class BaseGameController {
         if (ball.getDirY() > 0 && ballNode.getBoundsInParent().intersects(paddleRect.getBoundsInParent())) {
             playSound(hitSound);
 
-
+            ///  xử lý riêng tính năng bóng dính cho powerup
             if (isPaddleMagnetic && !ball.isCaught()) {
                 System.out.println("Bóng đã dính!");
                 ball.setCaught(true, paddleRect.getLayoutX());
-                ball.setDirX(0);
+                ball.setDirX(0); // chặn mọi chuyển dộngd vật lý
                 ball.setDirY(0);
-                double newBallX = paddleRect.getLayoutX() + ball.getCatchOffset();
-                ball.setPosition(newBallX, paddleRect.getLayoutY() - ball.getRadius() - 1);
+                double newBallX = paddleRect.getLayoutX() + ball.getCatchOffset(); //vị trí ngang mới
+                ball.setPosition(newBallX, paddleRect.getLayoutY() - ball.getRadius() - 1);// nằm trên paddle
 
-                PauseTransition timer = new PauseTransition(Duration.seconds(2));
+                PauseTransition timer = new PauseTransition(Duration.seconds(2)); // vất vào luồng xử lý riêng
+                // sau 2s giữ bóng, thả bóng
                 timer.setOnFinished(e -> {
-                    System.out.println("Tự động phóng!");
-                    ball.setCaught(false, 0);
+                    ball.setCaught(false, 0);// thả
+                    ///  xử lý lại vị trí bóng khi nó thả
                     double paddleCenter = paddleRect.getLayoutX() + paddleRect.getWidth() / 2.0;
-                    double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0);
+                    double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0); // chuẩn hóa
                     hitOffset = Math.max(-1, Math.min(1, hitOffset));
                     ball.setDirX(hitOffset);
                     ball.setDirY(-1);
                 });
                 timer.play();
-            } else if (!ball.isCaught()) {
+            } /// nêú kh dinhs thì set vị trí, vận tốc bình thường
+            else if (!ball.isCaught()) {
                 ball.reverseY();
                 double paddleY = paddleRect.getLayoutY();
                 double newY = paddleY - ball.getRadius() - 1;
@@ -417,36 +414,33 @@ public abstract class BaseGameController {
                 double hitOffset = (ball.getX() - paddleCenter) / (paddleRect.getWidth() / 2.0);
                 hitOffset = Math.max(-1, Math.min(1, hitOffset));
                 ball.setDirX(hitOffset);
-                ball.addSmallRandomAngle();
+                ball.addSmallRandomAngle();// di chuyển random tránh lặp lại quỹ đạo
             }
         }
     }
 
     private void handleBrickCollisions(Ball ball, long now) {
-        if (now - ball.getLastCollisionTime() < COLLISION_COOLDOWN_NANOS) return;
+        if (now - ball.getLastCollisionTime() < COLLISION_COOLDOWN_NANOS) return; // tránh bị kẹt
         for (Brick brick : new ArrayList<>(bricks)) {
             if (brick.isDestroyed()) continue;
             Node r = brick.getShape();
             Node ballNode = ball.getShape();
-            if (ballNode.getBoundsInParent().intersects(r.getBoundsInParent())) {
+            if (ballNode.getBoundsInParent().intersects(r.getBoundsInParent())) { // va chạm khi vùng bao chạm nhau
                 double ballX = ball.getX(), ballY = ball.getY(), radius = ball.getRadius();
                 double brickX = r.getLayoutX(), brickY = r.getLayoutY();
                 double brickW, brickH;
                 if (r instanceof ImageView iv) {
                     brickW = iv.getFitWidth();
                     brickH = iv.getFitHeight();
-                } else if (r instanceof Rectangle rect) {
-                    brickW = rect.getWidth();
-                    brickH = rect.getHeight();
                 } else {
                     brickW = r.getBoundsInParent().getWidth();
                     brickH = r.getBoundsInParent().getHeight();
                 }
-
+                ///  tính mức độ chồng lấn để phản xạ, tìm min
                 double overlapLeft = (ballX + radius) - brickX, overlapRight = (brickX + brickW) - (ballX - radius);
                 double overlapTop = (ballY + radius) - brickY, overlapBottom = (brickY + brickH) - (ballY - radius);
                 double minOverlap = Math.min(Math.min(overlapLeft, overlapRight), Math.min(overlapTop, overlapBottom));
-
+                // tìm hướng phản xạ
                 if (minOverlap == overlapLeft) ball.reflect(-1, 0);
                 else if (minOverlap == overlapRight) ball.reflect(1, 0);
                 else if (minOverlap == overlapTop) ball.reflect(0, -1);
@@ -490,7 +484,7 @@ public abstract class BaseGameController {
                 else if (minOverlap == overlapRight) newX = obsX + obsW + radius + 1;
                 else if (minOverlap == overlapTop) newY = obsY - radius - 1;
                 else newY = obsY + obsH + radius + 1;
-
+                ///  đưa bóng ra ngoài biên vật thể tránh chồng nhau
                 ball.setPosition(newX, newY);
                 if (!balls.isEmpty() && balls.get(0) == ball) {
                     if (ballCircle != null) {
@@ -504,7 +498,7 @@ public abstract class BaseGameController {
             }
         }
     }
-
+    ///  xử lý nhân đôi bóng
     protected void spawnDoubleBall() {
         if (balls.size() >= 2) return;
 
