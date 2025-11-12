@@ -34,6 +34,18 @@
 - Ghi điểm và cạnh tranh trên bảng xếp hạng
 
 ---
+## UML Diagram
+### Class Diagram
+**Entity**
+![Entity](docs/uml/Entity.png)
+
+**Level**
+![Entity](docs/uml/Level.png)
+
+**Menu**
+![Entity](docs/uml/Menu.png)
+
+---
 
 ## Design Patterns Implementation
 
