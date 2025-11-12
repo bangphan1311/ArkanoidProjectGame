@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>GameManager.Level</OriginalElement>
+  <nodes>
+    <node x="198.8232256727266" y="794.0494740019135">GameManager.Level.Level5Controller</node>
+    <node x="-98.94821942252835" y="482.9051358158472">GameManager.Level.Level2Controller</node>
+    <node x="212.56236811449418" y="105.26435498661988">GameManager.Level.GameOverController</node>
+    <node x="-104.72588055862997" y="-13.119682196474344">GameManager.Level.Level1Controller</node>
+    <node x="-99.72891580462925" y="682.6981169135522">GameManager.Level.Level4Controller</node>
+    <node x="-181.16061841720733" y="894.5818261654892">GameManager.Level.Level6Controller</node>
+    <node x="194.56825669151107" y="545.6879478332315">GameManager.Level.Level3Controller</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="GameManager.Level.Level4Controller" target="GameManager.Level.Level3Controller" relationship="GENERALIZATION">
+      <point x="109.0" y="-51.01016908032068" />
+      <point x="-131.0" y="74.0" />
+    </edge>
+    <edge source="GameManager.Level.Level3Controller" target="GameManager.Level.Level2Controller" relationship="GENERALIZATION">
+      <point x="-131.0" y="-74.0" />
+      <point x="109.0" y="0.7828120173843445" />
+    </edge>
+    <edge source="GameManager.Level.Level5Controller" target="GameManager.Level.Level4Controller" relationship="GENERALIZATION">
+      <point x="-109.0" y="-62.0" />
+      <point x="109.0" y="49.35135708836128" />
+    </edge>
+    <edge source="GameManager.Level.Level6Controller" target="GameManager.Level.Level5Controller" relationship="GENERALIZATION">
+      <point x="109.0" y="-62.0" />
+      <point x="159.2928420892981" y="902.0818261654892" />
+      <point x="159.2928420892981" y="912.1943965219621" />
+      <point x="-109.0" y="48.64492252004857" />
+    </edge>
+    <edge source="GameManager.Level.Level2Controller" target="GameManager.Level.Level1Controller" relationship="GENERALIZATION">
+      <point x="-5.777661136101607" y="-69.5" />
+      <point x="0.0" y="165.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.49443413729128016" showDependencies="false" x="201.5000000000001" y="525.0" />
+  <SelectedNodes>
+    <node>GameManager.Level.Level6Controller</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
