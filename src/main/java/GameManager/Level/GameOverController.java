@@ -1,5 +1,7 @@
 package GameManager.Level;
 
+import GameManager.Menu.MapController;
+import GameManager.SoundManager;
 import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
@@ -11,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.Glow;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -196,6 +199,12 @@ public class GameOverController {
      */
     private void switchScene(String fxmlPath, Class<?> controllerClass) {
         try {
+            if (MapController.gameMusicPlayer != null &&
+                    MapController.gameMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING &&
+                    !SoundManager.isMusicMuted)
+            {
+                MapController.gameMusicPlayer.play();
+            }
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
