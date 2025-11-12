@@ -19,6 +19,20 @@
 ## Description
 Đây là một trò chơi Arkanoid kinh điển được phát triển bằng Java, một dự án/bài tập lớn của khóa học Lập trình Hướng Đối tượng. Dự án này trình bày việc triển khai `**OOP principles**` và `**design patterns**`
 
+---
+## UML Diagram
+### Class Diagram
+**Entity**
+![Entity](docs/uml/Entity.uml)
+
+**Level**
+![Entity](docs/uml/Level.uml)
+
+**Menu**
+![Entity](docs/uml/.uml)
+
+---
+
 ### Key features:
 1. Trò chơi được phát triển bằng **Java 21+** với **JavaFX/Swing** cho GUI và **SCENEBUILDER** 
 2. Triển khai các nguyên tắc OOP cốt lõi: `*Đóng gói, Kế thừa, Đa hình và Trừu tượng.*`  
@@ -189,7 +203,6 @@ Sau đó, `setOnSucceeded` được dùng để cập nhật kết quả (“Đi
 ### Video Demo
 ![Video Demo](docs/demo/demogame.mp4)
 
-Full gameplay video is available in `docs/demo/demogame.mp4`
 
 ---
 
