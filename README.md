@@ -12,24 +12,7 @@
 2. Giảng viên thực hành: Trương Xuân Hiếu  
 3. Giảng viên thực hành: Kiều Văn Tuyên  
 
-**Semester:** HK1 – Năm học: 2025 – 2026
-
-  ---
-
-## Description
-Đây là một trò chơi Arkanoid kinh điển được phát triển bằng Java, một dự án/bài tập lớn của khóa học Lập trình Hướng Đối tượng. Dự án này trình bày việc triển khai `**OOP principles**` và `**design patterns**`
-
----
-## UML Diagram
-### Class Diagram
-**Entity**
-![Entity](docs/uml/Entity.png)
-
-**Level**
-![Entity](docs/uml/Level.png)
-
-**Menu**
-![Entity](docs/uml/.png)
+**Semester:** HK1 – Năm học: 2025 Menu.png)
 
 ---
 
