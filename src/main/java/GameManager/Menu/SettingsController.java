@@ -44,7 +44,6 @@ public class SettingsController {
         SoundManager.isMusicMuted = !isSelected;
         updateToggleStyle(musicToggle, isSelected);
         if (isSelected) {
-
             if (MenuController.menuMusicPlayer != null &&
                     MenuController.menuMusicPlayer.getStatus() != MediaPlayer.Status.PLAYING) {
                 MenuController.menuMusicPlayer.play();

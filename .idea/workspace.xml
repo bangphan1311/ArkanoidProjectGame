@@ -6,12 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="cap nhat chi tiet ghi chu cho cac file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/highscores.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/remember.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/remember.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/users.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sounds/gameMenu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/gameMenu.mp3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sounds/gameMenu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sounds/gameMenu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SettingsController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
