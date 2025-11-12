@@ -23,13 +23,13 @@
 ## UML Diagram
 ### Class Diagram
 **Entity**
-![Entity](docs/uml/Entity.uml)
+![Entity](docs/uml/Entity.png)
 
 **Level**
-![Entity](docs/uml/Level.uml)
+![Entity](docs/uml/Level.png)
 
 **Menu**
-![Entity](docs/uml/.uml)
+![Entity](docs/uml/.png)
 
 ---
 
