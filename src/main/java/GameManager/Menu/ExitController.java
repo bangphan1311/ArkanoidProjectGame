@@ -28,7 +28,7 @@ public class ExitController {
 
     // hiệu ứng
     private void addHoverEffect(Button button) {
-        DropShadow glow = new DropShadow();  // ság
+        DropShadow glow = new DropShadow();
         glow.setColor(Color.WHITE);
         glow.setRadius(15);
         glow.setSpread(0.4);

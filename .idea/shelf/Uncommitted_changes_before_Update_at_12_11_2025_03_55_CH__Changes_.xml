@@ -1,0 +1,39 @@
+<changelist name="Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]" date="1762937704418" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 12/11/2025 03:55 CH [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/GameManager/Menu/MapController.class" />
+    <option name="AFTER_PATH" value="target/classes/GameManager/Menu/MapController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/MapController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/GameManager/Menu/SignUpController.class" />
+    <option name="AFTER_PATH" value="target/classes/GameManager/Menu/SignUpController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/SignUpController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/GameManager/Menu/MenuController.class" />
+    <option name="AFTER_PATH" value="target/classes/GameManager/Menu/MenuController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/MenuController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/GameManager/Menu/SignInController.class" />
+    <option name="AFTER_PATH" value="target/classes/GameManager/Menu/SignInController.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/SignInController.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/sounds/gameMenu.mp3" />
+    <option name="AFTER_PATH" value="target/classes/sounds/gameMenu.mp3" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/gameMenu.mp3" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="src/main/resources/sounds/gameMenu.mp3" />
+    <option name="AFTER_PATH" value="src/main/resources/sounds/gameMenu.mp3" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/gameMenu1.mp3" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="target/classes/Main.class" />
+    <option name="AFTER_PATH" value="target/classes/Main.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_12_11_2025_03_55_CH_[Changes]/Main.class" />
+  </binary>
+</changelist>

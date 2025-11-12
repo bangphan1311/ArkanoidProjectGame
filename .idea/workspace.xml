@@ -4,37 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="sua fxml">
+    <list default="true" id="c504b26d-20ac-4c2c-8f11-a0d984e5c915" name="Changes" comment="cap nhat chi tiet ghi chu cho cac file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Ball.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Entity/Brick.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/GameOverController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Level/Level1Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/highscores.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/highscores.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/remember.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/remember.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/users.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/ExitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/HighScoresController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/InstructionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/InstructionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MapController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/Session.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameManager/Menu/SignInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Ball.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/Ball.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Entity/Brick.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Entity/Brick.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/GameOverController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Level/Level1Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/ExitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/ExitController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController$ScoreEntry.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/HighScoresController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/InstructionsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/InstructionsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/MapController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/GameManager/Menu/Session.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Exit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Exit.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Instructions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Instructions.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/Map.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/Map.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RenderView/Menu/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sounds/gameMenu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sounds/gameMenu.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/sounds/gameMenu.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sounds/gameMenu.mp3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,34 +60,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.RunGame.executor": "Run",
-    "JUnit.BallCollisionTest.executor": "Run",
-    "JUnit.HighScoresControllerAllScoresTest.executor": "Run",
-    "JUnit.HighScoresControllerTest.executor": "Run",
-    "JUnit.HighScoresSimpleTest.executor": "Run",
-    "JUnit.ScoreUpdateTest.executor": "Run",
-    "JUnit.UserLoginTest.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "lien",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/ArkanoidProjectGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.JavaFX",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BallCollisionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HighScoresControllerAllScoresTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HighScoresControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.HighScoresSimpleTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ScoreUpdateTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserLoginTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lien&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ArkanoidProjectGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\ArkanoidProjectGame\src\main\resources\RenderView\Level" />
@@ -195,14 +172,6 @@
       <workItem from="1761838598054" duration="9059000" />
       <workItem from="1761878915115" duration="22484000" />
       <workItem from="1761969796347" duration="27000" />
-    </task>
-    <task id="LOCAL-00033" summary="do hoa menu">
-      <option name="closed" value="true" />
-      <created>1762227917436</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1762227917436</updated>
     </task>
     <task id="LOCAL-00034" summary="do hoa cua huong dan choi game">
       <option name="closed" value="true" />
@@ -588,7 +557,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762872214733</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="cap nhat chi tiet ghi chu cho cac file">
+      <option name="closed" value="true" />
+      <created>1762879102201</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1762879102201</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +583,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="hien thi tinh nag pause" />
     <MESSAGE value="khi het mang, het gach hien thi bang gameover co cac nut" />
     <MESSAGE value="chinh sua lai backgroun va cac nut bam" />
     <MESSAGE value="fix loi lap anh" />
@@ -631,7 +607,8 @@
     <MESSAGE value="fix loi test" />
     <MESSAGE value="cap nhat code" />
     <MESSAGE value="sua fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="sua fxml" />
+    <MESSAGE value="cap nhat chi tiet ghi chu cho cac file" />
+    <option name="LAST_COMMIT_MESSAGE" value="cap nhat chi tiet ghi chu cho cac file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
